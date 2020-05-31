@@ -546,7 +546,10 @@ define-command smart-ex-bol %{
 
 	map global Exto    <.>                 '<c-s>'                                 -docstring 'save selections'
 
-	# View
+# Object 
+	map global object  <t>                 '%{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}'  -docstring 'xml tag object'
+
+# View
 	map global View    <space>             '<v><c>'                                -docstring 'center cursor'
 
 	map global View    <j>                 '<v><h>'                                -docstring 'scroll left'
