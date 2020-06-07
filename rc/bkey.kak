@@ -84,8 +84,8 @@
 		echo %opt{bkey_move_buffer_echo}
 	}
 
-	define-command -hidden bkey-occur        ''
-	define-command -hidden bkey-occur-e      ''
+	# define-command -hidden bkey-occur        ''
+	# define-command -hidden bkey-occur-e      ''
 
 	# Action
 	define-command -hidden bkey-ins %{
@@ -139,7 +139,7 @@
 	define-command -hidden bkey-open-term 'terminal %val{client_env_SHELL}'
 
 	# View
-	define-command -hidden bkey-linewrap ''
+	# define-command -hidden bkey-linewrap ''
 
 	# Insert
 	hook global InsertCompletionShow .* %{
@@ -157,7 +157,7 @@
 
 # Mapping
 	#TODO map global object  <t>  %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
-define-command bkey %{
+define-command bkey-load %{
 	evaluate-commands %sh{
 		func_list=( "ind_left" "ind_right" "ind_up" "ind_down" "ind_pgup" "ind_pgdn" "ind_home" "ind_end" "ind_tab" "ind_bs" "ind_del" "ind_space" "ind_esc"
 		            "mov_left" "mov_right" "mov_up" "mov_down" "mov_backward" "mov_forward" "mov_target" "mov_target_next" "mov_target_quick" "mov_quick" "mov_mark" "mov_item" "mov_select" "mov_focus" "mov_focus_prev" "mov_focus_next"
