@@ -27,136 +27,136 @@
 
 
 # Setup
-	# Mode
-	declare-user-mode Menu
-	declare-user-mode Menu-ex
-	declare-user-mode View
-	declare-user-mode Focus
-	declare-user-mode Focus-begin
-	declare-user-mode Focus-end
-	declare-user-mode Focus-begin-ex
-	declare-user-mode Focus-end-ex
-	declare-user-mode FOCUS
-	declare-user-mode FOCUS-begin
-	declare-user-mode FOCUS-end
-	declare-user-mode FOCUS-begin-ex
-	declare-user-mode FOCUS-end-ex
+# Mode
+declare-user-mode Menu
+declare-user-mode Menu-ex
+declare-user-mode View
+declare-user-mode Focus
+declare-user-mode Focus-begin
+declare-user-mode Focus-end
+declare-user-mode Focus-begin-ex
+declare-user-mode Focus-end-ex
+declare-user-mode FOCUS
+declare-user-mode FOCUS-begin
+declare-user-mode FOCUS-end
+declare-user-mode FOCUS-begin-ex
+declare-user-mode FOCUS-end-ex
 
-	define-command -hidden bkey-menu         'enter-user-mode Menu'
-	define-command -hidden bkey-menu-e       'enter-user-mode Menux-ex'
-	define-command -hidden bkey-view         'enter-user-mode View'
-	define-command -hidden bkey-view-lock    'enter-user-mode -lock View'
-	define-command -hidden bkey-Focus        'enter-user-mode Focus'
-	define-command -hidden bkey-Focus-p      'enter-user-mode Focus-begin'
-	define-command -hidden bkey-Focus-n      'enter-user-mode Focus-end'
-	define-command -hidden bkey-Focus-e-p    'enter-user-mode Focus-begin-ex'
-	define-command -hidden bkey-Focus-e-n    'enter-user-mode Focus-end-ex'
-	define-command -hidden bkey-FOCUS        'enter-user-mode FOCUS'
-	define-command -hidden bkey-FOCUS-p      'enter-user-mode FOCUS-begin'
-	define-command -hidden bkey-FOCUS-n      'enter-user-mode FOCUS-end'
-	define-command -hidden bkey-FOCUS-e-p    'enter-user-mode FOCUS-begin-ex'
-	define-command -hidden bkey-FOCUS-e-n    'enter-user-mode FOCUS-end-ex'
+define-command -hidden bkey-menu         'enter-user-mode Menu'
+define-command -hidden bkey-menu-e       'enter-user-mode Menux-ex'
+define-command -hidden bkey-view         'enter-user-mode View'
+define-command -hidden bkey-view-lock    'enter-user-mode -lock View'
+define-command -hidden bkey-Focus        'enter-user-mode Focus'
+define-command -hidden bkey-Focus-p      'enter-user-mode Focus-begin'
+define-command -hidden bkey-Focus-n      'enter-user-mode Focus-end'
+define-command -hidden bkey-Focus-e-p    'enter-user-mode Focus-begin-ex'
+define-command -hidden bkey-Focus-e-n    'enter-user-mode Focus-end-ex'
+define-command -hidden bkey-FOCUS        'enter-user-mode FOCUS'
+define-command -hidden bkey-FOCUS-p      'enter-user-mode FOCUS-begin'
+define-command -hidden bkey-FOCUS-n      'enter-user-mode FOCUS-end'
+define-command -hidden bkey-FOCUS-e-p    'enter-user-mode FOCUS-begin-ex'
+define-command -hidden bkey-FOCUS-e-n    'enter-user-mode FOCUS-end-ex'
 
-	# Movement
-	define-command -hidden bkey-to-line %{
-		evaluate-commands %sh{
-			if [[ "${kak_count}" -gt '0' ]]; then
-				if [[ "${1}" = 'e' ]]; then
-					echo "execute-keys <G><g>${kak_count}<J><K>"
-				else
-					echo "execute-keys <g><g>${kak_count}<j><k>"
-				fi
-			fi
-		}
-		execute-keys <V><c><m><esc>
-	}
-
-	declare-option str bkey_move_buffer_echo
-	set-option global bkey_move_buffer_echo "%val{bufname}"
-	define-command -hidden bkey-buffer %{
-		evaluate-commands %sh{
-			case ${1} in
-				'p') echo "buffer-previous" ;;
-				'n') echo "buffer-next" ;;
-				'd') echo "buffer *debug*" ;;
-			esac
-		}
-		echo %opt{bkey_move_buffer_echo}
-	}
-
-	# define-command -hidden bkey-occur        ''
-	# define-command -hidden bkey-occur-e      ''
-
-	# Action
-	define-command -hidden bkey-ins %{
-		execute-keys %sh{
-			if [[ "${kak_selection_desc%%.*}" -gt "${${kak_selection_desc##*,}%%.*}" ]] \
-				|| [[ "${${kak_selection_desc%%,*}##*.}" -gt "${kak_selection_desc##*.}" ]]; then
-				case "${1}" in
-					'i')   echo "<a>" ;;
-					'p')   echo "<l><i><space><esc><h><R>" ;;
-					'pa')  echo "<l><i><space><esc><h><a-R>" ;;
-					'pe')  echo "<p>" ;;
-					'pea') echo "<a-p>" ;;
-					'c')   echo "<a-!>" ;;
-				esac
+# Movement
+define-command -hidden bkey-to-line %{
+	evaluate-commands %sh{
+		if [[ "${kak_count}" -gt '0' ]]; then
+			if [[ "${1}" = 'e' ]]; then
+				echo "execute-keys <G><g>${kak_count}<J><K>"
 			else
-				case "${1}" in
-					'i')   echo "<i>" ;;
-					'p')   echo "<i><space><esc><h><R>" ;;
-					'pa')  echo "<i><space><esc><h><a-R>" ;;
-					'pe')  echo "<P>" ;;
-					'pea') echo "<a-P>" ;;
-					'c')   echo "<!>" ;;
-				esac
+				echo "execute-keys <g><g>${kak_count}<j><k>"
 			fi
-		}
+		fi
 	}
+	execute-keys <V><c><m><esc>
+}
 
-	# Environment
-	define-command -hidden bkey-lines %{
-		evaluate-commands %sh{
-			reg_backup="${kak_reg_z}"
-			echo "execute-keys <x><\"><z><d>${kak_count}"
+declare-option str bkey_move_buffer_echo
+set-option global bkey_move_buffer_echo "%val{bufname}"
+define-command -hidden bkey-buffer %{
+	evaluate-commands %sh{
+		case ${1} in
+			'p') echo "buffer-previous" ;;
+			'n') echo "buffer-next" ;;
+			'd') echo "buffer *debug*" ;;
+		esac
+	}
+	echo %opt{bkey_move_buffer_echo}
+}
+
+# define-command -hidden bkey-occur        ''
+# define-command -hidden bkey-occur-e      ''
+
+# Action
+define-command -hidden bkey-ins %{
+	execute-keys %sh{
+		if [[ "${kak_selection_desc%%.*}" -gt "${${kak_selection_desc##*,}%%.*}" ]] \
+			|| [[ "${${kak_selection_desc%%,*}##*.}" -gt "${kak_selection_desc##*.}" ]]; then
 			case "${1}" in
-				'up')   echo "execute-keys <k>" ;;
-				'down') echo "execute-keys <j>" ;;
-				'UP')   echo "execute-keys <[><p>" ;;
-				'DOWN') echo "execute-keys <]><p>" ;;
+				'i')   echo "<a>" ;;
+				'p')   echo "<l><i><space><esc><h><R>" ;;
+				'pa')  echo "<l><i><space><esc><h><a-R>" ;;
+				'pe')  echo "<p>" ;;
+				'pea') echo "<a-p>" ;;
+				'c')   echo "<a-!>" ;;
 			esac
-			echo "execute-keys <;><a-O><k><a-x><\"><z><R>"
-			echo "set-register z \"${reg_backup}\""
-		}
+		else
+			case "${1}" in
+				'i')   echo "<i>" ;;
+				'p')   echo "<i><space><esc><h><R>" ;;
+				'pa')  echo "<i><space><esc><h><a-R>" ;;
+				'pe')  echo "<P>" ;;
+				'pea') echo "<a-P>" ;;
+				'c')   echo "<!>" ;;
+			esac
+		fi
 	}
+}
 
-	declare-option str bkey_save_echo
-	set-option global bkey_save_echo "%val{client}@[%val{client_pid}] %val{buffile}"
-	define-command -hidden bkey-save %{
-		write
-		echo %opt{bkey_save_echo}
+# Environment
+define-command -hidden bkey-lines %{
+	evaluate-commands %sh{
+		reg_backup="${kak_reg_z}"
+		echo "execute-keys <x><\"><z><d>${kak_count}"
+		case "${1}" in
+			'up')   echo "execute-keys <k>" ;;
+			'down') echo "execute-keys <j>" ;;
+			'UP')   echo "execute-keys <[><p>" ;;
+			'DOWN') echo "execute-keys <]><p>" ;;
+		esac
+		echo "execute-keys <;><a-O><k><a-x><\"><z><R>"
+		echo "set-register z \"${reg_backup}\""
 	}
+}
 
-	define-command -hidden bkey-open-term 'terminal %val{client_env_SHELL}'
+declare-option str bkey_save_echo
+set-option global bkey_save_echo "%val{client}@[%val{client_pid}] %val{buffile}"
+define-command -hidden bkey-save %{
+	write
+	echo %opt{bkey_save_echo}
+}
 
-	# View
-	# define-command -hidden bkey-linewrap ''
+define-command -hidden bkey-open-term 'terminal %val{client_env_SHELL}'
 
-	# Insert
-	hook global InsertCompletionShow .* %{
-		try %{
-			execute-keys -draft 'h<a-K>\h<ret>'
-			map window insert  <tab>               '<c-n>'                                 -docstring ''
-			map window insert  <s-tab>             '<c-p>'                                 -docstring ''
-		}
+# View
+# define-command -hidden bkey-linewrap ''
+
+# Insert
+hook global InsertCompletionShow .* %{
+	try %{
+		execute-keys -draft 'h<a-K>\h<ret>'
+		map window insert  <tab>               '<c-n>'                                 -docstring ''
+		map window insert  <s-tab>             '<c-p>'                                 -docstring ''
 	}
-	hook global InsertCompletionHide .* %{
-		unmap window insert <tab> '<c-n>'
-		unmap window insert <s-tab> '<c-p>'
-	}
+}
+hook global InsertCompletionHide .* %{
+	unmap window insert <tab> '<c-n>'
+	unmap window insert <s-tab> '<c-p>'
+}
 
 
 # Mapping
-	#TODO map global object  <t>  %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
+#TODO map global object  <t>  %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
 define-command bkey-load %{
 	evaluate-commands %sh{
 		func_list=( "ind_left" "ind_right" "ind_up" "ind_down" "ind_pgup" "ind_pgdn" "ind_home" "ind_end" "ind_tab" "ind_bs" "ind_del" "ind_space" "ind_esc"
