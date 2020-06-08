@@ -27,127 +27,130 @@
 
 
 # Setup
-# Mode
-declare-user-mode Menu
-declare-user-mode Menu-ex
-declare-user-mode View
-declare-user-mode Focus
-declare-user-mode Focus-begin
-declare-user-mode Focus-end
-declare-user-mode Focus-begin-ex
-declare-user-mode Focus-end-ex
-declare-user-mode FOCUS
-declare-user-mode FOCUS-begin
-declare-user-mode FOCUS-end
-declare-user-mode FOCUS-begin-ex
-declare-user-mode FOCUS-end-ex
+	# Mode
+	declare-user-mode Menu
+	declare-user-mode Menu-ex
+	declare-user-mode View
+	declare-user-mode Focus
+	declare-user-mode Focus-begin
+	declare-user-mode Focus-end
+	declare-user-mode Focus-begin-ex
+	declare-user-mode Focus-end-ex
+	declare-user-mode FOCUS
+	declare-user-mode FOCUS-begin
+	declare-user-mode FOCUS-end
+	declare-user-mode FOCUS-begin-ex
+	declare-user-mode FOCUS-end-ex
 
-define-command -hidden bkey-menu         'enter-user-mode Menu           '
-define-command -hidden bkey-menu-e       'enter-user-mode Menu-ex        '
-define-command -hidden bkey-view         'enter-user-mode View           '
-define-command -hidden bkey-view-lock    'enter-user-mode -lock View     '
-define-command -hidden bkey-focus        'enter-user-mode Focus          '
-define-command -hidden bkey-focus-p      'enter-user-mode Focus-begin    '
-define-command -hidden bkey-focus-n      'enter-user-mode Focus-end      '
-define-command -hidden bkey-focus-e-p    'enter-user-mode Focus-begin-ex '
-define-command -hidden bkey-focus-e-n    'enter-user-mode Focus-end-ex   '
-define-command -hidden bkey-FOCUS        'enter-user-mode FOCUS          '
-define-command -hidden bkey-FOCUS-p      'enter-user-mode FOCUS-begin    '
-define-command -hidden bkey-FOCUS-n      'enter-user-mode FOCUS-end      '
-define-command -hidden bkey-FOCUS-e-p    'enter-user-mode FOCUS-begin-ex '
-define-command -hidden bkey-FOCUS-e-n    'enter-user-mode FOCUS-end-ex   '
+	define-command -hidden bkey-menu         'enter-user-mode Menu'
+	define-command -hidden bkey-menu-e       'enter-user-mode Menu-ex'
+	define-command -hidden bkey-focus        'enter-user-mode Focus'
+	define-command -hidden bkey-focus-p      'enter-user-mode Focus-begin'
+	define-command -hidden bkey-focus-n      'enter-user-mode Focus-end'
+	define-command -hidden bkey-focus-e-p    'enter-user-mode Focus-begin-ex'
+	define-command -hidden bkey-focus-e-n    'enter-user-mode Focus-end-ex'
+	define-command -hidden bkey-FOCUS        'enter-user-mode FOCUS'
+	define-command -hidden bkey-FOCUS-p      'enter-user-mode FOCUS-begin'
+	define-command -hidden bkey-FOCUS-n      'enter-user-mode FOCUS-end'
+	define-command -hidden bkey-FOCUS-e-p    'enter-user-mode FOCUS-begin-ex'
+	define-command -hidden bkey-FOCUS-e-n    'enter-user-mode FOCUS-end-ex'
+	define-command -hidden bkey-view         'enter-user-mode View'
+	define-command -hidden bkey-view-lock    'enter-user-mode -lock View'
 
-# Movement
-define-command -hidden bkey-to-line %{
-	evaluate-commands %sh{
-		if [[ "${kak_count}" -gt '0' ]]; then
-			if [[ "${1}" = 'e' ]]; then
-				echo "execute-keys <G><g>${kak_count}<J><K>"
-			else
-				echo "execute-keys <g><g>${kak_count}<j><k>"
+	# Movement
+	define-command -hidden bkey-to-line %{
+		evaluate-commands %sh{
+			if [[ "${kak_count}" -gt '0' ]]; then
+				if [[ "${1}" = 'e' ]]; then
+					echo "execute-keys <G><g>${kak_count}<J><K>"
+				else
+					echo "execute-keys <g><g>${kak_count}<j><k>"
+				fi
 			fi
-		fi
+		}
+		execute-keys <V><c><m><esc>
 	}
-	execute-keys <V><c><m><esc>
-}
 
-declare-option str bkey_move_buffer_echo
-# set-option global bkey_move_buffer_echo "%val{bufname}"
-define-command -hidden -params 1 bkey-buffer %{
-	evaluate-commands %sh{
-		case ${1} in
-			'p') echo "buffer-previous" ;;
-			'n') echo "buffer-next" ;;
-			'd') echo "buffer *debug*" ;;
-		esac
+	declare-option str bkey_move_buffer_echo
+	define-command -hidden -params 1 bkey-buffer %{
+		evaluate-commands %sh{
+			case ${1} in
+				'p') echo "buffer-previous" ;;
+				'n') echo "buffer-next" ;;
+				'd') echo "buffer *debug*" ;;
+			esac
+		}
+		echo %opt{bkey_move_buffer_echo}
 	}
-	echo %opt{bkey_move_buffer_echo}
-}
 
-# define-command -hidden bkey-occur        ''
-# define-command -hidden bkey-occur-e      ''
+	# define-command -hidden bkey-occur        ''
+	# define-command -hidden bkey-occur-e      ''
 
-# Action
-define-command -hidden -params 1 bkey-ins %{
-	 execute-keys %sh{
-		select_pos_1="${kak_selection_desc%%,*}"
-		select_pos_2="${kak_selection_desc##*,}"
-		if [[ "${select_pos_1%%.*}" -lt "${select_pos_2%%.*}" ]]; then
-			cursor_pos='1'
-		elif [[ "${select_pos_1%%.*}" == "${select_pos_2%%.*}" ]]; then
-			if [[ "${select_pos_1##*.}" -lt "${select_pos_2##*.}" ]]; then
+	# Action
+	#TODO fix paste
+	define-command -hidden -params 1 bkey-ins %{
+		 execute-keys %sh{
+			[[ ! -z "${kak_register}" ]] && register="<\"><${kak_register}>"
+			[[ "$(kak_count)" -gt '0' ]] && paste_keys="<;>$(( ${kak_count} - 1 ))"
+			select_pos_1="${kak_selection_desc%%,*}"
+			select_pos_2="${kak_selection_desc##*,}"
+			if [[ "${select_pos_1%%.*}" -lt "${select_pos_2%%.*}" ]]; then
 				cursor_pos='1'
+			elif [[ "${select_pos_1%%.*}" == "${select_pos_2%%.*}" ]]; then
+				if [[ "${select_pos_1##*.}" -lt "${select_pos_2##*.}" ]]; then
+					cursor_pos='1'
+				fi
 			fi
-		fi
-		if [[ ! -z "${cursor_pos}" ]]; then
-			case "${1}" in
-				'i')   echo '<a>' ;;
-				'p')   echo '<l><i><space><esc><h><R><a-;>' ;;
-				'pa')  echo '<l><i><space><esc><h><a-R><a-;>' ;;
-				'pe')  echo '<p>' ;;
-				'pea') echo '<a-p>' ;;
-				'c')   echo '<a-!>' ;;
-			esac
-		else
-			case "${1}" in
-				'i')   echo '<i>' ;;
-				'p')   echo '<i><space><esc><h><R>' ;;
-				'pa')  echo '<i><space><esc><h><a-R>' ;;
-				'pe')  echo '<P>' ;;
-				'pea') echo '<a-P>' ;;
-				'c')   echo '<!>' ;;
-			esac
-		fi
+			if [[ ! -z "${cursor_pos}" ]]; then
+				[[ ! -z "${paste_keys}" ]] && paste_keys+='<p>'
+				case "${1}" in
+					'i')   echo '<a>' ;;
+					'p')   echo "${paste_keys}"'<l><i><space><esc><h>'"${register}"'<R><a-:>' ;;
+					'pa')  echo "${paste_keys}"'<l><i><space><esc><h>'"${register}"'<a-R><a-:>' ;;
+					'pe')  echo "${kak_count}${register}"'<p>' ;;
+					'pea') echo "${kak_count}${register}"'<a-p>' ;;
+					'c')   echo '<a-!>' ;;
+				esac
+			else
+				[[ ! -z "${paste_keys}" ]] && paste_keys+='<P>'
+				case "${1}" in
+					'i')   echo '<i>' ;;
+					'p')   echo "${paste_keys}"'<i><space><esc><h>'"${register}"'<R><a-:><a-;>' ;;
+					'pa')  echo "${paste_keys}"'<i><space><esc><h>'"${register}"'<a-R><a-:><a-;>' ;;
+					'pe')  echo "${kak_count}${register}"'<P>' ;;
+					'pea') echo "${kak_count}${register}"'<a-P>' ;;
+					'c')   echo '<!>' ;;
+				esac
+			fi
+		}
 	}
-}
 
-# Environment
-define-command -hidden -params 1 bkey-lines %{
-	evaluate-commands %sh{
-		reg_backup="${kak_reg_z}"
-		echo "execute-keys <x><\"><z><d>${kak_count}"
-		case "${1}" in
-			'up')   echo "execute-keys <k>" ;;
-			'down') echo "execute-keys <j>" ;;
-			'UP')   echo "execute-keys <[><p>" ;;
-			'DOWN') echo "execute-keys <]><p>" ;;
-		esac
-		echo "execute-keys <;><a-O><k><a-x><\"><z><R>"
-		echo "set-register z \"${reg_backup}\""
+	# Environment
+	define-command -hidden -params 1 bkey-lines %{
+		evaluate-commands %sh{
+			reg_backup="${kak_reg_z}"
+			echo "execute-keys <x><\"><z><d>${kak_count}"
+			case "${1}" in
+				'up')   echo "execute-keys <k>" ;;
+				'down') echo "execute-keys <j>" ;;
+				'UP')   echo "execute-keys <[><p>" ;;
+				'DOWN') echo "execute-keys <]><p>" ;;
+			esac
+			echo "execute-keys <;><a-O><k><a-x><\"><z><R>"
+			echo "set-register z \"${reg_backup}\""
+		}
 	}
-}
 
-declare-option str bkey_save_echo
-# set-option global bkey_save_echo "%val{client}@[%val{client_pid}] %val{buffile}"
-define-command -hidden bkey-save %{
-	write
-	echo %opt{bkey_save_echo}
-}
+	declare-option str bkey_save_echo
+	define-command -hidden bkey-save %{
+		write
+		echo %opt{bkey_save_echo}
+	}
 
-define-command -hidden bkey-open-term 'terminal %val{client_env_SHELL}'
+	define-command -hidden bkey-open-term 'terminal %val{client_env_SHELL}'
 
-# View
-# define-command -hidden bkey-linewrap ''
+	# View
+	# define-command -hidden bkey-linewrap ''
 
 # Mapping
 #TODO map global object  <t>  %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
@@ -185,12 +188,12 @@ define-command bkey-load %{
 		func_mov_target_quick=(       '<f>'                    '<a-f>'                  '<F>'                    '<a-F>'                  ''                       ''                       )
 		func_mov_quick=(              '<m>'                    '<a-m>'                  '<M>'                    '<a-M>'                  ''                       ''                       )
 		func_mov_mark=(               '<z>'                    '<Z>'                    ''                       '<c-s>'                  ''                       ''                       )
-		func_mov_item=(               '<(>'                    '<)>'                    '<a-(>'                  '<a-)>'                  ''                       ''                       )
+		func_mov_item=(               '<)>'                    '<(>'                    '<a-)>'                  '<a-(>'                  ''                       ''                       )
 		func_mov_select=(             '<a-x>'                  '<%>'                    '<a-x>'                  '<a-X>'                  ''                       ''                       )
 		func_mov_focus=(              ': bkey-focus<ret>'      ': bkey-FOCUS<ret>'      '<a-;>'                  '<a-:>'                  ''                       ''                       )
 		func_mov_focus_prev=(         ': bkey-focus-p<ret>'    ': bkey-FOCUS-p<ret>'    ': bkey-focus-e-p<ret>'  ': bkey-FOCUS-e-p<ret>'  ''                       ''                       )
 		func_mov_focus_next=(         ': bkey-focus-n<ret>'    ': bkey-FOCUS-n<ret>'    ': bkey-focus-e-n<ret>'  ': bkey-FOCUS-e-n<ret>'  ''                       ''                       )
-		func_act_prim=(               ': bkey-ins i<ret>'      '<A>'                    ''                       '<I>'                    ''                       ''                       )
+		func_act_prim=(               ': bkey-ins i<ret>'      '<A>'                    ': bkey-ins i<ret>'      '<I>'                    ''                       ''                       )
 		func_act_secon=(              '<u>'                    '<U>'                    '<c-o>'                  '<c-i>'                  ''                       ''                       )
 		func_act_alt=(                '<a-c>'                  '<a-l><a-c>'             '<r>'                    ''                       ''                       ''                       )
 		func_act_cut=(                '<d>'                    '<a-l><y>'               '<a-d>'                  '<a-l><a-d>'             ''                       ''                       )
@@ -424,39 +427,51 @@ define-command bkey-load %{
 
 		for key in "${func_list[@]}"
 		do
-			eval "$(echo "echo \"map global normal <\${key_${key}[0]}>   '\${func_${key}[0]}'\"")"
-			eval "$(echo "echo \"map global normal <a-\${key_${key}[0]}> '\${func_${key}[2]}'\"")"
-			eval "$(echo "echo \"map global normal <\${key_${key}[1]}>   '\${func_${key}[1]}'\"")"
-			eval "$(echo "echo \"map global normal <a-\${key_${key}[1]}> '\${func_${key}[3]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${func_${key}[4]}\"")") ]] && eval "$(echo "echo \"map global normal <c-\${key_${key}[0]}> '\${func_${key}[4]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${func_${key}[5]}\"")") ]] && eval "$(echo "echo \"map global normal <c-\${key_${key}[1]}> '\${func_${key}[5]}'\"")"
+			eval "$(echo "mapping+=\"map global normal <\${key_${key}[0]}>   '\${func_${key}[0]}';\"")"
+			eval "$(echo "mapping+=\"map global normal <a-\${key_${key}[0]}> '\${func_${key}[2]}';\"")"
+			eval "$(echo "mapping+=\"map global normal <\${key_${key}[1]}>   '\${func_${key}[1]}';\"")"
+			eval "$(echo "mapping+=\"map global normal <a-\${key_${key}[1]}> '\${func_${key}[3]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${func_${key}[4]}\"")") ]] && eval "$(echo "mapping+=\"map global normal <c-\${key_${key}[0]}> '\${func_${key}[4]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${func_${key}[5]}\"")") ]] && eval "$(echo "mapping+=\"map global normal <c-\${key_${key}[1]}> '\${func_${key}[5]}';\"")"
 
-			eval "$(echo "echo \"map global insert <a-\${key_${key}[0]}> '<a-;>\${func_${key}[0]}'\"")"
-			eval "$(echo "echo \"map global insert <a-\${key_${key}[1]}> '<a-;>\${func_${key}[1]}'\"")"
+			eval "$(echo "mapping+=\"map global insert <a-\${key_${key}[0]}> '<a-;>\${func_${key}[0]}';\"")"
+			eval "$(echo "mapping+=\"map global insert <a-\${key_${key}[1]}> '<a-;>\${func_${key}[1]}';\"")"
 
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[0]}\"")") ]] && eval "$(echo "echo \"map global Menu    <\${key_${key}[0]}>   '\${menu_${key}[0]}'\"")" \
-			                                                           && eval "$(echo "echo \"map global Menu-ex <\${key_${key}[0]}>   '\${menu_${key}[0]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[1]}\"")") ]] && eval "$(echo "echo \"map global Menu    <\${key_${key}[1]}>   '\${menu_${key}[1]}'\"")" \
-			                                                           && eval "$(echo "echo \"map global Menu-ex <\${key_${key}[1]}>   '\${menu_${key}[1]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[2]}\"")") ]] && eval "$(echo "echo \"map global Menu    <a-\${key_${key}[0]}> '\${menu_${key}[2]}'\"")" \
-			                                                           && eval "$(echo "echo \"map global Menu-ex <\${key_${key}[0]}>   '\${menu_${key}[2]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[3]}\"")") ]] && eval "$(echo "echo \"map global Menu    <a-\${key_${key}[1]}> '\${menu_${key}[3]}'\"")" \
-			                                                           && eval "$(echo "echo \"map global Menu-ex <\${key_${key}[1]}>   '\${menu_${key}[3]}'\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[0]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <\${key_${key}[0]}>   '\${menu_${key}[0]}';\"")" \
+			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[0]}>   '\${menu_${key}[0]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[1]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <\${key_${key}[1]}>   '\${menu_${key}[1]}';\"")" \
+			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[1]}>   '\${menu_${key}[1]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[2]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <a-\${key_${key}[0]}> '\${menu_${key}[2]}';\"")" \
+			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[0]}>   '\${menu_${key}[2]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[3]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <a-\${key_${key}[1]}> '\${menu_${key}[3]}';\"")" \
+			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[1]}>   '\${menu_${key}[3]}';\"")"
 
-			[[ ! -z $(eval "$(echo "echo \"\${view_${key}[0]}\"")") ]] && eval "$(echo "echo \"map global View <\${key_${key}[0]}> '\${view_${key}[0]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${view_${key}[1]}\"")") ]] && eval "$(echo "echo \"map global View <\${key_${key}[1]}> '\${view_${key}[1]}'\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${view_${key}[0]}\"")") ]] && eval "$(echo "mapping+=\"map global View <\${key_${key}[0]}> '\${view_${key}[0]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${view_${key}[1]}\"")") ]] && eval "$(echo "mapping+=\"map global View <\${key_${key}[1]}> '\${view_${key}[1]}';\"")"
 
-			[[ ! -z $(eval "$(echo "echo \"\${focus_${key}[0]}\"")") ]] && eval "$(echo "echo \"map global Focus <\${key_${key}[0]}>          '<a-i>\${focus_${key}[0]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global Focus-begin <\${key_${key}[0]}>    '<a-[>\${focus_${key}[0]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global Focus-end <\${key_${key}[0]}>      '<a-]>\${focus_${key}[0]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global Focus-begin-ex <\${key_${key}[0]}> '<a-{>\${focus_${key}[0]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global Focus-end-ex <\${key_${key}[0]}>   '<a-}>\${focus_${key}[0]}'\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${focus_${key}[1]}\"")") ]] && eval "$(echo "echo \"map global FOCUS <\${key_${key}[1]}>          '<a-a>\${focus_${key}[1]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global FOCUS-begin <\${key_${key}[1]}>    '<[>\${focus_${key}[1]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global FOCUS-end <\${key_${key}[1]}>      '<]>\${focus_${key}[1]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global FOCUS-begin-ex <\${key_${key}[1]}> '<{>\${focus_${key}[1]}'\"")" \
-			                                                            && eval "$(echo "echo \"map global FOCUS-end-ex <\${key_${key}[1]}>   '<}>\${focus_${key}[1]}'\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${focus_${key}[0]}\"")") ]] && eval "$(echo "mapping+=\"map global Focus <\${key_${key}[0]}>          '<a-i>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-begin <\${key_${key}[0]}>    '<a-[>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-end <\${key_${key}[0]}>      '<a-]>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-begin-ex <\${key_${key}[0]}> '<a-{>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-end-ex <\${key_${key}[0]}>   '<a-}>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS <\${key_${key}[0]}>          '<a-a>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin <\${key_${key}[0]}>    '<[>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end <\${key_${key}[0]}>      '<]>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin-ex <\${key_${key}[0]}> '<{>\${focus_${key}[0]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end-ex <\${key_${key}[0]}>   '<}>\${focus_${key}[0]}';\"")"
+			[[ ! -z $(eval "$(echo "echo \"\${focus_${key}[1]}\"")") ]] && eval "$(echo "mapping+=\"map global Focus <\${key_${key}[1]}>          '<a-i>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-begin <\${key_${key}[1]}>    '<a-[>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-end <\${key_${key}[1]}>      '<a-]>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-begin-ex <\${key_${key}[1]}> '<a-{>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global Focus-end-ex <\${key_${key}[1]}>   '<a-}>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS <\${key_${key}[1]}>          '<a-a>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin <\${key_${key}[1]}>    '<[>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end <\${key_${key}[1]}>      '<]>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin-ex <\${key_${key}[1]}> '<{>\${focus_${key}[1]}';\"")" \
+			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end-ex <\${key_${key}[1]}>   '<}>\${focus_${key}[1]}';\"")"
 		done
+
+		echo "${mapping}"
 
 		echo "
 			hook global InsertCompletionShow .* %{
@@ -474,3 +489,4 @@ define-command bkey-load %{
 
 	}
 }
+
