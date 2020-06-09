@@ -83,9 +83,6 @@
 		echo %opt{bkey_move_buffer_echo}
 	}
 
-	# define-command -hidden bkey-occur        ''
-	# define-command -hidden bkey-occur-e      ''
-
 	# Action
 	#TODO fix paste
 	define-command -hidden -params 1 bkey-ins %{
@@ -149,71 +146,166 @@
 
 	define-command -hidden bkey-open-term 'terminal %val{client_env_SHELL}'
 
-	# View
-	# define-command -hidden bkey-linewrap ''
-
 # Mapping
 #TODO map global object  <t>  %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
 #TODO a-z
-define-command bkey-load %{
+define-command bkey-make %{
 	evaluate-commands %sh{
-		func_list=( 'ind_left' 'ind_right' 'ind_up' 'ind_down' 'ind_pgup' 'ind_pgdn' 'ind_home' 'ind_end' 'ind_tab' 'ind_bs' 'ind_del' 'ind_space' 'ind_esc'
-		            'mov_left' 'mov_right' 'mov_up' 'mov_down' 'mov_backward' 'mov_forward' 'mov_target' 'mov_target_next' 'mov_target_quick' 'mov_quick' 'mov_mark' 'mov_item' 'mov_select' 'mov_focus' 'mov_focus_prev' 'mov_focus_next'
-		            'act_prim' 'act_secon' 'act_alt' 'act_cut' 'act_in' 'act_out' 'act_edit'
-		            'env_new' 'env_group' 'env_cmd' 'env_term' 'env_undo' 'env_re' 'env_record' 'env_done' 'env_code' 'env_person'
-		            'vie_look' 'vie_minus' 'vie_plus' 'vie_mute' )
+		nava_ind_left=(               '<h>'                    '<H>'                    '<lt>'                   '<a-lt>'                 '<b>'                    '<B>'                    )
+		nava_ind_right=(              '<l>'                    '<L>'                    '<gt>'                   '<a-gt>'                 '<e>'                    '<E>'                    )
+		nava_ind_up=(                 '<k>'                    '<K>'                    ': bkey-lines up<ret>'   ': bkey-lines UP<ret>'   '<k>'                    '<K>'                    )
+		nava_ind_down=(               '<j>'                    '<J>'                    ': bkey-lines down<ret>' ': bkey-lines DOWN<ret>' '<j>'                    '<J>'                    )
+		nava_ind_pgup=(               '<c-b>'                  '<c-b>'                  ''                       ''                       '<c-u>'                  '<c-u>'                  )
+		nava_ind_pgdn=(               '<c-f>'                  '<c-f>'                  ''                       ''                       '<c-d>'                  '<c-d>'                  )
+		nava_ind_home=(               '<a-h>'                  '<a-H>'                  ''                       ''                       '<g><g>'                 '<G><g>'                 )
+		nava_ind_end=(                '<a-l>'                  '<a-L>'                  ''                       ''                       '<g><e>'                 '<G><e>'                 )
+		nava_ind_tab=(                ': bkey-buffer n<ret>'   ': bkey-buffer p<ret>'   ''                       ''                       ''                       ''                       )
+		nava_ind_bs=(                 '<;><h><a-d>'            ''                       ''                       ''                       ''                       ''                       )
+		nava_ind_del=(                '<;><a-d>'               ''                       ''                       ''                       ''                       ''                       )
+		nava_ind_space=(              ': bkey-menu<ret>'       ''                       ': bkey-menu-e<ret>'     ''                       ''                       ''                       )
+		nava_ind_esc=(                '<;>'                    ''                       ''                       ''                       ''                       ''                       )
+		nava_ind_enter=(              '<ret>'                  ''                       ''                       ''                       ''                       ''                       )
+		nava_mov_left=(               '<h>'                    '<a-h>'                  '<H>'                    '<a-H>'                  ''                       ''                       )
+		nava_mov_right=(              '<l>'                    '<a-l>'                  '<L>'                    '<a-L>'                  ''                       ''                       )
+		nava_mov_up=(                 '<k>'                    '<[>p'                   '<K>'                    '<{>p'                   ''                       ''                       )
+		nava_mov_down=(               '<j>'                    '<]>p'                   '<J>'                    '<}>p'                   ''                       ''                       )
+		nava_mov_backward=(           '<b>'                    '<a-b>'                  '<B>'                    '<a-B>'                  ''                       ''                       )
+		nava_mov_forward=(            '<e>'                    '<a-e>'                  '<E>'                    '<a-E>'                  ''                       ''                       )
+		nava_mov_target=(             '</>'                    '<a-/>'                  '<?>'                    '<a-?>'                  ''                       ''                       )
+		nava_mov_target_next=(        '<n>'                    '<a-n>'                  '<N>'                    '<a-N>'                  ''                       ''                       )
+		nava_mov_target_quick=(       '<f>'                    '<a-f>'                  '<F>'                    '<a-F>'                  ''                       ''                       )
+		nava_mov_quick=(              '<m>'                    '<a-m>'                  '<M>'                    '<a-M>'                  ''                       ''                       )
+		nava_mov_mark=(               '<z>'                    '<Z>'                    ''                       '<c-s>'                  ''                       ''                       )
+		nava_mov_item=(               '<)>'                    '<(>'                    '<a-)>'                  '<a-(>'                  ''                       ''                       )
+		nava_mov_select=(             '<a-x>'                  '<%>'                    '<a-x>'                  '<a-X>'                  ''                       ''                       )
+		nava_mov_focus=(              ': bkey-focus<ret>'      ': bkey-FOCUS<ret>'      '<a-;>'                  '<a-:>'                  ''                       ''                       )
+		nava_mov_focus_prev=(         ': bkey-focus-p<ret>'    ': bkey-FOCUS-p<ret>'    ': bkey-focus-e-p<ret>'  ': bkey-FOCUS-e-p<ret>'  ''                       ''                       )
+		nava_mov_focus_next=(         ': bkey-focus-n<ret>'    ': bkey-FOCUS-n<ret>'    ': bkey-focus-e-n<ret>'  ': bkey-FOCUS-e-n<ret>'  ''                       ''                       )
+		nava_act_prim=(               ': bkey-ins i<ret>'      '<A>'                    ': bkey-ins i<ret>'      '<I>'                    ''                       ''                       )
+		nava_act_secon=(              '<u>'                    '<U>'                    '<c-o>'                  '<c-i>'                  ''                       ''                       )
+		nava_act_alt=(                '<a-c>'                  '<a-l><a-c>'             '<r>'                    ''                       ''                       ''                       )
+		nava_act_cut=(                '<d>'                    '<a-l><y>'               '<a-d>'                  '<a-l><a-d>'             ''                       ''                       )
+		nava_act_in=(                 '<y>'                    '<a-l><y>'               '<y>'                    '<a-L><y>'               ''                       ''                       )
+		nava_act_out=(                ': bkey-ins p<ret>'      '<R>'                    ': bkey-ins pe<ret>'     '<R>'                    ''                       ''                       )
+		nava_act_edit=(               '<space>'                '<a-space>'              '<_>'                    ''                       ''                       ''                       )
+		nava_env_new=(                '<a-o>'                  '<a-O>'                  '<C>'                    '<a-C>'                  ''                       ''                       )
+		nava_env_group=(              '<a-J>'                  '<a-_>'                  '<a-j>'                  ''                       ''                       ''                       )
+		nava_env_cmd=(                '<:>'                    ': bkey-ins c<ret>'      '<a-|>'                  '<|>'                    ''                       ''                       )
+		nava_env_term=(               ':terminal '             ': bkey-open-term<ret>'  '<a-|>'                  '<|>'                    ''                       ''                       )
+		nava_env_undo=(               '<u>'                    '<U>'                    '<a-u>'                  '<a-U>'                  ''                       ''                       )
+		nava_env_re=(                 '<a-.>'                  '<.>'                    ''                       ''                       ''                       ''                       )
+		nava_env_record=(             '<q>'                    '<Q>'                    ''                       '<esc>'                  ''                       ''                       )
+		nava_env_done=(               ': bkey-save<ret>'       ':terminal '             ''                       ''                       ''                       ''                       )
+		nava_env_code=(               '<">'                    '<\>'                    ': comment-line<ret>'    ': comment-block<ret>'   ''                       ''                       )
+		nava_env_person=(             '<,>'                    ''                       ''                       ''                       ''                       ''                       )
+		nava_vie_look=(               ': bkey-view<ret>'       ': bkey-view-lock<ret>'  ': bkey-linewrap<ret>'   ': bkey-linewrap<ret>'   ''                       ''                       )
+		nava_vie_minus=(              '<lt>'                   '<`>'                    '<a-lt>'                 ''                       ''                       ''                       )
+		nava_vie_plus=(               '<gt>'                   '<~>'                    '<a-gt>'                 ''                       ''                       ''                       )
+		nava_vie_mute=(               '<&>'                    '<a-`>'                  '<a-&>'                  ''                       ''                       ''                       )
 
-		func_ind_left=(               '<h>'                    '<H>'                    '<lt>'                   '<a-lt>'                 '<b>'                    '<B>'                    )
-		func_ind_right=(              '<l>'                    '<L>'                    '<gt>'                   '<a-gt>'                 '<e>'                    '<E>'                    )
-		func_ind_up=(                 '<k>'                    '<K>'                    ': bkey-lines up<ret>'   ': bkey-lines UP<ret>'   '<k>'                    '<K>'                    )
-		func_ind_down=(               '<j>'                    '<J>'                    ': bkey-lines down<ret>' ': bkey-lines DOWN<ret>' '<j>'                    '<J>'                    )
-		func_ind_pgup=(               '<c-b>'                  '<c-b>'                  ''                       ''                       '<c-u>'                  '<c-u>'                  )
-		func_ind_pgdn=(               '<c-f>'                  '<c-f>'                  ''                       ''                       '<c-d>'                  '<c-d>'                  )
-		func_ind_home=(               '<a-h>'                  '<a-H>'                  ''                       ''                       '<g><g>'                 '<G><g>'                 )
-		func_ind_end=(                '<a-l>'                  '<a-L>'                  ''                       ''                       '<g><e>'                 '<G><e>'                 )
-		func_ind_tab=(                ': bkey-buffer n<ret>'   ': bkey-buffer p<ret>'   ''                       ''                       ''                       ''                       )
-		func_ind_bs=(                 '<;><h><a-d>'            ''                       ''                       ''                       ''                       ''                       )
-		func_ind_del=(                '<;><a-d>'               ''                       ''                       ''                       ''                       ''                       )
-		func_ind_space=(              ': bkey-menu<ret>'       ''                       ': bkey-menu-e<ret>'     ''                       ''                       ''                       )
-		func_ind_esc=(                '<;>'                    ''                       ''                       ''                       ''                       ''                       )
-		func_ind_enter=(              '<ret>'                  ''                       ''                       ''                       ''                       ''                       )
-		func_mov_left=(               '<h>'                    '<a-h>'                  '<H>'                    '<a-H>'                  ''                       ''                       )
-		func_mov_right=(              '<l>'                    '<a-l>'                  '<L>'                    '<a-L>'                  ''                       ''                       )
-		func_mov_up=(                 '<k>'                    '<[>p'                   '<K>'                    '<{>p'                   ''                       ''                       )
-		func_mov_down=(               '<j>'                    '<]>p'                   '<J>'                    '<}>p'                   ''                       ''                       )
-		func_mov_backward=(           '<b>'                    '<a-b>'                  '<B>'                    '<a-B>'                  ''                       ''                       )
-		func_mov_forward=(            '<e>'                    '<a-e>'                  '<E>'                    '<a-E>'                  ''                       ''                       )
-		func_mov_target=(             '</>'                    '<a-/>'                  '<?>'                    '<a-?>'                  ''                       ''                       )
-		func_mov_target_next=(        '<n>'                    '<a-n>'                  '<N>'                    '<a-N>'                  ''                       ''                       )
-		func_mov_target_quick=(       '<f>'                    '<a-f>'                  '<F>'                    '<a-F>'                  ''                       ''                       )
-		func_mov_quick=(              '<m>'                    '<a-m>'                  '<M>'                    '<a-M>'                  ''                       ''                       )
-		func_mov_mark=(               '<z>'                    '<Z>'                    ''                       '<c-s>'                  ''                       ''                       )
-		func_mov_item=(               '<)>'                    '<(>'                    '<a-)>'                  '<a-(>'                  ''                       ''                       )
-		func_mov_select=(             '<a-x>'                  '<%>'                    '<a-x>'                  '<a-X>'                  ''                       ''                       )
-		func_mov_focus=(              ': bkey-focus<ret>'      ': bkey-FOCUS<ret>'      '<a-;>'                  '<a-:>'                  ''                       ''                       )
-		func_mov_focus_prev=(         ': bkey-focus-p<ret>'    ': bkey-FOCUS-p<ret>'    ': bkey-focus-e-p<ret>'  ': bkey-FOCUS-e-p<ret>'  ''                       ''                       )
-		func_mov_focus_next=(         ': bkey-focus-n<ret>'    ': bkey-FOCUS-n<ret>'    ': bkey-focus-e-n<ret>'  ': bkey-FOCUS-e-n<ret>'  ''                       ''                       )
-		func_act_prim=(               ': bkey-ins i<ret>'      '<A>'                    ': bkey-ins i<ret>'      '<I>'                    ''                       ''                       )
-		func_act_secon=(              '<u>'                    '<U>'                    '<c-o>'                  '<c-i>'                  ''                       ''                       )
-		func_act_alt=(                '<a-c>'                  '<a-l><a-c>'             '<r>'                    ''                       ''                       ''                       )
-		func_act_cut=(                '<d>'                    '<a-l><y>'               '<a-d>'                  '<a-l><a-d>'             ''                       ''                       )
-		func_act_in=(                 '<y>'                    '<a-l><y>'               '<y>'                    '<a-L><y>'               ''                       ''                       )
-		func_act_out=(                ': bkey-ins p<ret>'      '<R>'                    ': bkey-ins pe<ret>'     '<R>'                    ''                       ''                       )
-		func_act_edit=(               '<space>'                '<a-space>'              '<_>'                    ''                       ''                       ''                       )
-		func_env_new=(                '<a-o>'                  '<a-O>'                  '<C>'                    '<a-C>'                  ''                       ''                       )
-		func_env_group=(              '<a-J>'                  '<a-_>'                  '<a-j>'                  ''                       ''                       ''                       )
-		func_env_cmd=(                '<:>'                    ': bkey-ins c<ret>'      '<a-|>'                  '<|>'                    ''                       ''                       )
-		func_env_term=(               ':terminal '             ': bkey-open-term<ret>'  '<a-|>'                  '<|>'                    ''                       ''                       )
-		func_env_undo=(               '<u>'                    '<U>'                    '<a-u>'                  '<a-U>'                  ''                       ''                       )
-		func_env_re=(                 '<a-.>'                  '<.>'                    ': bkey-occur-e<ret>'    ': bkey-occur<ret>'      ''                       ''                       )
-		func_env_record=(             '<q>'                    '<Q>'                    ''                       '<esc>'                  ''                       ''                       )
-		func_env_done=(               ': bkey-save<ret>'       ':terminal '             ''                       ''                       ''                       ''                       )
-		func_env_code=(               '<">'                    '<\>'                    ': comment-line<ret>'    ': comment-block<ret>'   ''                       ''                       )
-		func_env_person=(             '<,>'                    ''                       ''                       ''                       ''                       ''                       )
-		func_vie_look=(               ': bkey-view<ret>'       ': bkey-view-lock<ret>'  ': bkey-linewrap<ret>'   ': bkey-linewrap<ret>'   ''                       ''                       )
-		func_vie_minus=(              '<lt>'                   '<`>'                    '<a-lt>'                 ''                       ''                       ''                       )
-		func_vie_plus=(               '<gt>'                   '<~>'                    '<a-gt>'                 ''                       ''                       ''                       )
-		func_vie_mute=(               '<&>'                    '<a-`>'                  '<a-&>'                  ''                       ''                       ''                       )
+		insert_ind_left=(             '<left>'                 '<home>'                 )
+		insert_ind_right=(            '<right>'                '<end>'                  )
+		insert_ind_up=(               '<up>'                   ''                       )
+		insert_ind_down=(             '<down>'                 ''                       )
+		insert_ind_pgup=(             ''                       ''                       )
+		insert_ind_pgdn=(             ''                       ''                       )
+		insert_ind_home=(             ''                       ''                       )
+		insert_ind_end=(              ''                       ''                       )
+		insert_ind_tab=(              ''                       ''                       )
+		insert_ind_bs=(               '<backspace>'            ''                       )
+		insert_ind_del=(              '<del>'                  ''                       )
+		insert_ind_space=(            ''                       ''                       )
+		insert_ind_esc=(              '<esc>'                  ''                       )
+		insert_ind_enter=(            '<ret>'                  ''                       )
+		insert_mov_left=(             '<left>'                 '<home>'                 )
+		insert_mov_right=(            '<right>'                '<end>'                  )
+		insert_mov_up=(               '<up>'                   ''                       )
+		insert_mov_down=(             '<down>'                 ''                       )
+		insert_mov_backward=(         ''                       ''                       )
+		insert_mov_forward=(          ''                       ''                       )
+		insert_mov_target=(           ''                       ''                       )
+		insert_mov_target_next=(      ''                       ''                       )
+		insert_mov_target_quick=(     ''                       ''                       )
+		insert_mov_quick=(            ''                       ''                       )
+		insert_mov_mark=(             ''                       ''                       )
+		insert_mov_item=(             ''                       ''                       )
+		insert_mov_select=(           '<a-;>'                  '<esc>'                  )
+		insert_mov_focus=(            ''                       ''                       )
+		insert_mov_focus_prev=(       ''                       ''                       )
+		insert_mov_focus_next=(       ''                       ''                       )
+		insert_act_prim=(             '<c-v>'                  '<c-u>'                  )
+		insert_act_secon=(            ''                       ''                       )
+		insert_act_alt=(              '<c-r>'                  ''                       )
+		insert_act_cut=(              ''                       ''                       )
+		insert_act_in=(               ''                       ''                       )
+		insert_act_out=(              ''                       ''                       )
+		insert_act_edit=(             ''                       ''                       )
+		insert_env_new=(              ''                       ''                       )
+		insert_env_group=(            ''                       ''                       )
+		insert_env_cmd=(              ''                       ''                       )
+		insert_env_term=(             ''                       ''                       )
+		insert_env_undo=(             ''                       ''                       )
+		insert_env_re=(               ''                       ''                       )
+		insert_env_record=(           ''                       ''                       )
+		insert_env_done=(             ''                       ''                       )
+		insert_env_code=(             '<c-o>'                  '<c-x>'                  )
+		insert_env_person=(           ''                       ''                       )
+		insert_vie_look=(             ''                       ''                       )
+		insert_vie_minus=(            ''                       ''                       )
+		insert_vie_plus=(             ''                       ''                       )
+		insert_vie_mute=(             ''                       ''                       )
+
+		prompt_ind_left=(             '<left>'                 '<home>'                 )
+		prompt_ind_right=(            '<right>'                '<end>'                  )
+		prompt_ind_up=(               '<up>'                   ''                       )
+		prompt_ind_down=(             '<down>'                 ''                       )
+		prompt_ind_pgup=(             ''                       ''                       )
+		prompt_ind_pgdn=(             ''                       ''                       )
+		prompt_ind_home=(             ''                       ''                       )
+		prompt_ind_end=(              ''                       ''                       )
+		prompt_ind_tab=(              '<tab>'                  '<s-tab>'                )
+		prompt_ind_bs=(               '<backspace>'            ''                       )
+		prompt_ind_del=(              '<del>'                  ''                       )
+		prompt_ind_space=(            ''                       ''                       )
+		prompt_ind_esc=(              '<esc>'                  ''                       )
+		prompt_ind_enter=(            '<ret>'                  ''                       )
+		prompt_mov_left=(             '<left>'                 '<home>'                 )
+		prompt_mov_right=(            '<right>'                '<end>'                  )
+		prompt_mov_up=(               '<up>'                   ''                       )
+		prompt_mov_down=(             '<down>'                 ''                       )
+		prompt_mov_backward=(         '<a-b>'                  '<a-B>'                  )
+		prompt_mov_forward=(          '<a-e><right>'           '<a-E><right>'           )
+		prompt_mov_target=(           ''                       ''                       )
+		prompt_mov_target_next=(      ''                       ''                       )
+		prompt_mov_target_quick=(     ''                       ''                       )
+		prompt_mov_quick=(            ''                       ''                       )
+		prompt_mov_mark=(             ''                       ''                       )
+		prompt_mov_item=(             ''                       ''                       )
+		prompt_mov_select=(           '<a-;>'                  '<esc>'                  )
+		prompt_mov_focus=(            ''                       ''                       )
+		prompt_mov_focus_prev=(       ''                       ''                       )
+		prompt_mov_focus_next=(       ''                       ''                       )
+		prompt_act_prim=(             '<c-v>'                  ''                       )
+		prompt_act_secon=(            ''                       ''                       )
+		prompt_act_alt=(              '<c-r>'                  '<c-y>'                  )
+		prompt_act_cut=(              ''                       ''                       )
+		prompt_act_in=(               ''                       ''                       )
+		prompt_act_out=(              ''                       ''                       )
+		prompt_act_edit=(             ''                       ''                       )
+		prompt_env_new=(              ''                       ''                       )
+		prompt_env_group=(            ''                       ''                       )
+		prompt_env_cmd=(              ''                       ''                       )
+		prompt_env_term=(             ''                       ''                       )
+		prompt_env_undo=(             ''                       ''                       )
+		prompt_env_re=(               ''                       ''                       )
+		prompt_env_record=(           ''                       ''                       )
+		prompt_env_done=(             ''                       ''                       )
+		prompt_env_code=(             '<c-o>'                  '<a-!>'                  )
+		prompt_env_person=(           ''                       ''                       )
+		prompt_vie_look=(             ''                       ''                       )
+		prompt_vie_minus=(            ''                       ''                       )
+		prompt_vie_plus=(             ''                       ''                       )
+		prompt_vie_mute=(             ''                       ''                       )
 
 		menu_ind_left=(               '<g><i>'                 '<g><h>'                 '<G><i>'                 '<G><h>'                 )
 		menu_ind_right=(              '<g><l>'                 '<g><j>'                 '<G><l>'                 '<G><j>'                 )
@@ -425,67 +517,74 @@ define-command bkey-load %{
 		key_vie_mute=(                "'"             '"'             )
 
 
-		for key in "${func_list[@]}"
+		func_list=( 'ind_left' 'ind_right' 'ind_up' 'ind_down' 'ind_pgup' 'ind_pgdn' 'ind_home' 'ind_end' 'ind_tab' 'ind_bs' 'ind_del' 'ind_space' 'ind_esc'
+		            'mov_left' 'mov_right' 'mov_up' 'mov_down' 'mov_backward' 'mov_forward' 'mov_target' 'mov_target_next' 'mov_target_quick' 'mov_quick' 'mov_mark' 'mov_item' 'mov_select' 'mov_focus' 'mov_focus_prev' 'mov_focus_next'
+		            'act_prim' 'act_secon' 'act_alt' 'act_cut' 'act_in' 'act_out' 'act_edit'
+		            'env_new' 'env_group' 'env_cmd' 'env_term' 'env_undo' 'env_re' 'env_record' 'env_done' 'env_code' 'env_person'
+		            'vie_look' 'vie_minus' 'vie_plus' 'vie_mute'
+		)
+
+		for func in "${func_list[@]}"
 		do
-			eval "$(echo "mapping+=\"map global normal <\${key_${key}[0]}>   '\${func_${key}[0]}';\"")"
-			eval "$(echo "mapping+=\"map global normal <a-\${key_${key}[0]}> '\${func_${key}[2]}';\"")"
-			eval "$(echo "mapping+=\"map global normal <\${key_${key}[1]}>   '\${func_${key}[1]}';\"")"
-			eval "$(echo "mapping+=\"map global normal <a-\${key_${key}[1]}> '\${func_${key}[3]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${func_${key}[4]}\"")") ]] && eval "$(echo "mapping+=\"map global normal <c-\${key_${key}[0]}> '\${func_${key}[4]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${func_${key}[5]}\"")") ]] && eval "$(echo "mapping+=\"map global normal <c-\${key_${key}[1]}> '\${func_${key}[5]}';\"")"
+			eval "$(echo "key_array=( \"\${key_${func}[0]}\"    \"\${key_${func}[1]}\"
+			                          \"\${nava_${func}[0]}\"   \"\${nava_${func}[1]}\"   \"\${nava_${func}[2]}\" \"\${nava_${func}[3]}\" \"\${nava_${func}[4]}\" \"\${nava_${func}[5]}\"
+			                          \"\${insert_${func}[0]}\" \"\${insert_${func}[1]}\"
+			                          \"\${prompt_${func}[0]}\" \"\${prompt_${func}[1]}\"
+			                          \"\${menu_${func}[0]}\"   \"\${menu_${func}[1]}\"   \"\${menu_${func}[2]}\" \"\${menu_${func}[3]}\"
+			                          \"\${view_${func}[0]}\"   \"\${view_${func}[1]}\"
+			                          \"\${focus_${func}[0]}\"  \"\${focus_${func}[1]}\"
+			)")"
 
-			eval "$(echo "mapping+=\"map global insert <a-\${key_${key}[0]}> '<a-;>\${func_${key}[0]}';\"")"
-			eval "$(echo "mapping+=\"map global insert <a-\${key_${key}[1]}> '<a-;>\${func_${key}[1]}';\"")"
+			                               mapping+="map global normal         <${key_array[0]}>   '${key_array[2]}'       ;"
+			                               mapping+="map global normal         <${key_array[1]}>   '${key_array[3]}'       ;"
+			                               mapping+="map global normal         <a-${key_array[0]}> '${key_array[4]}'       ;"
+			                               mapping+="map global normal         <a-${key_array[1]}> '${key_array[5]}'       ;"
+			[[ ! -z ${key_array[6]}  ]] && mapping+="map global normal         <c-${key_array[0]}> '${key_array[6]}'       ;"
+			[[ ! -z ${key_array[7]}  ]] && mapping+="map global normal         <c-${key_array[1]}> '${key_array[7]}'       ;"
+			                               mapping+="map global insert         <a-${key_array[0]}> '<a-;>${key_array[2]}'  ;"
+			                               mapping+="map global insert         <a-${key_array[1]}> '<a-;>${key_array[3]}'  ;"
 
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[0]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <\${key_${key}[0]}>   '\${menu_${key}[0]}';\"")" \
-			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[0]}>   '\${menu_${key}[0]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[1]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <\${key_${key}[1]}>   '\${menu_${key}[1]}';\"")" \
-			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[1]}>   '\${menu_${key}[1]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[2]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <a-\${key_${key}[0]}> '\${menu_${key}[2]}';\"")" \
-			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[0]}>   '\${menu_${key}[2]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${menu_${key}[3]}\"")") ]] && eval "$(echo "mapping+=\"map global Menu    <a-\${key_${key}[1]}> '\${menu_${key}[3]}';\"")" \
-			                                                           && eval "$(echo "mapping+=\"map global Menu-ex <\${key_${key}[1]}>   '\${menu_${key}[3]}';\"")"
+			[[ ! -z ${key_array[8]}  ]] && mapping+="map global insert         <a-${key_array[0]}> '${key_array[8]}'       ;"
+			[[ ! -z ${key_array[9]}  ]] && mapping+="map global insert         <a-${key_array[1]}> '${key_array[9]}'       ;"
 
-			[[ ! -z $(eval "$(echo "echo \"\${view_${key}[0]}\"")") ]] && eval "$(echo "mapping+=\"map global View <\${key_${key}[0]}> '\${view_${key}[0]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${view_${key}[1]}\"")") ]] && eval "$(echo "mapping+=\"map global View <\${key_${key}[1]}> '\${view_${key}[1]}';\"")"
+			                               mapping+="map global prompt         <a-${key_array[0]}> '${key_array[10]}'       ;"
+			                               mapping+="map global prompt         <a-${key_array[1]}> '${key_array[11]}'       ;"
 
-			[[ ! -z $(eval "$(echo "echo \"\${focus_${key}[0]}\"")") ]] && eval "$(echo "mapping+=\"map global Focus <\${key_${key}[0]}>          '<a-i>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-begin <\${key_${key}[0]}>    '<a-[>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-end <\${key_${key}[0]}>      '<a-]>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-begin-ex <\${key_${key}[0]}> '<a-{>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-end-ex <\${key_${key}[0]}>   '<a-}>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS <\${key_${key}[0]}>          '<a-a>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin <\${key_${key}[0]}>    '<[>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end <\${key_${key}[0]}>      '<]>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin-ex <\${key_${key}[0]}> '<{>\${focus_${key}[0]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end-ex <\${key_${key}[0]}>   '<}>\${focus_${key}[0]}';\"")"
-			[[ ! -z $(eval "$(echo "echo \"\${focus_${key}[1]}\"")") ]] && eval "$(echo "mapping+=\"map global Focus <\${key_${key}[1]}>          '<a-i>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-begin <\${key_${key}[1]}>    '<a-[>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-end <\${key_${key}[1]}>      '<a-]>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-begin-ex <\${key_${key}[1]}> '<a-{>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global Focus-end-ex <\${key_${key}[1]}>   '<a-}>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS <\${key_${key}[1]}>          '<a-a>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin <\${key_${key}[1]}>    '<[>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end <\${key_${key}[1]}>      '<]>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-begin-ex <\${key_${key}[1]}> '<{>\${focus_${key}[1]}';\"")" \
-			                                                            && eval "$(echo "mapping+=\"map global FOCUS-end-ex <\${key_${key}[1]}>   '<}>\${focus_${key}[1]}';\"")"
+			[[ ! -z ${key_array[12]} ]] && mapping+="map global Menu           <${key_array[0]}>   '${key_array[12]}'      ;" \
+			                            && mapping+="map global Menu-ex        <${key_array[0]}>   '${key_array[12]}'      ;"
+			[[ ! -z ${key_array[13]} ]] && mapping+="map global Menu           <${key_array[1]}>   '${key_array[13]}'      ;" \
+			                            && mapping+="map global Menu-ex        <${key_array[1]}>   '${key_array[13]}'      ;"
+			[[ ! -z ${key_array[14]} ]] && mapping+="map global Menu           <a-${key_array[0]}> '${key_array[14]}'      ;" \
+			                            && mapping+="map global Menu-ex        <${key_array[0]}>   '${key_array[14]}'      ;"
+			[[ ! -z ${key_array[15]} ]] && mapping+="map global Menu           <a-${key_array[1]}> '${key_array[15]}'      ;" \
+			                            && mapping+="map global Menu-ex        <${key_array[1]}>   '${key_array[15]}'      ;"
+
+			[[ ! -z ${key_array[16]} ]] && mapping+="map global View           <${key_array[0]}>   '${key_array[16]}'      ;"
+			[[ ! -z ${key_array[17]} ]] && mapping+="map global View           <${key_array[1]}>   '${key_array[17]}'      ;"
+
+			[[ ! -z ${key_array[18]} ]] && mapping+="map global Focus          <${key_array[0]}>   '<a-i>${key_array[18]}' ;" \
+			                            && mapping+="map global Focus-begin    <${key_array[0]}>   '<a-[>${key_array[18]}' ;" \
+			                            && mapping+="map global Focus-end      <${key_array[0]}>   '<a-]>${key_array[18]}' ;" \
+			                            && mapping+="map global Focus-begin-ex <${key_array[0]}>   '<a-{>${key_array[18]}' ;" \
+			                            && mapping+="map global Focus-end-ex   <${key_array[0]}>   '<a-}>${key_array[18]}' ;" \
+			                            && mapping+="map global FOCUS          <${key_array[0]}>   '<a-a>${key_array[18]}' ;" \
+			                            && mapping+="map global FOCUS-begin    <${key_array[0]}>   '<[>${key_array[18]}'   ;" \
+			                            && mapping+="map global FOCUS-end      <${key_array[0]}>   '<]>${key_array[18]}'   ;" \
+			                            && mapping+="map global FOCUS-begin-ex <${key_array[0]}>   '<{>${key_array[18]}'   ;" \
+			                            && mapping+="map global FOCUS-end-ex   <${key_array[0]}>   '<}>${key_array[18]}'   ;"
+			[[ ! -z ${key_array[19]} ]] && mapping+="map global Focus          <${key_array[1]}>   '<a-i>${key_array[19]}' ;" \
+			                            && mapping+="map global Focus-begin    <${key_array[1]}>   '<a-[>${key_array[19]}' ;" \
+			                            && mapping+="map global Focus-end      <${key_array[1]}>   '<a-]>${key_array[19]}' ;" \
+			                            && mapping+="map global Focus-begin-ex <${key_array[1]}>   '<a-{>${key_array[19]}' ;" \
+			                            && mapping+="map global Focus-end-ex   <${key_array[1]}>   '<a-}>${key_array[19]}' ;" \
+			                            && mapping+="map global FOCUS          <${key_array[1]}>   '<a-a>${key_array[19]}' ;" \
+			                            && mapping+="map global FOCUS-begin    <${key_array[1]}>   '<[>${key_array[19]}'   ;" \
+			                            && mapping+="map global FOCUS-end      <${key_array[1]}>   '<]>${key_array[19]}'   ;" \
+			                            && mapping+="map global FOCUS-begin-ex <${key_array[1]}>   '<{>${key_array[19]}'   ;" \
+			                            && mapping+="map global FOCUS-end-ex   <${key_array[1]}>   '<}>${key_array[19]}'   ;"
 		done
 
 		echo "${mapping}"
-
-		echo "
-			hook global InsertCompletionShow .* %{
-				try %{
-					execute-keys -draft '<h><a-K><\><h><ret>'
-					map window insert <${key_ind_tab[0]}> '<c-n>'
-					map window insert <${key_ind_tab[1]}> '<c-p>'
-				}
-			}
-			hook global InsertCompletionHide .* %{
-				unmap window insert <${key_ind_tab[0]}> '<c-n>'
-				unmap window insert <${key_ind_tab[1]}> '<c-p>'
-			}
-		"
 
 	}
 }
