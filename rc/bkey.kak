@@ -68,6 +68,7 @@
 				fi
 			fi
 		}
+
 		execute-keys <V><c><m><esc>
 	}
 
@@ -80,6 +81,7 @@
 				'd') echo "buffer *debug*" ;;
 			esac
 		}
+
 		echo %opt{bkey_move_buffer_echo}
 	}
 
@@ -91,50 +93,50 @@
 			[[ "$(kak_count)" -gt '0' ]] && paste_keys="<;>$(( ${kak_count} - 1 ))"
 			select_pos_1="${kak_selection_desc%%,*}"
 			select_pos_2="${kak_selection_desc##*,}"
+
 			if [[ "${select_pos_1%%.*}" -lt "${select_pos_2%%.*}" ]]; then
-				cursor_pos='1'
+				cursor_pos='a'
 			elif [[ "${select_pos_1%%.*}" == "${select_pos_2%%.*}" ]]; then
 				if [[ "${select_pos_1##*.}" -lt "${select_pos_2##*.}" ]]; then
+					cursor_pos='a'
+				fi
+				if [[ "${select_pos_1##*.}" == "${select_pos_2##*.}" ]]; then
 					cursor_pos='1'
 				fi
 			fi
-			if [[ ! -z "${cursor_pos}" ]]; then
-				[[ ! -z "${paste_keys}" ]] && paste_keys+='<p>'
-				case "${1}" in
-					'i')   echo '<a>' ;;
-					'p')   echo "${paste_keys}"'<l><i><space><esc><h>'"${register}"'<R><a-:>' ;;
-					'pa')  echo "${paste_keys}"'<l><i><space><esc><h>'"${register}"'<a-R><a-:>' ;;
-					'pe')  echo "${kak_count}${register}"'<p>' ;;
-					'pea') echo "${kak_count}${register}"'<a-p>' ;;
-					'c')   echo '<a-!>' ;;
-				esac
-			else
-				[[ ! -z "${paste_keys}" ]] && paste_keys+='<P>'
-				case "${1}" in
-					'i')   echo '<i>' ;;
-					'p')   echo "${paste_keys}"'<i><space><esc><h>'"${register}"'<R><a-:><a-;>' ;;
-					'pa')  echo "${paste_keys}"'<i><space><esc><h>'"${register}"'<a-R><a-:><a-;>' ;;
-					'pe')  echo "${kak_count}${register}"'<P>' ;;
-					'pea') echo "${kak_count}${register}"'<a-P>' ;;
-					'c')   echo '<!>' ;;
-				esac
-			fi
-		}
-	}
 
-	# Environment
-	define-command -hidden -params 1 bkey-lines %{
-		evaluate-commands %sh{
-			reg_backup="${kak_reg_z}"
-			echo "execute-keys <x><\"><z><d>${kak_count}"
-			case "${1}" in
-				'up')   echo "execute-keys <k>" ;;
-				'down') echo "execute-keys <j>" ;;
-				'UP')   echo "execute-keys <[><p>" ;;
-				'DOWN') echo "execute-keys <]><p>" ;;
+			case "$cursor_pos" in
+				'a')
+					case "${1}" in
+						'i')   echo '<a>' ;;
+						'p')   echo "${kak_count}${register}"'<p>' ;;
+						'pa')  echo "${kak_count}${register}"'<a-p>' ;;
+						'pe')  echo "${kak_count}${register}"'<p>' ;;
+						'pea') echo "${kak_count}${register}"'<a-p>' ;;
+						'c')   echo '<a-!>' ;;
+					esac
+				;;
+				'1')
+					case "${1}" in
+						'i')   echo '<i>' ;;
+						'p')   echo "${kak_count}${register}"'<P>' ;;
+						'pa')  echo "${kak_count}${register}"'<a-P>' ;;
+						'pe')  echo "<h>${kak_count}${register}"'<p><l>' ;;
+						'pea') echo "<h>${kak_count}${register}"'<a-p><l>' ;;
+						'c')   echo '<!>' ;;
+					esac
+				;;
+				'i'|*)
+					case "${1}" in
+						'i')   echo '<i>' ;;
+						'p')   echo "${kak_count}${register}"'<P>' ;;
+						'pa')  echo "${kak_count}${register}"'<a-P>' ;;
+						'pe')  echo "${kak_count}${register}"'<P>' ;;
+						'pea') echo "${kak_count}${register}"'<a-P>' ;;
+						'c')   echo '<!>' ;;
+					esac
+				;;
 			esac
-			echo "execute-keys <;><a-O><k><a-x><\"><z><R>"
-			echo "set-register z \"${reg_backup}\""
 		}
 	}
 
@@ -153,8 +155,8 @@ define-command bkey-make %{
 	evaluate-commands %sh{
 		nava_ind_left=(               '<h>'                    '<H>'                    '<lt>'                   '<a-lt>'                 '<b>'                    '<B>'                    )
 		nava_ind_right=(              '<l>'                    '<L>'                    '<gt>'                   '<a-gt>'                 '<e>'                    '<E>'                    )
-		nava_ind_up=(                 '<k>'                    '<K>'                    ': bkey-lines up<ret>'   ': bkey-lines UP<ret>'   '<k>'                    '<K>'                    )
-		nava_ind_down=(               '<j>'                    '<J>'                    ': bkey-lines down<ret>' ': bkey-lines DOWN<ret>' '<j>'                    '<J>'                    )
+		nava_ind_up=(                 '<k>'                    '<K>'                    ''                       ''                       '<k>'                    '<K>'                    )
+		nava_ind_down=(               '<j>'                    '<J>'                    ''                       ''                       '<j>'                    '<J>'                    )
 		nava_ind_pgup=(               '<c-b>'                  '<c-b>'                  ''                       ''                       '<c-u>'                  '<c-u>'                  )
 		nava_ind_pgdn=(               '<c-f>'                  '<c-f>'                  ''                       ''                       '<c-d>'                  '<c-d>'                  )
 		nava_ind_home=(               '<a-h>'                  '<a-H>'                  ''                       ''                       '<g><g>'                 '<G><g>'                 )
@@ -523,6 +525,14 @@ define-command bkey-make %{
 		            'env_new' 'env_group' 'env_cmd' 'env_term' 'env_undo' 'env_re' 'env_record' 'env_done' 'env_code' 'env_person'
 		            'vie_look' 'vie_minus' 'vie_plus' 'vie_mute'
 		)
+
+		function map-normal() {
+			mapping+="map global ${1} <${2}> '${3}' ;"
+		}
+
+		function map-menu() {
+			mapping+="map global ${1} <${2}> '${3}' ;"
+		}
 
 		for func in "${func_list[@]}"
 		do
