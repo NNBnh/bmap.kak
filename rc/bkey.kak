@@ -526,13 +526,13 @@ define-command bkey-make %{
 		            'vie_look' 'vie_minus' 'vie_plus' 'vie_mute'
 		)
 
-		function map-normal() {
-			mapping+="map global ${1} <${2}> '${3}' ;"
-		}
+		# function map-normal() {
+		# 	mapping+="map global ${1} <${2}> '${3}' ;"
+		# }
 
-		function map-menu() {
-			mapping+="map global ${1} <${2}> '${3}' ;"
-		}
+		# function map-menu() {
+		# 	mapping+="map global ${1} <${2}> '${3}' ;"
+		# }
 
 		for func in "${func_list[@]}"
 		do
