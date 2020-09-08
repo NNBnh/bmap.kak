@@ -28,9 +28,9 @@
 
 # Setup
 	# Mode
-	declare-user-mode Menu   ; define-command -hidden bkey-menu         'enter-user-mode Menu'
-	declare-user-mode MenuEx ; define-command -hidden bkey-menuex       'enter-user-mode MenuEx'
-	declare-user-mode View   ; define-command -hidden bkey-view         'enter-user-mode View'
+	declare-user-mode Menu   ; define-command -hidden bkey-menu         'enter-user-mode       Menu'
+	declare-user-mode MenuEx ; define-command -hidden bkey-menuex       'enter-user-mode       MenuEx'
+	declare-user-mode View   ; define-command -hidden bkey-view         'enter-user-mode       View'
 	                           define-command -hidden bkey-view-lock    'enter-user-mode -lock View'
 
 	# Movement
@@ -49,16 +49,19 @@
 	#TODO fix paste
 	define-command -hidden -params 1 bkey-ins %{
 		execute-keys -with-hooks %sh{
-			[ -n $kak_register ] && register="<\><$kak_register>"
-			[ $kak_count -gt '0' ] && paste_keys="<;>$(( $kak_count - 1 ))"
-			select_pos_1=${kak_selection_desc%%,*}
-			select_pos_2=${kak_selection_desc##*,}
+			[ -n "$kak_register" ] && register="<\><$kak_register>"
+			selection_1_pos=${kak_selection_desc%%,*}
+			selection_1_line=${selection_1_pos%%.*}
+			selection_1_col=${selection_1_pos##*.}
+			selection_2_pos=${kak_selection_desc##*,}
+			selection_2_line=${selection_2_pos%%.*}
+			selection_2_col=${selection_2_pos##*.}
 
-			if [ ${select_pos_1%%.*} -lt ${select_pos_2%%.*} ]; then
+			if [ $selection_1_line -lt $selection_2_line ]; then
 				cursor_pos='a'
-			elif [ ${select_pos_1%%.*} = ${select_pos_2%%.*} ]; then
-				[ ${select_pos_1##*.} -lt ${select_pos_2##*.} ] && cursor_pos='a'
-				[ ${select_pos_1##*.} = ${select_pos_2##*.}  ] && cursor_pos='1'
+			elif [ $selection_1_line = $selection_2_line ]; then
+				[ $selection_1_col -lt $selection_2_col ] && cursor_pos='a'
+				[ $selection_1_col = $selection_2_col  ] && cursor_pos='1'
 			fi
 
 			case $cursor_pos in
@@ -102,7 +105,7 @@
 	hook global InsertCompletionHide .* %{ unmap window insert <tab> '<c-n>'; unmap window insert <s-tab> '<c-p>' }
 
 # Mapping
-#TODO map global object  <t>  %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
+map global object <t> %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
 #TODO <a-z>
 define-command bkey %{
 	evaluate-commands %sh{
@@ -654,8 +657,8 @@ define-command bkey %{
 			[ -n "$key_c_" ]                     && mapping="$mapping map global insert $key_c_ '<a-;>$nor_c_' ;"
 			[ -n "$key_cs" ]                     && mapping="$mapping map global insert $key_cs '<a-;>$nor_cs' ;"
 
-			[ -n "$key_a_" ]                     && mapping="$mapping map global prompt $key_a_      '$pro_a_' ;"
-			[ -n "$key_as" ]                     && mapping="$mapping map global prompt $key_as      '$pro_as' ;"
+			[ -n "$key_a_" ]                     && mapping="$mapping map global prompt $key_a_      '$pro___' ;"
+			[ -n "$key_as" ]                     && mapping="$mapping map global prompt $key_as      '$pro__s' ;"
 
 			[ -n "$key___" ] && [ -n "$men___" ] && mapping="$mapping map global Menu   $key___      '$men___' ;"
 			[ -n "$key___" ] && [ -n "$men_a_" ] && mapping="$mapping map global MenuEx $key___      '$men_a_' ;"
