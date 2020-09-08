@@ -37,11 +37,8 @@
 	define-command -hidden bkey-to-line %{
 		evaluate-commands %sh{
 			if [ $kak_count -gt '0' ]; then
-				if [ $1 = 'e' ]; then
-					echo "execute-keys <G><g>$kak_count<J><K>"
-				else
-					echo "execute-keys <g><g>$kak_count<;><J><k>"
-				fi
+				[ $1 != 'e' ] && ex='<;>'
+				echo "execute-keys $ex<G><g>$kak_count<J><k>"
 			fi
 		}
 
@@ -52,16 +49,16 @@
 	#TODO fix paste
 	define-command -hidden -params 1 bkey-ins %{
 		execute-keys -with-hooks %sh{
-			[ ! -z $kak_register ] && register="<\><$kak_register>"
+			[ -n $kak_register ] && register="<\><$kak_register>"
 			[ $kak_count -gt '0' ] && paste_keys="<;>$(( $kak_count - 1 ))"
 			select_pos_1=${kak_selection_desc%%,*}
 			select_pos_2=${kak_selection_desc##*,}
 
 			if [ ${select_pos_1%%.*} -lt ${select_pos_2%%.*} ]; then
 				cursor_pos='a'
-			elif [ ${select_pos_1%%.*} == ${select_pos_2%%.*} ]; then
+			elif [ ${select_pos_1%%.*} = ${select_pos_2%%.*} ]; then
 				[ ${select_pos_1##*.} -lt ${select_pos_2##*.} ] && cursor_pos='a'
-				[ ${select_pos_1##*.} == ${select_pos_2##*.}  ] && cursor_pos='1'
+				[ ${select_pos_1##*.} = ${select_pos_2##*.}  ] && cursor_pos='1'
 			fi
 
 			case $cursor_pos in
