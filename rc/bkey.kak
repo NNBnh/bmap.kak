@@ -104,7 +104,7 @@ map global object <t> %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<
 
 
 #TODO <a-z>
-define-command -params 1 bkey %{
+define-command -params 0..1 bkey %{
 	evaluate-commands %sh{
 		keys="
 			ops____________0
@@ -586,8 +586,8 @@ define-command -params 1 bkey %{
 				'cua__________f10') vie___="$nor___"                ; vie__s="$nor___"                ;;
 				'cua__________f11') vie___="$nor___"                ; vie__s="$nor___"                ;;
 				'cua__________f12') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua_________left') vie___="<v><h>"                 ; vie__s="%val{window_width}<v><h>";;
-				'cua________right') vie___="<v><l>"                 ; vie__s="%val{window_width}<v><l>";;
+				'cua_________left') vie___="<v><h>"                 ; vie__s="%val{window_width}<v><h>" ;;
+				'cua________right') vie___="<v><l>"                 ; vie__s="%val{window_width}<v><l>" ;;
 				'cua___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                 ;;
 				'cua_________down') vie___="<v><j>"                 ; vie__s="<v><t>"                 ;;
 				'cua_______pageup') vie___=""                       ; vie__s=""                       ;;
@@ -600,8 +600,8 @@ define-command -params 1 bkey %{
 				'cua______advance') vie___="<V><c><m><esc>"         ; vie__s=""                       ;;
 				'cua_________exit') vie___=": bkey<ret>"            ; vie__s=""                       ;;
 				'cua________enter') vie___=""                       ; vie__s=""                       ;;
-				'nav_________left') vie___="<v><h>"                 ; vie__s="%val{window_width}<v><h>";;
-				'nav________right') vie___="<v><l>"                 ; vie__s="%val{window_width}<v><l>";;
+				'nav_________left') vie___="<v><h>"                 ; vie__s="%val{window_width}<v><h>" ;;
+				'nav________right') vie___="<v><l>"                 ; vie__s="%val{window_width}<v><l>" ;;
 				'nav___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                 ;;
 				'nav_________down') vie___="<v><j>"                 ; vie__s="<v><t>"                 ;;
 				'nav_____backward') vie___="<c-u>"                  ; vie__s="<c-b>"                  ;;
