@@ -533,38 +533,38 @@
 			esac
 
 
-			[ -n "$key___" ]                     && maps="$maps map global normal $key___         \"$nor___\"           ;"
-			[ -n "$key__s" ]                     && maps="$maps map global normal $key__s         \"$nor__s\"           ;"
-			[ -n "$key_a_" ]                     && maps="$maps map global normal $key_a_         \"$nor_a_\"           ;"
-			[ -n "$key_as" ]                     && maps="$maps map global normal $key_as         \"$nor_as\"           ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global normal $key_c_         \"$nor_c_\"           ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs         \"$nor_cs\"           ;"
+			[ -n "$key___" ]                     && maps="$maps map global normal $key___         \"$nor___\"           ;\n"
+			[ -n "$key__s" ]                     && maps="$maps map global normal $key__s         \"$nor__s\"           ;\n"
+			[ -n "$key_a_" ]                     && maps="$maps map global normal $key_a_         \"$nor_a_\"           ;\n"
+			[ -n "$key_as" ]                     && maps="$maps map global normal $key_as         \"$nor_as\"           ;\n"
+			[ -n "$key_c_" ]                     && maps="$maps map global normal $key_c_         \"$nor_c_\"           ;\n"
+			[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs         \"$nor_cs\"           ;\n"
 
-			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert $key___         \"$ins___\"           ;"
-			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert $key__s         \"$ins__s\"           ;"
-			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert $key_a_         \"$ins_a_\"           ;"
-			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert $key_as         \"$ins_as\"           ;"
-			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert $key_a_    \"<a-;>$nor___\"           ;"
-			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert $key_as    \"<a-;>$nor__s\"           ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global insert $key_c_    \"<a-;>$nor_c_\"           ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global insert $key_cs    \"<a-;>$nor_cs\"           ;"
+			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert $key___         \"$ins___\"           ;\n"
+			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert $key__s         \"$ins__s\"           ;\n"
+			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert $key_a_         \"$ins_a_\"           ;\n"
+			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert $key_as         \"$ins_as\"           ;\n"
+			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert $key_a_    \"<a-;>$nor___\"           ;\n"
+			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert $key_as    \"<a-;>$nor__s\"           ;\n"
+			[ -n "$key_c_" ]                     && maps="$maps map global insert $key_c_    \"<a-;>$nor_c_\"           ;\n"
+			[ -n "$key_cs" ]                     && maps="$maps map global insert $key_cs    \"<a-;>$nor_cs\"           ;\n"
 
-			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt $key___         \"$pro___\"           ;"
-			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt $key__s         \"$pro__s\"           ;"
-			[ -n "$key_a_" ]                     && maps="$maps map global prompt $key_a_         \"$pro_a_\"           ;"
-			[ -n "$key_as" ]                     && maps="$maps map global prompt $key_as         \"$pro_as\"           ;"
+			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt $key___         \"$pro___\"           ;\n"
+			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt $key__s         \"$pro__s\"           ;\n"
+			[ -n "$key_a_" ]                     && maps="$maps map global prompt $key_a_         \"$pro_a_\"           ;\n"
+			[ -n "$key_as" ]                     && maps="$maps map global prompt $key_as         \"$pro_as\"           ;\n"
 
-			[ -n "$key___" ]                     && menu="$menu map global normal $key___ \"%%arg{1}$men___: bkey<ret>\";"
-			[ -n "$key__s" ]                     && menu="$menu map global normal $key__s \"%%arg{1}$men__s: bkey<ret>\";"
-			[ -n "$key_a_" ]                     && menu="$menu map global normal $key_a_ \"%%arg{1}$men_a_: bkey<ret>\";"
-			[ -n "$key_as" ]                     && menu="$menu map global normal $key_as \"%%arg{1}$men_as: bkey<ret>\";"
+			[ -n "$key___" ]                     && menu="$menu map global normal $key___ \"%%arg{1}$men___: bkey<ret>\";\n"
+			[ -n "$key__s" ]                     && menu="$menu map global normal $key__s \"%%arg{1}$men__s: bkey<ret>\";\n"
+			[ -n "$key_a_" ]                     && menu="$menu map global normal $key_a_ \"%%arg{1}$men_a_: bkey<ret>\";\n"
+			[ -n "$key_as" ]                     && menu="$menu map global normal $key_as \"%%arg{1}$men_as: bkey<ret>\";\n"
 
-			[ -n "$key___" ]                     && view="$view map global normal $key___ \"%%arg{1}$vie___\"           ;"
-			[ -n "$key__s" ]                     && view="$view map global normal $key__s \"%%arg{1}$vie__s\"           ;"
+			[ -n "$key___" ]                     && view="$view map global normal $key___ \"%%arg{1}$vie___\"           ;\n"
+			[ -n "$key__s" ]                     && view="$view map global normal $key__s \"%%arg{1}$vie__s\"           ;\n"
 
 			if [ "$key" = 'cua________cycle' ]; then
-				printf "hook global InsertCompletionShow .* %%{ map   window insert $key___ '<c-n>'; map   window insert $key__s '<c-p>' };"
-				printf "hook global InsertCompletionHide .* %%{ unmap window insert $key___ '<c-n>'; unmap window insert $key__s '<c-p>' };"
+				printf "hook global InsertCompletionShow .* %%{ map   window insert $key___ '<c-n>'; map   window insert $key__s '<c-p>' };\n"
+				printf "hook global InsertCompletionHide .* %%{ unmap window insert $key___ '<c-n>'; unmap window insert $key__s '<c-p>' };\n"
 			fi
 		done
 
