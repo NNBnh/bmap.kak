@@ -670,8 +670,8 @@ define-command -params 1 bkey %{
 			[ -n "$key__s" ]                     && view="$view map global normal $key__s \"%arg{1}$vie__s\"           ;"
 
 			if [ "$key" = 'cua________cycle' ]; then
-			printf "hook global InsertCompletionShow .* %{ map   window insert $key___ '<c-n>'; map   window insert $key__s '<c-p>' }"
-			printf "hook global InsertCompletionHide .* %{ unmap window insert $key___ '<c-n>'; unmap window insert $key__s '<c-p>' }"
+			printf "hook global InsertCompletionShow .* %{ map   window insert $key___ '<c-n>'; map   window insert $key__s '<c-p>' };"
+			printf "hook global InsertCompletionHide .* %{ unmap window insert $key___ '<c-n>'; unmap window insert $key__s '<c-p>' };"
 			fi
 		done
 
