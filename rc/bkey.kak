@@ -189,7 +189,7 @@ define-command -params 0..1 bkey %{
 				'ops____________2') key___="<2>"                    ; key__s="<@>"                    ; key_a_="<a-2>"                  ; key_as="<a-@>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________3') key___="<3>"                    ; key__s="<#>"                    ; key_a_="<a-3>"                  ; key_as="<a-#>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________4') key___="<4>"                    ; key__s="<$>"                    ; key_a_="<a-4>"                  ; key_as="<a-$>"                  ; key_c_=""                       ; key_cs=""                       ;;
-				'ops____________5') key___="<5>"                    ; key__s="<%%>"                 ; key_a_="<a-5>"                  ; key_as="<a-%>"               ; key_c_=""                       ; key_cs=""                       ;;
+				'ops____________5') key___="<5>"                    ; key__s="<%%>"                   ; key_a_="<a-5>"                  ; key_as="<a-%>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________6') key___="<6>"                    ; key__s="<^>"                    ; key_a_="<a-6>"                  ; key_as="<a-^>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________7') key___="<7>"                    ; key__s="<&>"                    ; key_a_="<a-7>"                  ; key_as="<a-&>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________8') key___="<8>"                    ; key__s="<*>"                    ; key_a_="<a-8>"                  ; key_as="<a-*>"                  ; key_c_=""                       ; key_cs=""                       ;;
@@ -246,7 +246,7 @@ define-command -params 0..1 bkey %{
 				'env__________new') key___="<p>"                    ; key__s="<P>"                    ; key_a_="<a-p>"                  ; key_as="<a-P>"                  ; key_c_="<c-p>"                  ; key_cs=""                       ;;
 				'env________group') key___="<b>"                    ; key__s="<B>"                    ; key_a_="<a-b>"                  ; key_as="<a-B>"                  ; key_c_="<c-b>"                  ; key_cs=""                       ;;
 				'env______command') key___="<semicolon>"            ; key__s="<:>"                    ; key_a_="<a-semicolon>"          ; key_as="<a-:>"                  ; key_c_=""                       ; key_cs=""                       ;;
-				'env_____terminal') key___="<\`>"                   ; key__s="<~>"                    ; key_a_="<a-\`>"                  ; key_as="<a-~>"                  ; key_c_=""                       ; key_cs=""                       ;;
+				'env_____terminal') key___="<\`>"                   ; key__s="<~>"                    ; key_a_="<a-\`>"                 ; key_as="<a-~>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'env______history') key___="<z>"                    ; key__s="<Z>"                    ; key_a_="<a-z>"                  ; key_as="<a-Z>"                  ; key_c_="<c-z>"                  ; key_cs=""                       ;;
 				'env___________re') key___="<r>"                    ; key__s="<R>"                    ; key_a_="<a-r>"                  ; key_as="<a-R>"                  ; key_c_="<c-r>"                  ; key_cs=""                       ;;
 				'env_______record') key___="<t>"                    ; key__s="<T>"                    ; key_a_="<a-t>"                  ; key_as="<a-T>"                  ; key_c_="<c-t>"                  ; key_cs=""                       ;;
@@ -256,20 +256,20 @@ define-command -params 0..1 bkey %{
 				'vie_________view') key___="<\\>"                   ; key__s="<|>"                    ; key_a_="<a-\\>"                 ; key_as="<a-|>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'vie________minus') key___="<minus>"                ; key__s="<_>"                    ; key_a_="<a-minus>"              ; key_as="<a-_>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'vie_________plus') key___="<=>"                    ; key__s="<plus>"                 ; key_a_="<a-=>"                  ; key_as="<a-plus>"               ; key_c_=""                       ; key_cs=""                       ;;
-				'vie________equal') key___="<'>"                    ; key__s="<\">"                   ; key_a_="<a-'>"                  ; key_as="<a-\">"                 ; key_c_=""                       ; key_cs=""                       ;;
+				'vie________equal') key___="<'>"                    ; key__s="<\"\">"                 ; key_a_="<a-'>"                  ; key_as="<a-\">"                 ; key_c_=""                       ; key_cs=""                       ;;
 			esac
 
 			case $key in
-				'ops____________0') nor___="0"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________1') nor___="1"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________2') nor___="2"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________3') nor___="3"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________4') nor___="4"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________5') nor___="5"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________6') nor___="6"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________7') nor___="7"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________8') nor___="8"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________9') nor___="9"                      ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________0') nor___="<0>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________1') nor___="<1>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________2') nor___="<2>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________3') nor___="<3>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________4') nor___="<4>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________5') nor___="<5>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________6') nor___="<6>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________7') nor___="<7>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________8') nor___="<8>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________9') nor___="<9>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
 				'cua___________f1') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
 				'cua___________f2') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
 				'cua___________f3') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
@@ -327,7 +327,7 @@ define-command -params 0..1 bkey %{
 				'env___________re') nor___="<a-.>"                  ; nor__s="<.>"                    ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<V><c><m><esc>"         ; nor_cs=""                       ;;
 				'env_______record') nor___="<q>"                    ; nor__s="<Q>"                    ; nor_a_=""                       ; nor_as="<esc>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
 				'env_________done') nor___=": write<ret>"           ; nor__s=":terminal "             ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env_________code') nor___="<\">"                   ; nor__s="<\\>"                   ; nor_a_=": comment-line<ret>"    ; nor_as=": comment-block<ret>"   ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env_________code') nor___="<\"\">"                 ; nor__s="<\\>"                   ; nor_a_=": comment-line<ret>"    ; nor_as=": comment-block<ret>"   ; nor_c_=""                       ; nor_cs=""                       ;;
 				'env_______person') nor___="<,>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=": quit<ret>"            ; nor_cs=""                       ;;
 				'vie_________view') nor___=": bkey view<ret>"       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
 				'vie________minus') nor___="<lt>"                   ; nor__s="<\`>"                   ; nor_a_="<a-lt>"                 ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
@@ -530,7 +530,7 @@ define-command -params 0..1 bkey %{
 				'nav_________down') men___="<;><G><e>"              ; men__s="<;><G><b>"              ; men_a_="<G><e>"                 ; men_as="<G><b>"                 ;;
 				'nav_____backward') men___="<c-u>"                  ; men__s="<c-b>"                  ; men_a_=""                       ; men_as=""                       ;;
 				'nav______forward') men___="<c-d>"                  ; men__s="<c-f>"                  ; men_a_=""                       ; men_as=""                       ;;
-				'nav________taget') men___="<a-*>"                  ; men__s="<*>"                    ; men_a_="<a-*><%%><s><ret>"    ; men_as="<*><%%><s><ret>"      ;;
+				'nav________taget') men___="<a-*>"                  ; men__s="<*>"                    ; men_a_="<a-*><%%><s><ret>"      ; men_as="<*><%%><s><ret>"        ;;
 				'nav________cycle') men___=""                       ; men__s=""                       ; men_a_=""                       ; men_as=""                       ;;
 				'nav________local') men___="<t>"                    ; men__s="<a-t>"                  ; men_a_="<T>"                    ; men_as="<a-T>"                  ;;
 				'nav________quick') men___="<;><G><f>"              ; men__s="<;><G><c>"              ; men_a_="<G><f>"                 ; men_as="<G><c>"                 ;;
@@ -564,28 +564,28 @@ define-command -params 0..1 bkey %{
 			esac
 
 			case $key in
-				'ops____________0') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________1') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________2') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________3') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________4') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________5') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________6') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________7') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________8') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'ops____________9') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f1') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f2') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f3') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f4') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f5') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f6') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f7') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f8') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua___________f9') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua__________f10') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua__________f11') vie___="$nor___"                ; vie__s="$nor___"                ;;
-				'cua__________f12') vie___="$nor___"                ; vie__s="$nor___"                ;;
+				'ops____________0') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________1') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________2') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________3') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________4') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________5') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________6') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________7') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________8') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________9') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f1') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f2') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f3') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f4') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f5') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f6') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f7') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f8') vie___="$nor___"                ; vie__s=""                ;;
+				'cua___________f9') vie___="$nor___"                ; vie__s=""                ;;
+				'cua__________f10') vie___="$nor___"                ; vie__s=""                ;;
+				'cua__________f11') vie___="$nor___"                ; vie__s=""                ;;
+				'cua__________f12') vie___="$nor___"                ; vie__s=""                ;;
 				'cua_________left') vie___="<v><h>"                 ; vie__s="%%val{window_width}<v><h>" ;;
 				'cua________right') vie___="<v><l>"                 ; vie__s="%%val{window_width}<v><l>" ;;
 				'cua___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                 ;;
@@ -661,13 +661,21 @@ define-command -params 0..1 bkey %{
 			[ -n "$key_a_" ]                     && maps="$maps map global prompt $key_a_         \"$pro_a_\"            ;"
 			[ -n "$key_as" ]                     && maps="$maps map global prompt $key_as         \"$pro_as\"            ;"
 
-			[ -n "$key___" ]                     && menu="$menu map global normal $key___ \"%%arg{1}$men___: bkey<ret>\" ;"
-			[ -n "$key__s" ]                     && menu="$menu map global normal $key__s \"%%arg{1}$men__s: bkey<ret>\" ;"
-			[ -n "$key_a_" ]                     && menu="$menu map global normal $key_a_ \"%%arg{1}$men_a_: bkey<ret>\" ;"
-			[ -n "$key_as" ]                     && menu="$menu map global normal $key_as \"%%arg{1}$men_as: bkey<ret>\" ;"
+			[ -n "$key___" ]                     && menu="$menu map window normal $key___ \"%%arg{1}$men___: bkey<ret>\" ;"
+			[ -n "$key__s" ]                     && menu="$menu map window normal $key__s \"%%arg{1}$men__s: bkey<ret>\" ;"
+			[ -n "$key_a_" ]                     && menu="$menu map window normal $key_a_ \"%%arg{1}$men_a_: bkey<ret>\" ;"
+			[ -n "$key_as" ]                     && menu="$menu map window normal $key_as \"%%arg{1}$men_as: bkey<ret>\" ;"
+			[ -n "$key_c_" ]                     && menu="$menu map window normal $key_c_                \"\"            ;"
+			[ -n "$key_cs" ]                     && menu="$menu map window normal $key_cs                \"\"            ;"
 
-			[ -n "$key___" ]                     && view="$view map global normal $key___ \"%%arg{1}$vie___\"            ;"
-			[ -n "$key__s" ]                     && view="$view map global normal $key__s \"%%arg{1}$vie__s\"            ;"
+
+			[ -n "$key___" ]                     && view="$view map global normal $key___         \"$vie___\"            ;"
+			[ -n "$key__s" ]                     && view="$view map global normal $key__s         \"$vie__s\"            ;"
+			[ -n "$key_a_" ]                     && view="$view map global normal $key_a_         \"$vie_a_\"            ;"
+			[ -n "$key_as" ]                     && view="$view map global normal $key_as         \"$vie_as\"            ;"
+			[ -n "$key_c_" ]                     && view="$view map global normal $key_c_         \"$vie_c_\"            ;"
+			[ -n "$key_cs" ]                     && view="$view map global normal $key_cs         \"$vie_cs\"            ;"
+
 
 			if [ "$key" = 'cua________cycle' ]; then
 				printf "hook global InsertCompletionShow .* %%{ map   window insert $key___ '<c-n>' ; map   window insert $key__s '<c-p>' };"
