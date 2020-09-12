@@ -189,7 +189,7 @@ define-command -params 0..1 bkey %{
 				'ops____________2') key___="<2>"                    ; key__s="<@>"                    ; key_a_="<a-2>"                  ; key_as="<a-@>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________3') key___="<3>"                    ; key__s="<#>"                    ; key_a_="<a-3>"                  ; key_as="<a-#>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________4') key___="<4>"                    ; key__s="<$>"                    ; key_a_="<a-4>"                  ; key_as="<a-$>"                  ; key_c_=""                       ; key_cs=""                       ;;
-				'ops____________5') key___="<5>"                    ; key__s="<%%%%>"                 ; key_a_="<a-5>"                  ; key_as="<a-%%%%>"               ; key_c_=""                       ; key_cs=""                       ;;
+				'ops____________5') key___="<5>"                    ; key__s="<%%>"                   ; key_a_="<a-5>"                  ; key_as="<a-%%>"                 ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________6') key___="<6>"                    ; key__s="<^>"                    ; key_a_="<a-6>"                  ; key_as="<a-^>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________7') key___="<7>"                    ; key__s="<&>"                    ; key_a_="<a-7>"                  ; key_as="<a-&>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'ops____________8') key___="<8>"                    ; key__s="<*>"                    ; key_a_="<a-8>"                  ; key_as="<a-*>"                  ; key_c_=""                       ; key_cs=""                       ;;
@@ -256,83 +256,83 @@ define-command -params 0..1 bkey %{
 				'vie_________view') key___="<\\>"                   ; key__s="<|>"                    ; key_a_="<a-\\>"                 ; key_as="<a-|>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'vie________minus') key___="<minus>"                ; key__s="<_>"                    ; key_a_="<a-minus>"              ; key_as="<a-_>"                  ; key_c_=""                       ; key_cs=""                       ;;
 				'vie_________plus') key___="<=>"                    ; key__s="<plus>"                 ; key_a_="<a-=>"                  ; key_as="<a-plus>"               ; key_c_=""                       ; key_cs=""                       ;;
-				'vie________equal') key___="<'>"                    ; key__s="<\"\">"                 ; key_a_="<a-'>"                  ; key_as="<a-\">"                 ; key_c_=""                       ; key_cs=""                       ;;
+				'vie________equal') key___="<'>"                    ; key__s="<\"\">"                 ; key_a_="<a-'>"                  ; key_as="<a-\"\">"               ; key_c_=""                       ; key_cs=""                       ;;
 			esac
 
 			case $key in
-				'ops____________0') nor___="<0>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________1') nor___="<1>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________2') nor___="<2>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________3') nor___="<3>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________4') nor___="<4>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________5') nor___="<5>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________6') nor___="<6>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________7') nor___="<7>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________8') nor___="<8>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'ops____________9') nor___="<9>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f1') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f2') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f3') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f4') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f5') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f6') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f7') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f8') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua___________f9') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua__________f10') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua__________f11') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua__________f12') nor___=""                       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua_________left') nor___="<h>"                    ; nor__s="<H>"                    ; nor_a_="<lt>"                   ; nor_as="<a-lt>"                 ; nor_c_="<b>"                    ; nor_cs="<B>"                    ;;
-				'cua________right') nor___="<l>"                    ; nor__s="<L>"                    ; nor_a_="<gt>"                   ; nor_as="<a-gt>"                 ; nor_c_="<e>"                    ; nor_cs="<E>"                    ;;
-				'cua___________up') nor___="<k>"                    ; nor__s="<K>"                    ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<k>"                    ; nor_cs="<K>"                    ;;
-				'cua_________down') nor___="<j>"                    ; nor__s="<J>"                    ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<j>"                    ; nor_cs="<J>"                    ;;
-				'cua_______pageup') nor___="<c-b>"                  ; nor__s="<c-b>"                  ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<c-u>"                  ; nor_cs="<c-u>"                  ;;
-				'cua_____pagedown') nor___="<c-f>"                  ; nor__s="<c-f>"                  ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<c-d>"                  ; nor_cs="<c-d>"                  ;;
-				'cua_________home') nor___="<a-h>"                  ; nor__s="<a-H>"                  ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<g><g>"                 ; nor_cs="<G><g>"                 ;;
-				'cua__________end') nor___="<a-l>"                  ; nor__s="<a-L>"                  ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<g><e>"                 ; nor_cs="<G><e>"                 ;;
-				'cua________cycle') nor___=": buffer-previous<ret>" ; nor__s=": buffer-next<ret>"     ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua____backspace') nor___="<;><h><a-d>"            ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua_______delete') nor___="<;><a-d>"               ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua______advance') nor___=": bkey %%val{count}<ret>"; nor__s=""                      ; nor_a_=": bkey %%val{count}<ret>"; nor_as=""                      ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua_________exit') nor___="<;>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'cua________enter') nor___="<ret>"                  ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav_________left') nor___="<h>"                    ; nor__s="<a-h>"                  ; nor_a_="<H>"                    ; nor_as="<a-H>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav________right') nor___="<l>"                    ; nor__s="<a-l>"                  ; nor_a_="<L>"                    ; nor_as="<a-L>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav___________up') nor___="<k>"                    ; nor__s="<[>p"                   ; nor_a_="<K>"                    ; nor_as="<{>p"                   ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav_________down') nor___="<j>"                    ; nor__s="<]>p"                   ; nor_a_="<J>"                    ; nor_as="<}>p"                   ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav_____backward') nor___="<b>"                    ; nor__s="<a-b>"                  ; nor_a_="<B>"                    ; nor_as="<a-B>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav______forward') nor___="<e>"                    ; nor__s="<a-e>"                  ; nor_a_="<E>"                    ; nor_as="<a-E>"                  ; nor_c_=":edit "                 ; nor_cs=""                       ;;
-				'nav________taget') nor___="</>"                    ; nor__s="<a-/>"                  ; nor_a_="<?>"                    ; nor_as="<a-?>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav________cycle') nor___="<n>"                    ; nor__s="<a-n>"                  ; nor_a_="<N>"                    ; nor_as="<a-N>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav________local') nor___="<f>"                    ; nor__s="<a-f>"                  ; nor_a_="<F>"                    ; nor_as="<a-F>"                  ; nor_c_="<U>"                    ; nor_cs=""                       ;;
-				'nav________quick') nor___="<m>"                    ; nor__s="<a-m>"                  ; nor_a_="<M>"                    ; nor_as="<a-M>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav_________load') nor___="<z>"                    ; nor__s="<Z>"                    ; nor_a_=""                       ; nor_as="<c-s>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav_________item') nor___="<)>"                    ; nor__s="<(>"                    ; nor_a_="<a-)>"                  ; nor_as="<a-(>"                  ; nor_c_=": bkey-line<ret>"       ; nor_cs=""                       ;;
-				'nav________focus') nor___="<a-x>"                  ; nor__s="<%%%%>"                 ; nor_a_="<a-x>"                  ; nor_as="<a-X>"                  ; nor_c_=": write<ret>"           ; nor_cs=":write "                ;;
-				'nav_______select') nor___="<a-i>"                  ; nor__s="<a-a>"                  ; nor_a_="<a-;>"                  ; nor_as="<a-:>"                  ; nor_c_="<%%%%>"                 ; nor_cs=""                       ;;
-				'nav_________next') nor___="<a-[>"                  ; nor__s="["                      ; nor_a_="<a-{>"                  ; nor_as="{"                      ; nor_c_=""                       ; nor_cs=""                       ;;
-				'nav_________prev') nor___="<a-]>"                  ; nor__s="]"                      ; nor_a_="<a-}>"                  ; nor_as="}"                      ; nor_c_=""                       ; nor_cs=""                       ;;
-				'act______primary') nor___=": bkey-ins i<ret>"      ; nor__s="<A>"                    ; nor_a_=": bkey-ins i<ret>"      ; nor_as="<I>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
-				'act____secondary') nor___="<u>"                    ; nor__s="<U>"                    ; nor_a_="<c-o>"                  ; nor_as="<c-i>"                  ; nor_c_="</>"                    ; nor_cs=""                       ;;
-				'act__alternative') nor___="<a-c>"                  ; nor__s="<a-l><a-c>"             ; nor_a_="<r>"                    ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'act__________cut') nor___="<d>"                    ; nor__s="<a-l><d>"               ; nor_a_="<a-d>"                  ; nor_as="<a-l><a-d>"             ; nor_c_="<d>"                    ; nor_cs=""                       ;;
-				'act___________in') nor___="<y>"                    ; nor__s="<a-l><y>"               ; nor_a_="<y>"                    ; nor_as="<a-L><y>"               ; nor_c_="<y>"                    ; nor_cs=""                       ;;
-				'act__________out') nor___=": bkey-ins p<ret>"      ; nor__s="<R>"                    ; nor_a_=": bkey-ins pe<ret>"     ; nor_as="<R>"                    ; nor_c_=": bkey-ins p<ret>"      ; nor_cs=""                       ;;
-				'env_________edit') nor___="<space>"                ; nor__s="<a-space>"              ; nor_a_="<_>"                    ; nor_as=""                       ; nor_c_=": delete-buffer<ret>"   ; nor_cs=""                       ;;
-				'env__________new') nor___="<a-o>"                  ; nor__s="<a-O>"                  ; nor_a_="<C>"                    ; nor_as="<a-C>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env________group') nor___="<a-J>"                  ; nor__s="<a-_>"                  ; nor_a_="<a-j>"                  ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env______command') nor___="<:>"                    ; nor__s=": bkey-ins c<ret>"      ; nor_a_="<a-|>"                  ; nor_as="<|>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env_____terminal') nor___=":terminal "             ; nor__s=": bkey-term<ret>"       ; nor_a_="<a-|>"                  ; nor_as="<|>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env______history') nor___="<u>"                    ; nor__s="<U>"                    ; nor_a_="<a-u>"                  ; nor_as="<a-U>"                  ; nor_c_="<u>"                    ; nor_cs="<U>"                    ;;
-				'env___________re') nor___="<a-.>"                  ; nor__s="<.>"                    ; nor_a_=""                       ; nor_as=""                       ; nor_c_="<V><c><m><esc>"         ; nor_cs=""                       ;;
-				'env_______record') nor___="<q>"                    ; nor__s="<Q>"                    ; nor_a_=""                       ; nor_as="<esc>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env_________done') nor___=": write<ret>"           ; nor__s=":terminal "             ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env_________code') nor___="<\"\">"                 ; nor__s="<\\>"                   ; nor_a_=": comment-line<ret>"    ; nor_as=": comment-block<ret>"   ; nor_c_=""                       ; nor_cs=""                       ;;
-				'env_______person') nor___="<,>"                    ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=": quit<ret>"            ; nor_cs=""                       ;;
-				'vie_________view') nor___=": bkey view<ret>"       ; nor__s=""                       ; nor_a_=""                       ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'vie________minus') nor___="<lt>"                   ; nor__s="<\`>"                   ; nor_a_="<a-lt>"                 ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'vie_________plus') nor___="<gt>"                   ; nor__s="<~>"                    ; nor_a_="<a-gt>"                 ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
-				'vie________equal') nor___="<&>"                    ; nor__s="<a-\`>"                 ; nor_a_="<a-&>"                  ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________0') nor___="<0>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________1') nor___="<1>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________2') nor___="<2>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________3') nor___="<3>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________4') nor___="<4>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________5') nor___="<5>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________6') nor___="<6>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________7') nor___="<7>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________8') nor___="<8>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'ops____________9') nor___="<9>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f1') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f2') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f3') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f4') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f5') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f6') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f7') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f8') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua___________f9') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua__________f10') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua__________f11') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua__________f12') nor___=""                        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua_________left') nor___="<h>"                     ; nor__s="<H>"                    ; nor_a_="<lt>"                    ; nor_as="<a-lt>"                 ; nor_c_="<b>"                    ; nor_cs="<B>"                    ;;
+				'cua________right') nor___="<l>"                     ; nor__s="<L>"                    ; nor_a_="<gt>"                    ; nor_as="<a-gt>"                 ; nor_c_="<e>"                    ; nor_cs="<E>"                    ;;
+				'cua___________up') nor___="<k>"                     ; nor__s="<K>"                    ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<k>"                    ; nor_cs="<K>"                    ;;
+				'cua_________down') nor___="<j>"                     ; nor__s="<J>"                    ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<j>"                    ; nor_cs="<J>"                    ;;
+				'cua_______pageup') nor___="<c-b>"                   ; nor__s="<c-b>"                  ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<c-u>"                  ; nor_cs="<c-u>"                  ;;
+				'cua_____pagedown') nor___="<c-f>"                   ; nor__s="<c-f>"                  ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<c-d>"                  ; nor_cs="<c-d>"                  ;;
+				'cua_________home') nor___="<a-h>"                   ; nor__s="<a-H>"                  ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<g><g>"                 ; nor_cs="<G><g>"                 ;;
+				'cua__________end') nor___="<a-l>"                   ; nor__s="<a-L>"                  ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<g><e>"                 ; nor_cs="<G><e>"                 ;;
+				'cua________cycle') nor___=": buffer-previous<ret>"  ; nor__s=": buffer-next<ret>"     ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua____backspace') nor___="<;><h><a-d>"             ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua_______delete') nor___="<;><a-d>"                ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua______advance') nor___=": bkey %%val{count}<ret>"; nor__s=""                       ; nor_a_=": bkey %%val{count}<ret>"; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua_________exit') nor___="<;>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'cua________enter') nor___="<ret>"                   ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav_________left') nor___="<h>"                     ; nor__s="<a-h>"                  ; nor_a_="<H>"                     ; nor_as="<a-H>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav________right') nor___="<l>"                     ; nor__s="<a-l>"                  ; nor_a_="<L>"                     ; nor_as="<a-L>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav___________up') nor___="<k>"                     ; nor__s="<[>p"                   ; nor_a_="<K>"                     ; nor_as="<{>p"                   ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav_________down') nor___="<j>"                     ; nor__s="<]>p"                   ; nor_a_="<J>"                     ; nor_as="<}>p"                   ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav_____backward') nor___="<b>"                     ; nor__s="<a-b>"                  ; nor_a_="<B>"                     ; nor_as="<a-B>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav______forward') nor___="<e>"                     ; nor__s="<a-e>"                  ; nor_a_="<E>"                     ; nor_as="<a-E>"                  ; nor_c_=":edit "                 ; nor_cs=""                       ;;
+				'nav________taget') nor___="</>"                     ; nor__s="<a-/>"                  ; nor_a_="<?>"                     ; nor_as="<a-?>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav________cycle') nor___="<n>"                     ; nor__s="<a-n>"                  ; nor_a_="<N>"                     ; nor_as="<a-N>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav________local') nor___="<f>"                     ; nor__s="<a-f>"                  ; nor_a_="<F>"                     ; nor_as="<a-F>"                  ; nor_c_="<U>"                    ; nor_cs=""                       ;;
+				'nav________quick') nor___="<m>"                     ; nor__s="<a-m>"                  ; nor_a_="<M>"                     ; nor_as="<a-M>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav_________load') nor___="<z>"                     ; nor__s="<Z>"                    ; nor_a_=""                        ; nor_as="<c-s>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav_________item') nor___="<)>"                     ; nor__s="<(>"                    ; nor_a_="<a-)>"                   ; nor_as="<a-(>"                  ; nor_c_=": bkey-line<ret>"       ; nor_cs=""                       ;;
+				'nav________focus') nor___="<a-x>"                   ; nor__s="<%%>"                   ; nor_a_="<a-x>"                   ; nor_as="<a-X>"                  ; nor_c_=": write<ret>"           ; nor_cs=":write "                ;;
+				'nav_______select') nor___="<a-i>"                   ; nor__s="<a-a>"                  ; nor_a_="<a-;>"                   ; nor_as="<a-:>"                  ; nor_c_="<%%>"                   ; nor_cs=""                       ;;
+				'nav_________next') nor___="<a-[>"                   ; nor__s="["                      ; nor_a_="<a-{>"                   ; nor_as="{"                      ; nor_c_=""                       ; nor_cs=""                       ;;
+				'nav_________prev') nor___="<a-]>"                   ; nor__s="]"                      ; nor_a_="<a-}>"                   ; nor_as="}"                      ; nor_c_=""                       ; nor_cs=""                       ;;
+				'act______primary') nor___=": bkey-ins i<ret>"       ; nor__s="<A>"                    ; nor_a_=": bkey-ins i<ret>"       ; nor_as="<I>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
+				'act____secondary') nor___="<u>"                     ; nor__s="<U>"                    ; nor_a_="<c-o>"                   ; nor_as="<c-i>"                  ; nor_c_="</>"                    ; nor_cs=""                       ;;
+				'act__alternative') nor___="<a-c>"                   ; nor__s="<a-l><a-c>"             ; nor_a_="<r>"                     ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'act__________cut') nor___="<d>"                     ; nor__s="<a-l><d>"               ; nor_a_="<a-d>"                   ; nor_as="<a-l><a-d>"             ; nor_c_="<d>"                    ; nor_cs=""                       ;;
+				'act___________in') nor___="<y>"                     ; nor__s="<a-l><y>"               ; nor_a_="<y>"                     ; nor_as="<a-L><y>"               ; nor_c_="<y>"                    ; nor_cs=""                       ;;
+				'act__________out') nor___=": bkey-ins p<ret>"       ; nor__s="<R>"                    ; nor_a_=": bkey-ins pe<ret>"      ; nor_as="<R>"                    ; nor_c_=": bkey-ins p<ret>"      ; nor_cs=""                       ;;
+				'env_________edit') nor___="<space>"                 ; nor__s="<a-space>"              ; nor_a_="<_>"                     ; nor_as=""                       ; nor_c_=": delete-buffer<ret>"   ; nor_cs=""                       ;;
+				'env__________new') nor___="<a-o>"                   ; nor__s="<a-O>"                  ; nor_a_="<C>"                     ; nor_as="<a-C>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env________group') nor___="<a-J>"                   ; nor__s="<a-_>"                  ; nor_a_="<a-j>"                   ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env______command') nor___="<:>"                     ; nor__s=": bkey-ins c<ret>"      ; nor_a_="<a-|>"                   ; nor_as="<|>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env_____terminal') nor___=":terminal "              ; nor__s=": bkey-term<ret>"       ; nor_a_="<a-|>"                   ; nor_as="<|>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env______history') nor___="<u>"                     ; nor__s="<U>"                    ; nor_a_="<a-u>"                   ; nor_as="<a-U>"                  ; nor_c_="<u>"                    ; nor_cs="<U>"                    ;;
+				'env___________re') nor___="<a-.>"                   ; nor__s="<.>"                    ; nor_a_=""                        ; nor_as=""                       ; nor_c_="<V><c><m><esc>"         ; nor_cs=""                       ;;
+				'env_______record') nor___="<q>"                     ; nor__s="<Q>"                    ; nor_a_=""                        ; nor_as="<esc>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env_________done') nor___=": write<ret>"            ; nor__s=":terminal "             ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env_________code') nor___="<\"\">"                  ; nor__s="<\\>"                   ; nor_a_=": comment-line<ret>"     ; nor_as=": comment-block<ret>"   ; nor_c_=""                       ; nor_cs=""                       ;;
+				'env_______person') nor___="<,>"                     ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=": quit<ret>"            ; nor_cs=""                       ;;
+				'vie_________view') nor___=": bkey view<ret>"        ; nor__s=""                       ; nor_a_=""                        ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'vie________minus') nor___="<lt>"                    ; nor__s="<\`>"                   ; nor_a_="<a-lt>"                  ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'vie_________plus') nor___="<gt>"                    ; nor__s="<~>"                    ; nor_a_="<a-gt>"                  ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
+				'vie________equal') nor___="<&>"                     ; nor__s="<a-\`>"                 ; nor_a_="<a-&>"                   ; nor_as=""                       ; nor_c_=""                       ; nor_cs=""                       ;;
 			esac
 
 			case $key in
@@ -530,7 +530,7 @@ define-command -params 0..1 bkey %{
 				'nav_________down') men___="<;><G><e>"              ; men__s="<;><G><b>"              ; men_a_="<G><e>"                 ; men_as="<G><b>"                 ;;
 				'nav_____backward') men___="<c-u>"                  ; men__s="<c-b>"                  ; men_a_=""                       ; men_as=""                       ;;
 				'nav______forward') men___="<c-d>"                  ; men__s="<c-f>"                  ; men_a_=""                       ; men_as=""                       ;;
-				'nav________taget') men___="<a-*>"                  ; men__s="<*>"                    ; men_a_="<a-*><%%%%><s><ret>"    ; men_as="<*><%%%%><s><ret>"      ;;
+				'nav________taget') men___="<a-*>"                  ; men__s="<*>"                    ; men_a_="<a-*><%%><s><ret>"      ; men_as="<*><%%><s><ret>"        ;;
 				'nav________cycle') men___=""                       ; men__s=""                       ; men_a_=""                       ; men_as=""                       ;;
 				'nav________local') men___="<t>"                    ; men__s="<a-t>"                  ; men_a_="<T>"                    ; men_as="<a-T>"                  ;;
 				'nav________quick') men___="<;><G><f>"              ; men__s="<;><G><c>"              ; men_a_="<G><f>"                 ; men_as="<G><c>"                 ;;
@@ -564,119 +564,119 @@ define-command -params 0..1 bkey %{
 			esac
 
 			case $key in
-				'ops____________0') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________1') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________2') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________3') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________4') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________5') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________6') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________7') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________8') vie___="$nor___"                ; vie__s=""                ;;
-				'ops____________9') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f1') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f2') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f3') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f4') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f5') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f6') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f7') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f8') vie___="$nor___"                ; vie__s=""                ;;
-				'cua___________f9') vie___="$nor___"                ; vie__s=""                ;;
-				'cua__________f10') vie___="$nor___"                ; vie__s=""                ;;
-				'cua__________f11') vie___="$nor___"                ; vie__s=""                ;;
-				'cua__________f12') vie___="$nor___"                ; vie__s=""                ;;
+				'ops____________0') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________1') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________2') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________3') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________4') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________5') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________6') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________7') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________8') vie___="$nor___"                ; vie__s=""                          ;;
+				'ops____________9') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f1') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f2') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f3') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f4') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f5') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f6') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f7') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f8') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua___________f9') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua__________f10') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua__________f11') vie___="$nor___"                ; vie__s=""                          ;;
+				'cua__________f12') vie___="$nor___"                ; vie__s=""                          ;;
 				'cua_________left') vie___="<v><h>"                 ; vie__s="%%val{window_width}<v><h>" ;;
 				'cua________right') vie___="<v><l>"                 ; vie__s="%%val{window_width}<v><l>" ;;
-				'cua___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                 ;;
-				'cua_________down') vie___="<v><j>"                 ; vie__s="<v><t>"                 ;;
-				'cua_______pageup') vie___=""                       ; vie__s=""                       ;;
-				'cua_____pagedown') vie___=""                       ; vie__s=""                       ;;
-				'cua_________home') vie___=""                       ; vie__s=""                       ;;
-				'cua__________end') vie___=""                       ; vie__s=""                       ;;
-				'cua________cycle') vie___=""                       ; vie__s=""                       ;;
-				'cua____backspace') vie___=""                       ; vie__s=""                       ;;
-				'cua_______delete') vie___=""                       ; vie__s=""                       ;;
-				'cua______advance') vie___="<V><c><m><esc>"         ; vie__s=""                       ;;
-				'cua_________exit') vie___=": bkey<ret>"            ; vie__s=""                       ;;
-				'cua________enter') vie___=""                       ; vie__s=""                       ;;
+				'cua___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                    ;;
+				'cua_________down') vie___="<v><j>"                 ; vie__s="<v><t>"                    ;;
+				'cua_______pageup') vie___=""                       ; vie__s=""                          ;;
+				'cua_____pagedown') vie___=""                       ; vie__s=""                          ;;
+				'cua_________home') vie___=""                       ; vie__s=""                          ;;
+				'cua__________end') vie___=""                       ; vie__s=""                          ;;
+				'cua________cycle') vie___=""                       ; vie__s=""                          ;;
+				'cua____backspace') vie___=""                       ; vie__s=""                          ;;
+				'cua_______delete') vie___=""                       ; vie__s=""                          ;;
+				'cua______advance') vie___="<V><c><m><esc>"         ; vie__s=""                          ;;
+				'cua_________exit') vie___=": bkey<ret>"            ; vie__s=""                          ;;
+				'cua________enter') vie___=""                       ; vie__s=""                          ;;
 				'nav_________left') vie___="<v><h>"                 ; vie__s="%%val{window_width}<v><h>" ;;
 				'nav________right') vie___="<v><l>"                 ; vie__s="%%val{window_width}<v><l>" ;;
-				'nav___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                 ;;
-				'nav_________down') vie___="<v><j>"                 ; vie__s="<v><t>"                 ;;
-				'nav_____backward') vie___="<c-u>"                  ; vie__s="<c-b>"                  ;;
-				'nav______forward') vie___="<c-d>"                  ; vie__s="<c-f>"                  ;;
-				'nav________taget') vie___=""                       ; vie__s=""                       ;;
-				'nav________cycle') vie___=""                       ; vie__s=""                       ;;
-				'nav________local') vie___=""                       ; vie__s=""                       ;;
-				'nav________quick') vie___="<v><m>"                 ; vie__s="<v><c>"                 ;;
-				'nav_________load') vie___=""                       ; vie__s=""                       ;;
-				'nav_________item') vie___="<)>"                    ; vie__s="<(>"                    ;;
-				'nav________focus') vie___=""                       ; vie__s=""                       ;;
-				'nav_______select') vie___=""                       ; vie__s=""                       ;;
-				'nav_________next') vie___=""                       ; vie__s=""                       ;;
-				'nav_________prev') vie___=""                       ; vie__s=""                       ;;
-				'act______primary') vie___=""                       ; vie__s=""                       ;;
-				'act____secondary') vie___=""                       ; vie__s=""                       ;;
-				'act__alternative') vie___=""                       ; vie__s=""                       ;;
-				'act__________cut') vie___=""                       ; vie__s=""                       ;;
-				'act___________in') vie___=""                       ; vie__s=""                       ;;
-				'act__________out') vie___=""                       ; vie__s=""                       ;;
-				'env_________edit') vie___=""                       ; vie__s=""                       ;;
-				'env__________new') vie___=""                       ; vie__s=""                       ;;
-				'env________group') vie___=""                       ; vie__s=""                       ;;
-				'env______command') vie___=""                       ; vie__s=""                       ;;
-				'env_____terminal') vie___=""                       ; vie__s=""                       ;;
-				'env______history') vie___=""                       ; vie__s=""                       ;;
-				'env___________re') vie___=""                       ; vie__s=""                       ;;
-				'env_______record') vie___=""                       ; vie__s=""                       ;;
-				'env_________done') vie___=""                       ; vie__s=""                       ;;
-				'env_________code') vie___=""                       ; vie__s=""                       ;;
-				'env_______person') vie___=""                       ; vie__s=""                       ;;
-				'vie_________view') vie___="<V><c><m><esc>"         ; vie__s=""                       ;;
-				'vie________minus') vie___=""                       ; vie__s=""                       ;;
-				'vie_________plus') vie___=""                       ; vie__s=""                       ;;
-				'vie________equal') vie___=""                       ; vie__s=""                       ;;
+				'nav___________up') vie___="<v><k>"                 ; vie__s="<v><b>"                    ;;
+				'nav_________down') vie___="<v><j>"                 ; vie__s="<v><t>"                    ;;
+				'nav_____backward') vie___="<c-u>"                  ; vie__s="<c-b>"                     ;;
+				'nav______forward') vie___="<c-d>"                  ; vie__s="<c-f>"                     ;;
+				'nav________taget') vie___=""                       ; vie__s=""                          ;;
+				'nav________cycle') vie___=""                       ; vie__s=""                          ;;
+				'nav________local') vie___=""                       ; vie__s=""                          ;;
+				'nav________quick') vie___="<v><m>"                 ; vie__s="<v><c>"                    ;;
+				'nav_________load') vie___=""                       ; vie__s=""                          ;;
+				'nav_________item') vie___="<)>"                    ; vie__s="<(>"                       ;;
+				'nav________focus') vie___=""                       ; vie__s=""                          ;;
+				'nav_______select') vie___=""                       ; vie__s=""                          ;;
+				'nav_________next') vie___=""                       ; vie__s=""                          ;;
+				'nav_________prev') vie___=""                       ; vie__s=""                          ;;
+				'act______primary') vie___=""                       ; vie__s=""                          ;;
+				'act____secondary') vie___=""                       ; vie__s=""                          ;;
+				'act__alternative') vie___=""                       ; vie__s=""                          ;;
+				'act__________cut') vie___=""                       ; vie__s=""                          ;;
+				'act___________in') vie___=""                       ; vie__s=""                          ;;
+				'act__________out') vie___=""                       ; vie__s=""                          ;;
+				'env_________edit') vie___=""                       ; vie__s=""                          ;;
+				'env__________new') vie___=""                       ; vie__s=""                          ;;
+				'env________group') vie___=""                       ; vie__s=""                          ;;
+				'env______command') vie___=""                       ; vie__s=""                          ;;
+				'env_____terminal') vie___=""                       ; vie__s=""                          ;;
+				'env______history') vie___=""                       ; vie__s=""                          ;;
+				'env___________re') vie___=""                       ; vie__s=""                          ;;
+				'env_______record') vie___=""                       ; vie__s=""                          ;;
+				'env_________done') vie___=""                       ; vie__s=""                          ;;
+				'env_________code') vie___=""                       ; vie__s=""                          ;;
+				'env_______person') vie___=""                       ; vie__s=""                          ;;
+				'vie_________view') vie___="<V><c><m><esc>"         ; vie__s=""                          ;;
+				'vie________minus') vie___=""                       ; vie__s=""                          ;;
+				'vie_________plus') vie___=""                       ; vie__s=""                          ;;
+				'vie________equal') vie___=""                       ; vie__s=""                          ;;
 			esac
 
 
-			[ -n "$key___" ]                     && maps="$maps map global normal "$key___"         \"$nor___\"            ;"
-			[ -n "$key__s" ]                     && maps="$maps map global normal "$key__s"         \"$nor__s\"            ;"
-			[ -n "$key_a_" ]                     && maps="$maps map global normal "$key_a_"         \"$nor_a_\"            ;"
-			[ -n "$key_as" ]                     && maps="$maps map global normal "$key_as"         \"$nor_as\"            ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global normal "$key_c_"         \"$nor_c_\"            ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global normal "$key_cs"         \"$nor_cs\"            ;"
+			[ -n "$key___" ]                     && maps="$maps map global normal \"$key___\"         \"$nor___\"            ;"
+			[ -n "$key__s" ]                     && maps="$maps map global normal \"$key__s\"         \"$nor__s\"            ;"
+			[ -n "$key_a_" ]                     && maps="$maps map global normal \"$key_a_\"         \"$nor_a_\"            ;"
+			[ -n "$key_as" ]                     && maps="$maps map global normal \"$key_as\"         \"$nor_as\"            ;"
+			[ -n "$key_c_" ]                     && maps="$maps map global normal \"$key_c_\"         \"$nor_c_\"            ;"
+			[ -n "$key_cs" ]                     && maps="$maps map global normal \"$key_cs\"         \"$nor_cs\"            ;"
 
-			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert "$key___"         \"$ins___\"            ;"
-			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert "$key__s"         \"$ins__s\"            ;"
-			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert "$key_a_"         \"$ins_a_\"            ;"
-			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert "$key_as"         \"$ins_as\"            ;"
-			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert "$key_a_"    \"<a-;>$nor___\"            ;"
-			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert "$key_as"    \"<a-;>$nor__s\"            ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global insert "$key_c_"    \"<a-;>$nor_c_\"            ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global insert "$key_cs"    \"<a-;>$nor_cs\"            ;"
+			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert \"$key___\"         \"$ins___\"            ;"
+			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert \"$key__s\"         \"$ins__s\"            ;"
+			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert \"$key_a_\"         \"$ins_a_\"            ;"
+			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert \"$key_as\"         \"$ins_as\"            ;"
+			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert \"$key_a_\"    \"<a-;>$nor___\"            ;"
+			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert \"$key_as\"    \"<a-;>$nor__s\"            ;"
+			[ -n "$key_c_" ]                     && maps="$maps map global insert \"$key_c_\"    \"<a-;>$nor_c_\"            ;"
+			[ -n "$key_cs" ]                     && maps="$maps map global insert \"$key_cs\"    \"<a-;>$nor_cs\"            ;"
 
-			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt "$key___"         \"$pro___\"            ;"
-			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt "$key__s"         \"$pro__s\"            ;"
-			[ -n "$key_a_" ]                     && maps="$maps map global prompt "$key_a_"         \"$pro_a_\"            ;"
-			[ -n "$key_as" ]                     && maps="$maps map global prompt "$key_as"         \"$pro_as\"            ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global prompt "$key_c_"         \"$pro_c_\"            ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global prompt "$key_cs"         \"$pro_cs\"            ;"
+			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt \"$key___\"         \"$pro___\"            ;"
+			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt \"$key__s\"         \"$pro__s\"            ;"
+			[ -n "$key_a_" ]                     && maps="$maps map global prompt \"$key_a_\"         \"$pro_a_\"            ;"
+			[ -n "$key_as" ]                     && maps="$maps map global prompt \"$key_as\"         \"$pro_as\"            ;"
+			[ -n "$key_c_" ]                     && maps="$maps map global prompt \"$key_c_\"         \"$pro_c_\"            ;"
+			[ -n "$key_cs" ]                     && maps="$maps map global prompt \"$key_cs\"         \"$pro_cs\"            ;"
 
-			[ -n "$key___" ]                     && menu="$menu map window normal "$key___" \"%%arg{1}$men___: bkey<ret>\" ;"
-			[ -n "$key__s" ]                     && menu="$menu map window normal "$key__s" \"%%arg{1}$men__s: bkey<ret>\" ;"
-			[ -n "$key_a_" ]                     && menu="$menu map window normal "$key_a_" \"%%arg{1}$men_a_: bkey<ret>\" ;"
-			[ -n "$key_as" ]                     && menu="$menu map window normal "$key_as" \"%%arg{1}$men_as: bkey<ret>\" ;"
-			[ -n "$key_c_" ]                     && menu="$menu map window normal "$key_c_"                \"\"            ;"
-			[ -n "$key_cs" ]                     && menu="$menu map window normal "$key_cs"                \"\"            ;"
+			[ -n "$key___" ]                     && menu="$menu map window normal \"$key___\" \"%%arg{1}$men___: bkey<ret>\" ;"
+			[ -n "$key__s" ]                     && menu="$menu map window normal \"$key__s\" \"%%arg{1}$men__s: bkey<ret>\" ;"
+			[ -n "$key_a_" ]                     && menu="$menu map window normal \"$key_a_\" \"%%arg{1}$men_a_: bkey<ret>\" ;"
+			[ -n "$key_as" ]                     && menu="$menu map window normal \"$key_as\" \"%%arg{1}$men_as: bkey<ret>\" ;"
+			[ -n "$key_c_" ]                     && menu="$menu map window normal \"$key_c_\"                \"\"            ;"
+			[ -n "$key_cs" ]                     && menu="$menu map window normal \"$key_cs\"                \"\"            ;"
 
 
-			[ -n "$key___" ]                     && view="$view map global normal $key___         \"$vie___\"            ;"
-			[ -n "$key__s" ]                     && view="$view map global normal $key__s         \"$vie__s\"            ;"
-			[ -n "$key_a_" ]                     && view="$view map global normal $key_a_         \"$vie_a_\"            ;"
-			[ -n "$key_as" ]                     && view="$view map global normal $key_as         \"$vie_as\"            ;"
-			[ -n "$key_c_" ]                     && view="$view map global normal $key_c_         \"$vie_c_\"            ;"
-			[ -n "$key_cs" ]                     && view="$view map global normal $key_cs         \"$vie_cs\"            ;"
+			[ -n "$key___" ]                     && view="$view map global normal \"$key___\"         \"$vie___\"            ;"
+			[ -n "$key__s" ]                     && view="$view map global normal \"$key__s\"         \"$vie__s\"            ;"
+			[ -n "$key_a_" ]                     && view="$view map global normal \"$key_a_\"         \"$vie_a_\"            ;"
+			[ -n "$key_as" ]                     && view="$view map global normal \"$key_as\"         \"$vie_as\"            ;"
+			[ -n "$key_c_" ]                     && view="$view map global normal \"$key_c_\"         \"$vie_c_\"            ;"
+			[ -n "$key_cs" ]                     && view="$view map global normal \"$key_cs\"         \"$vie_cs\"            ;"
 
 
 			if [ "$key" = 'cua________cycle' ]; then
