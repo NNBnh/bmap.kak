@@ -308,8 +308,8 @@ define-command -params 0..1 bkey %{
 				'nav________quick') nor___="<m>"                    ; nor__s="<a-m>"                  ; nor_a_="<M>"                    ; nor_as="<a-M>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
 				'nav_________load') nor___="<z>"                    ; nor__s="<Z>"                    ; nor_a_=""                       ; nor_as="<c-s>"                  ; nor_c_=""                       ; nor_cs=""                       ;;
 				'nav_________item') nor___="<)>"                    ; nor__s="<(>"                    ; nor_a_="<a-)>"                  ; nor_as="<a-(>"                  ; nor_c_=": bkey-line<ret>"       ; nor_cs=""                       ;;
-				'nav________focus') nor___="<a-x>"                  ; nor__s="<%%>"                    ; nor_a_="<a-x>"                  ; nor_as="<a-X>"                  ; nor_c_=": write<ret>"           ; nor_cs=":write "                ;;
-				'nav_______select') nor___="<a-i>"                  ; nor__s="<a-a>"                  ; nor_a_="<a-;>"                  ; nor_as="<a-:>"                  ; nor_c_="<%%>"                 ; nor_cs=""                       ;;
+				'nav________focus') nor___="<a-x>"                  ; nor__s="<%%>"                   ; nor_a_="<a-x>"                  ; nor_as="<a-X>"                  ; nor_c_=": write<ret>"           ; nor_cs=":write "                ;;
+				'nav_______select') nor___="<a-i>"                  ; nor__s="<a-a>"                  ; nor_a_="<a-;>"                  ; nor_as="<a-:>"                  ; nor_c_="<%%>"                   ; nor_cs=""                       ;;
 				'nav_________next') nor___="<a-[>"                  ; nor__s="["                      ; nor_a_="<a-{>"                  ; nor_as="{"                      ; nor_c_=""                       ; nor_cs=""                       ;;
 				'nav_________prev') nor___="<a-]>"                  ; nor__s="]"                      ; nor_a_="<a-}>"                  ; nor_as="}"                      ; nor_c_=""                       ; nor_cs=""                       ;;
 				'act______primary') nor___=": bkey-ins i<ret>"      ; nor__s="<A>"                    ; nor_a_=": bkey-ins i<ret>"      ; nor_as="<I>"                    ; nor_c_=""                       ; nor_cs=""                       ;;
@@ -640,33 +640,35 @@ define-command -params 0..1 bkey %{
 			esac
 
 
-			[ -n "$key___" ]                     && maps="$maps map global normal $key___         \"$nor___\"            ;"
-			[ -n "$key__s" ]                     && maps="$maps map global normal $key__s         \"$nor__s\"            ;"
-			[ -n "$key_a_" ]                     && maps="$maps map global normal $key_a_         \"$nor_a_\"            ;"
-			[ -n "$key_as" ]                     && maps="$maps map global normal $key_as         \"$nor_as\"            ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global normal $key_c_         \"$nor_c_\"            ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs         \"$nor_cs\"            ;"
+			[ -n "$key___" ]                     && maps="$maps map global normal "$key___"         \"$nor___\"            ;"
+			[ -n "$key__s" ]                     && maps="$maps map global normal "$key__s"         \"$nor__s\"            ;"
+			[ -n "$key_a_" ]                     && maps="$maps map global normal "$key_a_"         \"$nor_a_\"            ;"
+			[ -n "$key_as" ]                     && maps="$maps map global normal "$key_as"         \"$nor_as\"            ;"
+			[ -n "$key_c_" ]                     && maps="$maps map global normal "$key_c_"         \"$nor_c_\"            ;"
+			[ -n "$key_cs" ]                     && maps="$maps map global normal "$key_cs"         \"$nor_cs\"            ;"
 
-			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert $key___         \"$ins___\"            ;"
-			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert $key__s         \"$ins__s\"            ;"
-			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert $key_a_         \"$ins_a_\"            ;"
-			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert $key_as         \"$ins_as\"            ;"
-			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert $key_a_    \"<a-;>$nor___\"            ;"
-			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert $key_as    \"<a-;>$nor__s\"            ;"
-			[ -n "$key_c_" ]                     && maps="$maps map global insert $key_c_    \"<a-;>$nor_c_\"            ;"
-			[ -n "$key_cs" ]                     && maps="$maps map global insert $key_cs    \"<a-;>$nor_cs\"            ;"
+			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert "$key___"         \"$ins___\"            ;"
+			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert "$key__s"         \"$ins__s\"            ;"
+			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert "$key_a_"         \"$ins_a_\"            ;"
+			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert "$key_as"         \"$ins_as\"            ;"
+			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert "$key_a_"    \"<a-;>$nor___\"            ;"
+			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert "$key_as"    \"<a-;>$nor__s\"            ;"
+			[ -n "$key_c_" ]                     && maps="$maps map global insert "$key_c_"    \"<a-;>$nor_c_\"            ;"
+			[ -n "$key_cs" ]                     && maps="$maps map global insert "$key_cs"    \"<a-;>$nor_cs\"            ;"
 
-			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt $key___         \"$pro___\"            ;"
-			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt $key__s         \"$pro__s\"            ;"
-			[ -n "$key_a_" ]                     && maps="$maps map global prompt $key_a_         \"$pro_a_\"            ;"
-			[ -n "$key_as" ]                     && maps="$maps map global prompt $key_as         \"$pro_as\"            ;"
+			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt "$key___"         \"$pro___\"            ;"
+			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt "$key__s"         \"$pro__s\"            ;"
+			[ -n "$key_a_" ]                     && maps="$maps map global prompt "$key_a_"         \"$pro_a_\"            ;"
+			[ -n "$key_as" ]                     && maps="$maps map global prompt "$key_as"         \"$pro_as\"            ;"
+			[ -n "$key_c_" ]                     && maps="$maps map global prompt "$key_c_"         \"$pro_c_\"            ;"
+			[ -n "$key_cs" ]                     && maps="$maps map global prompt "$key_cs"         \"$pro_cs\"            ;"
 
-			[ -n "$key___" ]                     && menu="$menu map window normal $key___ \"%%arg{1}$men___: bkey<ret>\" ;"
-			[ -n "$key__s" ]                     && menu="$menu map window normal $key__s \"%%arg{1}$men__s: bkey<ret>\" ;"
-			[ -n "$key_a_" ]                     && menu="$menu map window normal $key_a_ \"%%arg{1}$men_a_: bkey<ret>\" ;"
-			[ -n "$key_as" ]                     && menu="$menu map window normal $key_as \"%%arg{1}$men_as: bkey<ret>\" ;"
-			[ -n "$key_c_" ]                     && menu="$menu map window normal $key_c_                \"\"            ;"
-			[ -n "$key_cs" ]                     && menu="$menu map window normal $key_cs                \"\"            ;"
+			[ -n "$key___" ]                     && menu="$menu map window normal "$key___" \"%%arg{1}$men___: bkey<ret>\" ;"
+			[ -n "$key__s" ]                     && menu="$menu map window normal "$key__s" \"%%arg{1}$men__s: bkey<ret>\" ;"
+			[ -n "$key_a_" ]                     && menu="$menu map window normal "$key_a_" \"%%arg{1}$men_a_: bkey<ret>\" ;"
+			[ -n "$key_as" ]                     && menu="$menu map window normal "$key_as" \"%%arg{1}$men_as: bkey<ret>\" ;"
+			[ -n "$key_c_" ]                     && menu="$menu map window normal "$key_c_"                \"\"            ;"
+			[ -n "$key_cs" ]                     && menu="$menu map window normal "$key_cs"                \"\"            ;"
 
 
 			[ -n "$key___" ]                     && view="$view map global normal $key___         \"$vie___\"            ;"
