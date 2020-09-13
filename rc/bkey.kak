@@ -641,7 +641,7 @@ define-command -params 0..2 bkey %{
 			esac
 
 
-			case $key in
+			case $mode in
 				'normal')
 					[ -n "$key___" ]                     && maps="$maps map   global normal \"$key___\"      \"$nor___\";"
 					[ -n "$key__s" ]                     && maps="$maps map   global normal \"$key__s\"      \"$nor__s\";"
@@ -666,7 +666,7 @@ define-command -params 0..2 bkey %{
 					[ -n "$key_c_" ]                     && maps="$maps map   global prompt \"$key_c_\"      \"$pro_c_\";"
 					[ -n "$key_cs" ]                     && maps="$maps map   global prompt \"$key_cs\"      \"$pro_cs\";"
 
-					[ "$key" = 'cua________cycle' ] && maps="
+					[ "$key" = 'cua________cycle' ] && maps="$maps
 						hook global InsertCompletionShow .* %%{
 							map   global insert \"$key___\" \"<c-n>\";
 							map   global insert \"$key__s\" \"<c-p>\"
@@ -678,14 +678,14 @@ define-command -params 0..2 bkey %{
 					"
 				;;
 				'menu')
-					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps map   window normal \"$key___\" \"$flag$men___\";"
-					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps map   window normal \"$key__s\" \"$flag$men__s\";"
-					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps map   window normal \"$key_a_\" \"$flag$men_a_\";"
-					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps map   window normal \"$key_as\" \"$flag$men_as\";"
-					[ -n "$key___" ] && [ -z "$men___" ] && maps="$maps map   window normal \"$key___\"             \"\";"
-					[ -n "$key__s" ] && [ -z "$men__s" ] && maps="$maps map   window normal \"$key__s\"             \"\";"
-					[ -n "$key_a_" ] && [ -z "$men_a_" ] && maps="$maps map   window normal \"$key_a_\"             \"\";"
-					[ -n "$key_as" ] && [ -z "$men_as" ] && maps="$maps map   window normal \"$key_as\"             \"\";"
+					[ -n "$key___" ] && [ ] && maps="$maps map   window normal \"$key___\" \"$flag$men___\";"
+					[ -n "$key__s" ] && [ ] && maps="$maps map   window normal \"$key__s\" \"$flag$men__s\";"
+					[ -n "$key_a_" ] && [ ] && maps="$maps map   window normal \"$key_a_\" \"$flag$men_a_\";"
+					[ -n "$key_as" ] && [ ] && maps="$maps map   window normal \"$key_as\" \"$flag$men_as\";"
+					[ -n "$key___" ]                     && maps="$maps map   window normal \"$key___\" \"$flag$men___\";"
+					[ -n "$key__s" ]                     && maps="$maps map   window normal \"$key__s\" \"$flag$men__s\";"
+					[ -n "$key_a_" ]                     && maps="$maps map   window normal \"$key_a_\" \"$flag$men_a_\";"
+					[ -n "$key_as" ]                     && maps="$maps map   window normal \"$key_as\" \"$flag$men_as\";"
 					[ -n "$key_c_" ]                     && maps="$maps map   window normal \"$key_c_\"             \"\";"
 					[ -n "$key_cs" ]                     && maps="$maps map   window normal \"$key_cs\"             \"\";"
 				;;
@@ -698,12 +698,12 @@ define-command -params 0..2 bkey %{
 					[ -n "$key_cs" ]                     && maps="$maps map   global normal \"$key_cs\"      \"$vie_cs\";"
 				;;
 				'off')
-					[ -n "$key___" ]                     && null="$null unmap global normal \"$key___\"                 ;"
-					[ -n "$key__s" ]                     && null="$null unmap global normal \"$key__s\"                 ;"
-					[ -n "$key_a_" ]                     && null="$null unmap global normal \"$key_a_\"                 ;"
-					[ -n "$key_as" ]                     && null="$null unmap global normal \"$key_as\"                 ;"
-					[ -n "$key_c_" ]                     && null="$null unmap global normal \"$key_c_\"                 ;"
-					[ -n "$key_cs" ]                     && null="$null unmap global normal \"$key_cs\"                 ;"
+					[ -n "$key___" ]                     && maps="$maps unmap global normal \"$key___\"                 ;"
+					[ -n "$key__s" ]                     && maps="$maps unmap global normal \"$key__s\"                 ;"
+					[ -n "$key_a_" ]                     && maps="$maps unmap global normal \"$key_a_\"                 ;"
+					[ -n "$key_as" ]                     && maps="$maps unmap global normal \"$key_as\"                 ;"
+					[ -n "$key_c_" ]                     && maps="$maps unmap global normal \"$key_c_\"                 ;"
+					[ -n "$key_cs" ]                     && maps="$maps unmap global normal \"$key_cs\"                 ;"
 				;;
 			esac
 		done
