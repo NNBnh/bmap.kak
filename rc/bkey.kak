@@ -99,11 +99,10 @@ hook global InsertCompletionHide .* %{
 map global object -docstring 'xml tag object' <t> %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}
 
 
-define-command -params 0..2 bkey %{
+define-command -params 0..1 bkey %{
 	evaluate-commands %sh{
 		# Values
-		mode=${1:-'normal'}
-		flag=${2:-'0'}
+		mode=${1:-'menu'}
 
 		keys="
 			ops____________0
@@ -292,7 +291,7 @@ define-command -params 0..2 bkey %{
 				'cua________cycle') nor___=": buffer-previous<ret>"          ; nor__s=": buffer-next<ret>"              ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua____backspace') nor___="<;><h><a-d>"                     ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua_______delete') nor___="<;><a-d>"                        ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
-				'cua______advance') nor___=": bkey menu %%val{count}<ret>"   ; nor__s=""                                ; nor_a_=": bkey menu %%val{count}<ret>"   ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
+				'cua______advance') nor___=": bkey-menu %%val{count}<ret>"   ; nor__s=""                                ; nor_a_=": bkey-menu %%val{count}<ret>"   ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua_________exit') nor___="<;>"                             ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua________enter') nor___="<ret>"                           ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________left') nor___="<h>"                             ; nor__s="<a-h>"                           ; nor_a_="<H>"                             ; nor_as="<a-H>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -520,8 +519,8 @@ define-command -params 0..2 bkey %{
 				'cua________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua____backspace') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_______delete') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'cua______advance') men___="%%val{count}<;><G><v><c><v><m>"  ; men__s=""                                ; men_a_="%%val{count}<G><v><c><v><m>"     ; men_as=""                                ;;
-				'cua_________exit') men___=": bkey<ret>"                     ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
+				'cua______advance') men___="<;>%%%%val{count}<G><v><c><v><m>"; men__s=""                                ; men_a_="<G><v><c><v><m>"                 ; men_as=""                                ;;
+				'cua_________exit') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua________enter') men___="<g><f>"                          ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________left') men___="<;><G><i>"                       ; men__s="<;><G><h>"                       ; men_a_="<G><i>"                          ; men_as="<G><h>"                          ;;
 				'nav________right') men___="<;><G><l>"                       ; men__s="<;><G><l>"                       ; men_a_="<G><l>"                          ; men_as="<G><j>"                          ;;
@@ -529,7 +528,7 @@ define-command -params 0..2 bkey %{
 				'nav_________down') men___="<;><G><e>"                       ; men__s="<;><G><b>"                       ; men_a_="<G><e>"                          ; men_as="<G><b>"                          ;;
 				'nav_____backward') men___="<c-u>"                           ; men__s="<c-b>"                           ; men_a_=""                                ; men_as=""                                ;;
 				'nav______forward') men___="<c-d>"                           ; men__s="<c-f>"                           ; men_a_=""                                ; men_as=""                                ;;
-				'nav________taget') men___="<a-*>"                           ; men__s="<*>"                             ; men_a_="<a-*><%%%%><s><ret>"             ; men_as="<*><%%%%><s><ret>"               ;;
+				'nav________taget') men___="<a-*>"                           ; men__s="<*>"                             ; men_a_="<a-*><%%%%%%%%><s><ret>"         ; men_as="<*><%%%%%%%%><s><ret>"           ;;
 				'nav________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav________local') men___="<t>"                             ; men__s="<a-t>"                           ; men_a_="<T>"                             ; men_as="<a-T>"                           ;;
 				'nav________quick') men___="<;><G><j>"                       ; men__s="<;><G><c>"                       ; men_a_="<G><j>"                          ; men_as="<G><c>"                          ;;
@@ -680,18 +679,18 @@ define-command -params 0..2 bkey %{
 					[ -n "$key_cs" ] && maps="$maps unmap global normal $key_cs; unmap insert normal $key_cs; unmap prompt normal $key_cs;"
 				;;
 				'menu')
-					[ -n "$key___" ] && maps="$maps '$key___') execute-keys \"$flag$men___\" ;;"
-					[ -n "$key__s" ] && maps="$maps '$key__s') execute-keys \"$flag$men__s\" ;;"
-					[ -n "$key_a_" ] && maps="$maps '$key_a_') execute-keys \"$flag$men_a_\" ;;"
-					[ -n "$key_as" ] && maps="$maps '$key_as') execute-keys \"$flag$men_as\" ;;"
-					[ -n "$key_c_" ] && maps="$maps '$key_c_') execute-keys \"$flag$men_c_\" ;;"
-					[ -n "$key_cs" ] && maps="$maps '$key_cs') execute-keys \"$flag$men_cs\" ;;"
+					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps '$key___') printf \"execute-keys \\\"$kak_count$men___\\\" ;;\""
+					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps '$key__s') printf \"execute-keys \\\"$kak_count$men__s\\\" ;;\""
+					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps '$key_a_') printf \"execute-keys \\\"$kak_count$men_a_\\\" ;;\""
+					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps '$key_as') printf \"execute-keys \\\"$kak_count$men_as\\\" ;;\""
+					[ -n "$key_c_" ] && [ -n "$men_c_" ] && maps="$maps '$key_c_') printf \"execute-keys \\\"$kak_count$men_c_\\\" ;;\""
+					[ -n "$key_cs" ] && [ -n "$men_cs" ] && maps="$maps '$key_cs') printf \"execute-keys \\\"$kak_count$men_cs\\\" ;;\""
 				;;
 			esac
 		done
 
 		[ "$mode" = 'menu' ] && maps="
-			def -hidden command-mode %%{
+			def -hidden bkey-menu %%{
 				info -title \"%%val{client}@%%val{client_pid}\" %%{
 					TestTestTestTestTestTestTestTest
 				}
