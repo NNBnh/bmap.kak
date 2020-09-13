@@ -679,12 +679,12 @@ define-command -params 0..1 bkey %{
 					[ -n "$key_cs" ] && maps="$maps unmap global normal $key_cs; unmap insert normal $key_cs; unmap prompt normal $key_cs;"
 				;;
 				'menu')
-					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps '$key___') printf \"execute-keys \\\"$kak_count$men___\\\" ;;\""
-					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps '$key__s') printf \"execute-keys \\\"$kak_count$men__s\\\" ;;\""
-					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps '$key_a_') printf \"execute-keys \\\"$kak_count$men_a_\\\" ;;\""
-					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps '$key_as') printf \"execute-keys \\\"$kak_count$men_as\\\" ;;\""
-					[ -n "$key_c_" ] && [ -n "$men_c_" ] && maps="$maps '$key_c_') printf \"execute-keys \\\"$kak_count$men_c_\\\" ;;\""
-					[ -n "$key_cs" ] && [ -n "$men_cs" ] && maps="$maps '$key_cs') printf \"execute-keys \\\"$kak_count$men_cs\\\" ;;\""
+					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps '$key___') printf \"execute-keys \\\"\$kak_count$men___\\\"\";;"
+					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps '$key__s') printf \"execute-keys \\\"\$kak_count$men__s\\\"\";;"
+					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps '$key_a_') printf \"execute-keys \\\"\$kak_count$men_a_\\\"\";;"
+					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps '$key_as') printf \"execute-keys \\\"\$kak_count$men_as\\\"\";;"
+					[ -n "$key_c_" ] && [ -n "$men_c_" ] && maps="$maps '$key_c_') printf \"execute-keys \\\"\$kak_count$men_c_\\\"\";;"
+					[ -n "$key_cs" ] && [ -n "$men_cs" ] && maps="$maps '$key_cs') printf \"execute-keys \\\"\$kak_count$men_cs\\\"\";;"
 				;;
 			esac
 		done
