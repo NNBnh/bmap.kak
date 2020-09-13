@@ -87,11 +87,11 @@ define-command -hidden -params 1 bkey-ins %{
 
 
 # Mapping
-hook global InsertCompletionShow .* %%{
+hook global InsertCompletionShow .* %{
 	map   global insert   "<tab>" "<c-n>";
 	map   global insert "<s-tab>" "<c-p>"
 }
-hook global InsertCompletionHide .* %%{
+hook global InsertCompletionHide .* %{
 	unmap global insert   "<tab>" "<c-n>";
 	unmap global insert "<s-tab>" "<c-p>"
 }
