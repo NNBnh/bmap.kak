@@ -291,7 +291,7 @@ define-command -params 0..1 bkey %{
 				'cua________cycle') nor___=": buffer-previous<ret>"          ; nor__s=": buffer-next<ret>"              ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua____backspace') nor___="<;><h><a-d>"                     ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua_______delete') nor___="<;><a-d>"                        ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
-				'cua______advance') nor___=": bkey-menu %%val{count}<ret>"   ; nor__s=""                                ; nor_a_=": bkey-menu %%val{count}<ret>"   ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
+				'cua______advance') nor___=": bkey-menu<ret>"                ; nor__s=""                                ; nor_a_=": bkey-menu<ret>"                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua_________exit') nor___="<;>"                             ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua________enter') nor___="<ret>"                           ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________left') nor___="<h>"                             ; nor__s="<a-h>"                           ; nor_a_="<H>"                             ; nor_as="<a-H>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -596,7 +596,7 @@ define-command -params 0..1 bkey %{
 				'cua____backspace') vie___=""                                ; vie__s=""                                ;;
 				'cua_______delete') vie___=""                                ; vie__s=""                                ;;
 				'cua______advance') vie___="<v><c><v><m>"                    ; vie__s=""                                ;;
-				'cua_________exit') vie___=": bkey<ret>"                     ; vie__s=""                                ;;
+				'cua_________exit') vie___=": bkey normal<ret>"              ; vie__s=""                                ;;
 				'cua________enter') vie___=""                                ; vie__s=""                                ;;
 				'nav_________left') vie___="<v><h>"                          ; vie__s="%%val{window_width}<v><h>"       ;;
 				'nav________right') vie___="<v><l>"                          ; vie__s="%%val{window_width}<v><l>"       ;;
