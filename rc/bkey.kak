@@ -27,86 +27,84 @@
 
 
 # Setup
-	# Movement
-	define-command -hidden bkey-line %{
-		evaluate-commands %sh{
-			if [ $kak_count -gt '0' ]; then
-				[ $1 != 'e' ] && ex='<;>'
-				echo "execute-keys $ex<G><g>$kak_count<J><k>"
-			fi
-		}
+define-command -hidden bkey-term 'terminal %val{client_env_SHELL}'
 
-		execute-keys <V><c><m><esc>
-	}
+#TODO fix paste
+define-command -hidden -params 1 bkey-ins %{
+	execute-keys -with-hooks %sh{
+		[ -n "$kak_register" ] && register="<\><$kak_register>"
+		selection_1_pos=${kak_selection_desc%%,*}
+		selection_1_lin=${selection_1_pos%%.*}
+		selection_1_col=${selection_1_pos##*.}
+		selection_2_pos=${kak_selection_desc##*,}
+		selection_2_lin=${selection_2_pos%%.*}
+		selection_2_col=${selection_2_pos##*.}
 
-	# Action
-	#TODO fix paste
-	define-command -hidden -params 1 bkey-ins %{
-		execute-keys -with-hooks %sh{
-			[ -n "$kak_register" ] && register="<\><$kak_register>"
-			selection_1_pos=${kak_selection_desc%%,*}
-			selection_1_lin=${selection_1_pos%%.*}
-			selection_1_col=${selection_1_pos##*.}
-			selection_2_pos=${kak_selection_desc##*,}
-			selection_2_lin=${selection_2_pos%%.*}
-			selection_2_col=${selection_2_pos##*.}
-
-			if [ $selection_1_lin -lt $selection_2_lin ]; then
+		if [ $selection_1_lin -lt $selection_2_lin ]; then
+			cursor_pos='a'
+		elif [ $selection_1_lin = $selection_2_lin ]; then
+			if [ $selection_1_col -lt $selection_2_col ]; then
 				cursor_pos='a'
-			elif [ $selection_1_lin = $selection_2_lin ]; then
-				if [ $selection_1_col -lt $selection_2_col ]; then
-					cursor_pos='a'
-				elif [ $selection_1_col = $selection_2_col  ]; then
-					cursor_pos='1'
-				fi
+			elif [ $selection_1_col = $selection_2_col  ]; then
+				cursor_pos='1'
 			fi
+		fi
 
-			case $cursor_pos in
-				'a')
-					case $1 in
-						'i')   echo '<a>'                            ;;
-						'p')   echo "$kak_count$register<p>"         ;;
-						'pa')  echo "$kak_count$register<a-p>"       ;;
-						'pe')  echo "$kak_count$register<p>"         ;;
-						'pea') echo "$kak_count$register<a-p>"       ;;
-						'c')   echo '<a-!>'                          ;;
-					esac
-				;;
-				'1')
-					case $1 in
-						'i')   echo '<i>'                            ;;
-						'p')   echo "$kak_count$register<P>"         ;;
-						'pa')  echo "$kak_count$register<a-P>"       ;;
-						'pe')  echo "<h>$kak_count$register<p><l>"   ;;
-						'pea') echo "<h>$kak_count$register<a-p><l>" ;;
-						'c')   echo '<!>'                            ;;
-					esac
-				;;
-				'i'|*)
-					case $1 in
-						'i')   echo '<i>'                            ;;
-						'p')   echo "$kak_count$register<P>"         ;;
-						'pa')  echo "$kak_count$register<a-P>"       ;;
-						'pe')  echo "$kak_count$register<P>"         ;;
-						'pea') echo "$kak_count$register<a-P>"       ;;
-						'c')   echo '<!>'                            ;;
-					esac
-				;;
-			esac
-		}
+		case $cursor_pos in
+			'a')
+				case $1 in
+					'i')   echo '<a>'                            ;;
+					'p')   echo "$kak_count$register<p>"         ;;
+					'pa')  echo "$kak_count$register<a-p>"       ;;
+					'pe')  echo "$kak_count$register<p>"         ;;
+					'pea') echo "$kak_count$register<a-p>"       ;;
+					'c')   echo '<a-!>'                          ;;
+				esac
+			;;
+			'1')
+				case $1 in
+					'i')   echo '<i>'                            ;;
+					'p')   echo "$kak_count$register<P>"         ;;
+					'pa')  echo "$kak_count$register<a-P>"       ;;
+					'pe')  echo "<h>$kak_count$register<p><l>"   ;;
+					'pea') echo "<h>$kak_count$register<a-p><l>" ;;
+					'c')   echo '<!>'                            ;;
+				esac
+			;;
+			'i'|*)
+				case $1 in
+					'i')   echo '<i>'                            ;;
+					'p')   echo "$kak_count$register<P>"         ;;
+					'pa')  echo "$kak_count$register<a-P>"       ;;
+					'pe')  echo "$kak_count$register<P>"         ;;
+					'pea') echo "$kak_count$register<a-P>"       ;;
+					'c')   echo '<!>'                            ;;
+				esac
+			;;
+		esac
 	}
-
-	define-command -hidden bkey-term 'terminal %val{client_env_SHELL}'
+}
 
 
 # Mapping
-map global object <t> %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}  -docstring 'xml tag object'
+hook global InsertCompletionShow .* %%{
+	map   global insert   "<tab>" "<c-n>";
+	map   global insert "<s-tab>" "<c-p>"
+}
+hook global InsertCompletionHide .* %%{
+	unmap global insert   "<tab>" "<c-n>";
+	unmap global insert "<s-tab>" "<c-p>"
+}
+
+map global object -docstring 'xml tag object' <t> %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>,<lt>/([\w.]+)\b[^>]*?(?<lt>!/)><ret>}
 
 
 define-command -params 0..2 bkey %{
 	evaluate-commands %sh{
+		# Values
 		mode=${1:-'normal'}
 		flag=${2:-'0'}
+
 		keys="
 			ops____________0
 			ops____________1
@@ -190,7 +188,7 @@ define-command -params 0..2 bkey %{
 				'ops____________2') key___="<2>"                             ; key__s="<@>"                             ; key_a_="<a-2>"                           ; key_as="<a-@>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________3') key___="<3>"                             ; key__s="<#>"                             ; key_a_="<a-3>"                           ; key_as="<a-#>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________4') key___="<4>"                             ; key__s="<$>"                             ; key_a_="<a-4>"                           ; key_as="<a-$>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________5') key___="<5>"                             ; key__s="<%%%%>"                          ; key_a_="<a-5>"                           ; key_as="<a-%%%%>"                        ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________5') key___="<5>"                             ; key__s="<%%>"                            ; key_a_="<a-5>"                           ; key_as="<a-%%>"                          ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________6') key___="<6>"                             ; key__s="<^>"                             ; key_a_="<a-6>"                           ; key_as="<a-^>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________7') key___="<7>"                             ; key__s="<&>"                             ; key_a_="<a-7>"                           ; key_as="<a-&>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________8') key___="<8>"                             ; key__s="<*>"                             ; key_a_="<a-8>"                           ; key_as="<a-*>"                           ; key_c_=""                                ; key_cs=""                                ;;
@@ -257,7 +255,7 @@ define-command -params 0..2 bkey %{
 				'vie_________view') key___="<\\>"                            ; key__s="<|>"                             ; key_a_="<a-\\>"                          ; key_as="<a-|>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'vie________minus') key___="<minus>"                         ; key__s="<_>"                             ; key_a_="<a-minus>"                       ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'vie_________plus') key___="<=>"                             ; key__s="<plus>"                          ; key_a_="<a-=>"                           ; key_as="<a-plus>"                        ; key_c_=""                                ; key_cs=""                                ;;
-				'vie________equal') key___="<'>"                             ; key__s="<\"\">"                          ; key_a_="<a-'>"                           ; key_as="<a-\"\">"                        ; key_c_=""                                ; key_cs=""                                ;;
+				'vie________equal') key___="<'>"                             ; key__s="<\">"                            ; key_a_="<a-'>"                           ; key_as="<a-\">"                          ; key_c_=""                                ; key_cs=""                                ;;
 			esac
 
 			case $key in
@@ -308,7 +306,7 @@ define-command -params 0..2 bkey %{
 				'nav________local') nor___="<f>"                             ; nor__s="<a-f>"                           ; nor_a_="<F>"                             ; nor_as="<a-F>"                           ; nor_c_="<U>"                             ; nor_cs=""                                ;;
 				'nav________quick') nor___="<m>"                             ; nor__s="<a-m>"                           ; nor_a_="<M>"                             ; nor_as="<a-M>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________load') nor___="<z>"                             ; nor__s="<Z>"                             ; nor_a_=""                                ; nor_as="<c-s>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
-				'nav_________item') nor___="<)>"                             ; nor__s="<(>"                             ; nor_a_="<a-)>"                           ; nor_as="<a-(>"                           ; nor_c_=": bkey-line<ret>"                ; nor_cs=""                                ;;
+				'nav_________item') nor___="<)>"                             ; nor__s="<(>"                             ; nor_a_="<a-)>"                           ; nor_as="<a-(>"                           ; nor_c_="%%val{count}<;><G><v><c><v><m>"  ; nor_cs="%%val{count}<G><v><c><v><m>"     ;;
 				'nav________focus') nor___="<a-x>"                           ; nor__s="<%%%%>"                          ; nor_a_="<a-x>"                           ; nor_as="<a-X>"                           ; nor_c_=": write<ret>"                    ; nor_cs=":write "                         ;;
 				'nav_______select') nor___="<a-i>"                           ; nor__s="<a-a>"                           ; nor_a_="<a-;>"                           ; nor_as="<a-:>"                           ; nor_c_="<%%%%>"                          ; nor_cs=""                                ;;
 				'nav_________next') nor___="<a-[>"                           ; nor__s="["                               ; nor_a_="<a-{>"                           ; nor_as="{"                               ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -325,7 +323,7 @@ define-command -params 0..2 bkey %{
 				'env______command') nor___="<:>"                             ; nor__s=": bkey-ins c<ret>"               ; nor_a_="<a-|>"                           ; nor_as="<|>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_____terminal') nor___=":terminal "                      ; nor__s=": bkey-term<ret>"                ; nor_a_="<a-|>"                           ; nor_as="<|>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env______history') nor___="<u>"                             ; nor__s="<U>"                             ; nor_a_="<a-u>"                           ; nor_as="<a-U>"                           ; nor_c_="<u>"                             ; nor_cs="<U>"                             ;;
-				'env___________re') nor___="<a-.>"                           ; nor__s="<.>"                             ; nor_a_=""                                ; nor_as=""                                ; nor_c_="<V><c><m><esc>"                  ; nor_cs=""                                ;;
+				'env___________re') nor___="<a-.>"                           ; nor__s="<.>"                             ; nor_a_=""                                ; nor_as=""                                ; nor_c_="<v><c><v><m>"                    ; nor_cs=""                                ;;
 				'env_______record') nor___="<q>"                             ; nor__s="<Q>"                             ; nor_a_=""                                ; nor_as="<esc>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_________done') nor___=": write<ret>"                    ; nor__s=": write-all<ret>"                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_________code') nor___="<\"\">"                          ; nor__s="<\\>"                            ; nor_a_=": comment-line<ret>"             ; nor_as=": comment-block<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -522,7 +520,7 @@ define-command -params 0..2 bkey %{
 				'cua________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua____backspace') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_______delete') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'cua______advance') men___=": bkey-line<ret>"                ; men__s=""                                ; men_a_=": bkey-line e<ret>"              ; men_as=""                                ;;
+				'cua______advance') men___="%%val{count}<;><G><v><c><v><m>"  ; men__s=""                                ; men_a_="%%val{count}<G><v><c><v><m>"     ; men_as=""                                ;;
 				'cua_________exit') men___=": bkey<ret>"                     ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua________enter') men___="<g><f>"                          ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________left') men___="<;><G><i>"                       ; men__s="<;><G><h>"                       ; men_a_="<G><i>"                          ; men_as="<G><h>"                          ;;
@@ -598,7 +596,7 @@ define-command -params 0..2 bkey %{
 				'cua________cycle') nor___=": buffer-previous<ret>"          ; nor__s=": buffer-next<ret>"              ;;
 				'cua____backspace') vie___=""                                ; vie__s=""                                ;;
 				'cua_______delete') vie___=""                                ; vie__s=""                                ;;
-				'cua______advance') vie___="<V><c><m><esc>"                  ; vie__s=""                                ;;
+				'cua______advance') vie___="<v><c><v><m>"                    ; vie__s=""                                ;;
 				'cua_________exit') vie___=": bkey<ret>"                     ; vie__s=""                                ;;
 				'cua________enter') vie___=""                                ; vie__s=""                                ;;
 				'nav_________left') vie___="<v><h>"                          ; vie__s="%%val{window_width}<v><h>"       ;;
@@ -634,80 +632,78 @@ define-command -params 0..2 bkey %{
 				'env_________done') vie___=""                                ; vie__s=""                                ;;
 				'env_________code') vie___=""                                ; vie__s=""                                ;;
 				'env_______person') vie___=""                                ; vie__s=""                                ;;
-				'vie_________view') vie___="<V><c><m><esc>: bkey<ret>"       ; vie__s=""                                ;;
+				'vie_________view') vie___="<v><c><v><m>: bkey<ret>"         ; vie__s=""                                ;;
 				'vie________minus') vie___=""                                ; vie__s=""                                ;;
 				'vie_________plus') vie___=""                                ; vie__s=""                                ;;
 				'vie________equal') vie___=""                                ; vie__s=""                                ;;
 			esac
 
-
 			case $mode in
 				'normal')
-					[ -n "$key___" ]                     && maps="$maps map   global normal \"$key___\"      \"$nor___\";"
-					[ -n "$key__s" ]                     && maps="$maps map   global normal \"$key__s\"      \"$nor__s\";"
-					[ -n "$key_a_" ]                     && maps="$maps map   global normal \"$key_a_\"      \"$nor_a_\";"
-					[ -n "$key_as" ]                     && maps="$maps map   global normal \"$key_as\"      \"$nor_as\";"
-					[ -n "$key_c_" ]                     && maps="$maps map   global normal \"$key_c_\"      \"$nor_c_\";"
-					[ -n "$key_cs" ]                     && maps="$maps map   global normal \"$key_cs\"      \"$nor_cs\";"
+					[ -n "$key___" ]                     && maps="$maps map global normal $key___      \"$nor___\";"
+					[ -n "$key__s" ]                     && maps="$maps map global normal $key__s      \"$nor__s\";"
+					[ -n "$key_a_" ]                     && maps="$maps map global normal $key_a_      \"$nor_a_\";"
+					[ -n "$key_as" ]                     && maps="$maps map global normal $key_as      \"$nor_as\";"
+					[ -n "$key_c_" ]                     && maps="$maps map global normal $key_c_      \"$nor_c_\";"
+					[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs      \"$nor_cs\";"
 
-					[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map   global insert \"$key___\"      \"$ins___\";"
-					[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map   global insert \"$key__s\"      \"$ins__s\";"
-					[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map   global insert \"$key_a_\"      \"$ins_a_\";"
-					[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map   global insert \"$key_as\"      \"$ins_as\";"
-					[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map   global insert \"$key_a_\" \"<a-;>$nor___\";"
-					[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map   global insert \"$key_as\" \"<a-;>$nor__s\";"
-					[ -n "$key_c_" ]                     && maps="$maps map   global insert \"$key_c_\" \"<a-;>$nor_c_\";"
-					[ -n "$key_cs" ]                     && maps="$maps map   global insert \"$key_cs\" \"<a-;>$nor_cs\";"
+					[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert $key___      \"$ins___\";"
+					[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert $key__s      \"$ins__s\";"
+					[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert $key_a_      \"$ins_a_\";"
+					[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert $key_as      \"$ins_as\";"
+					[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert $key_a_ \"<a-;>$nor___\";"
+					[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert $key_as \"<a-;>$nor__s\";"
+					[ -n "$key_c_" ]                     && maps="$maps map global insert $key_c_ \"<a-;>$nor_c_\";"
+					[ -n "$key_cs" ]                     && maps="$maps map global insert $key_cs \"<a-;>$nor_cs\";"
 
-					[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map   global prompt \"$key___\"      \"$pro___\";"
-					[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map   global prompt \"$key__s\"      \"$pro__s\";"
-					[ -n "$key_a_" ]                     && maps="$maps map   global prompt \"$key_a_\"      \"$pro_a_\";"
-					[ -n "$key_as" ]                     && maps="$maps map   global prompt \"$key_as\"      \"$pro_as\";"
-					[ -n "$key_c_" ]                     && maps="$maps map   global prompt \"$key_c_\"      \"$pro_c_\";"
-					[ -n "$key_cs" ]                     && maps="$maps map   global prompt \"$key_cs\"      \"$pro_cs\";"
-
-					[ "$key" = 'cua________cycle' ] && maps="$maps
-						hook global InsertCompletionShow .* %%{
-							map   global insert \"$key___\" \"<c-n>\";
-							map   global insert \"$key__s\" \"<c-p>\"
-						};
-						hook global InsertCompletionHide .* %%{
-							unmap global insert \"$key___\" \"<c-n>\";
-							unmap global insert \"$key__s\" \"<c-p>\"
-						};
-					"
-				;;
-				'menu')
-					[ -n "$key___" ] && [ ] && maps="$maps map   window normal \"$key___\" \"$flag$men___\";"
-					[ -n "$key__s" ] && [ ] && maps="$maps map   window normal \"$key__s\" \"$flag$men__s\";"
-					[ -n "$key_a_" ] && [ ] && maps="$maps map   window normal \"$key_a_\" \"$flag$men_a_\";"
-					[ -n "$key_as" ] && [ ] && maps="$maps map   window normal \"$key_as\" \"$flag$men_as\";"
-					[ -n "$key___" ]                     && maps="$maps map   window normal \"$key___\" \"$flag$men___\";"
-					[ -n "$key__s" ]                     && maps="$maps map   window normal \"$key__s\" \"$flag$men__s\";"
-					[ -n "$key_a_" ]                     && maps="$maps map   window normal \"$key_a_\" \"$flag$men_a_\";"
-					[ -n "$key_as" ]                     && maps="$maps map   window normal \"$key_as\" \"$flag$men_as\";"
-					[ -n "$key_c_" ]                     && maps="$maps map   window normal \"$key_c_\"             \"\";"
-					[ -n "$key_cs" ]                     && maps="$maps map   window normal \"$key_cs\"             \"\";"
+					[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt $key___      \"$pro___\";"
+					[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt $key__s      \"$pro__s\";"
+					[ -n "$key_a_" ]                     && maps="$maps map global prompt $key_a_      \"$pro_a_\";"
+					[ -n "$key_as" ]                     && maps="$maps map global prompt $key_as      \"$pro_as\";"
+					[ -n "$key_c_" ]                     && maps="$maps map global prompt $key_c_      \"$pro_c_\";"
+					[ -n "$key_cs" ]                     && maps="$maps map global prompt $key_cs      \"$pro_cs\";"
 				;;
 				'view')
-					[ -n "$key___" ]                     && maps="$maps map   global normal \"$key___\"      \"$vie___\";"
-					[ -n "$key__s" ]                     && maps="$maps map   global normal \"$key__s\"      \"$vie__s\";"
-					[ -n "$key_a_" ]                     && maps="$maps map   global normal \"$key_a_\"      \"$vie_a_\";"
-					[ -n "$key_as" ]                     && maps="$maps map   global normal \"$key_as\"      \"$vie_as\";"
-					[ -n "$key_c_" ]                     && maps="$maps map   global normal \"$key_c_\"      \"$vie_c_\";"
-					[ -n "$key_cs" ]                     && maps="$maps map   global normal \"$key_cs\"      \"$vie_cs\";"
+					[ -n "$key___" ]                     && maps="$maps map global normal $key___      \"$vie___\";"
+					[ -n "$key__s" ]                     && maps="$maps map global normal $key__s      \"$vie__s\";"
+					[ -n "$key_a_" ]                     && maps="$maps map global normal $key_a_      \"$vie_a_\";"
+					[ -n "$key_as" ]                     && maps="$maps map global normal $key_as      \"$vie_as\";"
+					[ -n "$key_c_" ]                     && maps="$maps map global normal $key_c_      \"$vie_c_\";"
+					[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs      \"$vie_cs\";"
 				;;
 				'off')
-					[ -n "$key___" ]                     && maps="$maps unmap global normal \"$key___\"                 ;"
-					[ -n "$key__s" ]                     && maps="$maps unmap global normal \"$key__s\"                 ;"
-					[ -n "$key_a_" ]                     && maps="$maps unmap global normal \"$key_a_\"                 ;"
-					[ -n "$key_as" ]                     && maps="$maps unmap global normal \"$key_as\"                 ;"
-					[ -n "$key_c_" ]                     && maps="$maps unmap global normal \"$key_c_\"                 ;"
-					[ -n "$key_cs" ]                     && maps="$maps unmap global normal \"$key_cs\"                 ;"
+					[ -n "$key___" ] && maps="$maps unmap global normal $key___; unmap insert normal $key___; unmap prompt normal $key___;"
+					[ -n "$key__s" ] && maps="$maps unmap global normal $key__s; unmap insert normal $key__s; unmap prompt normal $key__s;"
+					[ -n "$key_a_" ] && maps="$maps unmap global normal $key_a_; unmap insert normal $key_a_; unmap prompt normal $key_a_;"
+					[ -n "$key_as" ] && maps="$maps unmap global normal $key_as; unmap insert normal $key_as; unmap prompt normal $key_as;"
+					[ -n "$key_c_" ] && maps="$maps unmap global normal $key_c_; unmap insert normal $key_c_; unmap prompt normal $key_c_;"
+					[ -n "$key_cs" ] && maps="$maps unmap global normal $key_cs; unmap insert normal $key_cs; unmap prompt normal $key_cs;"
+				;;
+				'menu')
+					[ -n "$key___" ] && maps="$maps '$key___') execute-keys \"$flag$men___\" ;;"
+					[ -n "$key__s" ] && maps="$maps '$key__s') execute-keys \"$flag$men__s\" ;;"
+					[ -n "$key_a_" ] && maps="$maps '$key_a_') execute-keys \"$flag$men_a_\" ;;"
+					[ -n "$key_as" ] && maps="$maps '$key_as') execute-keys \"$flag$men_as\" ;;"
+					[ -n "$key_c_" ] && maps="$maps '$key_c_') execute-keys \"$flag$men_c_\" ;;"
+					[ -n "$key_cs" ] && maps="$maps '$key_cs') execute-keys \"$flag$men_cs\" ;;"
 				;;
 			esac
 		done
 
+		[ "$mode" = 'menu' ] && maps="
+			def -hidden command-mode %%{
+				info -title \"%%val{client}@%%val{client_pid}\" %%{
+					TestTestTestTestTestTestTestTest
+				}
+				on-key %%{
+					%%sh{
+						case \$kak_key in
+							$maps
+						esac
+					}
+				}
+			}
+		"
 
 		# Start
 		printf "$maps"
