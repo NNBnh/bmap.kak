@@ -27,8 +27,8 @@
 
 
 # Setup
-define-command -hidden bkey-line     %{ execute-keys <;>%val{count}<G><0><v><c><v><m> }
-define-command -hidden bkey-line-ex  %{ execute-keys    %val{count}<G><0><v><c><v><m> }
+define-command -hidden bkey-line     %{ execute-keys "<;>%val{count}<G><0><v><c><v><m>" }
+define-command -hidden bkey-line-ex  %{ execute-keys    "%val{count}<G><0><v><c><v><m>" }
 
 define-command -hidden bkey-terminal %{ terminal %val{client_env_SHELL} }
 
@@ -756,13 +756,12 @@ define-command bkey-load %{
 			[ -n "$raw__s" ] && [ -n "$men__s" ] && menu="$menu '$raw__s') printf \"$men__s\" ;;"
 			[ -n "$raw_a_" ] && [ -n "$men_a_" ] && menu="$menu '$raw_a_') printf \"$men_a_\" ;;"
 			[ -n "$raw_as" ] && [ -n "$men_as" ] && menu="$menu '$raw_as') printf \"$men_as\" ;;"
-			esac
 		done
 
 		# Start
 		printf "
-			define-command -override -hidden bkey-enable  %%{ $maps    };
-			define-command -override -hidden bkey-disable %%{ $disable };
+			define-command -override         bkey-enable  %%{ $maps    };
+			define-command -override         bkey-disable %%{ $disable };
 			define-command -override -hidden bkey-view    %%{ $view    };
 			define-command -override -hidden bkey-menu    %%{
 				info -title \"%%val{client}@%%val{client_pid}\" %%sh{
