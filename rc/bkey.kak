@@ -182,16 +182,16 @@ define-command -params 0..1 bkey %{
 
 		for key in $keys; do
 			case $key in
-				'ops____________0') key___="<0>"                             ; key__s="<)>"                             ; key_a_="<a-0>"                           ; key_as="<a-)>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________1') key___="<1>"                             ; key__s="<!>"                             ; key_a_="<a-1>"                           ; key_as="<a-!>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________2') key___="<2>"                             ; key__s="<@>"                             ; key_a_="<a-2>"                           ; key_as="<a-@>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________3') key___="<3>"                             ; key__s="<#>"                             ; key_a_="<a-3>"                           ; key_as="<a-#>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________4') key___="<4>"                             ; key__s="<$>"                             ; key_a_="<a-4>"                           ; key_as="<a-$>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________5') key___="<5>"                             ; key__s="<%%>"                            ; key_a_="<a-5>"                           ; key_as="<a-%%>"                          ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________6') key___="<6>"                             ; key__s="<^>"                             ; key_a_="<a-6>"                           ; key_as="<a-^>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________7') key___="<7>"                             ; key__s="<&>"                             ; key_a_="<a-7>"                           ; key_as="<a-&>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________8') key___="<8>"                             ; key__s="<*>"                             ; key_a_="<a-8>"                           ; key_as="<a-*>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'ops____________9') key___="<9>"                             ; key__s="<(>"                             ; key_a_="<a-9>"                           ; key_as="<a-(>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________0') key___="0"                               ; key__s=")"                               ; key_a_="<a-0>"                           ; key_as="<a-)>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________1') key___="1"                               ; key__s="!"                               ; key_a_="<a-1>"                           ; key_as="<a-!>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________2') key___="2"                               ; key__s="@"                               ; key_a_="<a-2>"                           ; key_as="<a-@>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________3') key___="3"                               ; key__s="#"                               ; key_a_="<a-3>"                           ; key_as="<a-#>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________4') key___="4"                               ; key__s="$"                               ; key_a_="<a-4>"                           ; key_as="<a-$>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________5') key___="5"                               ; key__s="%%"                              ; key_a_="<a-5>"                           ; key_as="<a-%%>"                          ; key_c_=""                                ; key_cs=""                                ;;
+				'oPs____________6') key___="6"                               ; key__s="^"                               ; key_a_="<a-6>"                           ; key_as="<a-^>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________7') key___="7"                               ; key__s="&"                               ; key_a_="<a-7>"                           ; key_as="<a-&>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________8') key___="8"                               ; key__s="*"                               ; key_a_="<a-8>"                           ; key_as="<a-*>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________9') key___="9"                               ; key__s="("                               ; key_a_="<a-9>"                           ; key_as="<a-(>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'cua___________f1') key___="<F1>"                            ; key__s=""                                ; key_a_=""                                ; key_as=""                                ; key_c_=""                                ; key_cs=""                                ;;
 				'cua___________f2') key___="<F2>"                            ; key__s=""                                ; key_a_=""                                ; key_as=""                                ; key_c_=""                                ; key_cs=""                                ;;
 				'cua___________f3') key___="<F3>"                            ; key__s=""                                ; key_a_=""                                ; key_as=""                                ; key_c_=""                                ; key_cs=""                                ;;
@@ -218,43 +218,43 @@ define-command -params 0..1 bkey %{
 				'cua______advance') key___="<space>"                         ; key__s=""                                ; key_a_="<a-space>"                       ; key_as=""                                ; key_c_="<c-space>"                       ; key_cs=""                                ;;
 				'cua_________exit') key___="<esc>"                           ; key__s=""                                ; key_a_=""                                ; key_as=""                                ; key_c_=""                                ; key_cs=""                                ;;
 				'cua________enter') key___="<ret>"                           ; key__s=""                                ; key_a_=""                                ; key_as=""                                ; key_c_=""                                ; key_cs=""                                ;;
-				'nav_________left') key___="<j>"                             ; key__s="<J>"                             ; key_a_="<a-j>"                           ; key_as="<a-J>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'nav________right') key___="<l>"                             ; key__s="<L>"                             ; key_a_="<a-l>"                           ; key_as="<a-L>"                           ; key_c_="<c-l>"                           ; key_cs=""                                ;;
-				'nav___________up') key___="<i>"                             ; key__s="<I>"                             ; key_a_="<a-i>"                           ; key_as="<a-I>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'nav_________down') key___="<k>"                             ; key__s="<K>"                             ; key_a_="<a-k>"                           ; key_as="<a-K>"                           ; key_c_="<c-k>"                           ; key_cs=""                                ;;
-				'nav_____backward') key___="<u>"                             ; key__s="<U>"                             ; key_a_="<a-u>"                           ; key_as="<a-U>"                           ; key_c_="<c-u>"                           ; key_cs=""                                ;;
-				'nav______forward') key___="<o>"                             ; key__s="<O>"                             ; key_a_="<a-o>"                           ; key_as="<a-O>"                           ; key_c_="<c-o>"                           ; key_cs=""                                ;;
-				'nav________taget') key___="<h>"                             ; key__s="<H>"                             ; key_a_="<a-h>"                           ; key_as="<a-H>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'nav________cycle') key___="<n>"                             ; key__s="<N>"                             ; key_a_="<a-n>"                           ; key_as="<a-N>"                           ; key_c_="<c-n>"                           ; key_cs=""                                ;;
-				'nav________local') key___="<y>"                             ; key__s="<Y>"                             ; key_a_="<a-y>"                           ; key_as="<a-Y>"                           ; key_c_="<c-y>"                           ; key_cs=""                                ;;
-				'nav________quick') key___="<m>"                             ; key__s="<M>"                             ; key_a_="<a-m>"                           ; key_as="<a-M>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'nav_________load') key___="<,>"                             ; key__s="<lt>"                            ; key_a_="<a-,>"                           ; key_as="<a-lt>"                          ; key_c_=""                                ; key_cs=""                                ;;
-				'nav_________item') key___="<g>"                             ; key__s="<G>"                             ; key_a_="<a-g>"                           ; key_as="<a-G>"                           ; key_c_="<c-g>"                           ; key_cs=""                                ;;
-				'nav________focus') key___="<s>"                             ; key__s="<S>"                             ; key_a_="<a-s>"                           ; key_as="<a-S>"                           ; key_c_="<c-s>"                           ; key_cs=""                                ;;
-				'nav_______select') key___="<a>"                             ; key__s="<A>"                             ; key_a_="<a-a>"                           ; key_as="<a-A>"                           ; key_c_="<c-a>"                           ; key_cs=""                                ;;
-				'nav_________next') key___="<[>"                             ; key__s="<{>"                             ; key_a_="<a-[>"                           ; key_as="<a-{>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'nav_________prev') key___="<]>"                             ; key__s="<}>"                             ; key_a_="<a-]>"                           ; key_as="<a-}>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'act______primary') key___="<d>"                             ; key__s="<D>"                             ; key_a_="<a-d>"                           ; key_as="<a-D>"                           ; key_c_="<c-d>"                           ; key_cs=""                                ;;
-				'act____secondary') key___="<f>"                             ; key__s="<F>"                             ; key_a_="<a-f>"                           ; key_as="<a-F>"                           ; key_c_="<c-f>"                           ; key_cs=""                                ;;
-				'act__alternative') key___="<e>"                             ; key__s="<E>"                             ; key_a_="<a-e>"                           ; key_as="<a-E>"                           ; key_c_="<c-e>"                           ; key_cs=""                                ;;
-				'act__________cut') key___="<x>"                             ; key__s="<X>"                             ; key_a_="<a-x>"                           ; key_as="<a-X>"                           ; key_c_="<c-x>"                           ; key_cs=""                                ;;
-				'act___________in') key___="<c>"                             ; key__s="<C>"                             ; key_a_="<a-c>"                           ; key_as="<a-C>"                           ; key_c_="<c-c>"                           ; key_cs=""                                ;;
-				'act__________out') key___="<v>"                             ; key__s="<V>"                             ; key_a_="<a-v>"                           ; key_as="<a-V>"                           ; key_c_="<c-v>"                           ; key_cs=""                                ;;
-				'env_________edit') key___="<w>"                             ; key__s="<W>"                             ; key_a_="<a-w>"                           ; key_as="<a-W>"                           ; key_c_="<c-w>"                           ; key_cs=""                                ;;
-				'env__________new') key___="<p>"                             ; key__s="<P>"                             ; key_a_="<a-p>"                           ; key_as="<a-P>"                           ; key_c_="<c-p>"                           ; key_cs=""                                ;;
-				'env________group') key___="<b>"                             ; key__s="<B>"                             ; key_a_="<a-b>"                           ; key_as="<a-B>"                           ; key_c_="<c-b>"                           ; key_cs=""                                ;;
-				'env______command') key___="<semicolon>"                     ; key__s="<:>"                             ; key_a_="<a-semicolon>"                   ; key_as="<a-:>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'env_____terminal') key___="<\`>"                            ; key__s="<~>"                             ; key_a_="<a-\`>"                          ; key_as="<a-~>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'env______history') key___="<z>"                             ; key__s="<Z>"                             ; key_a_="<a-z>"                           ; key_as="<a-Z>"                           ; key_c_="<c-z>"                           ; key_cs=""                                ;;
-				'env___________re') key___="<r>"                             ; key__s="<R>"                             ; key_a_="<a-r>"                           ; key_as="<a-R>"                           ; key_c_="<c-r>"                           ; key_cs=""                                ;;
-				'env_______record') key___="<t>"                             ; key__s="<T>"                             ; key_a_="<a-t>"                           ; key_as="<a-T>"                           ; key_c_="<c-t>"                           ; key_cs=""                                ;;
-				'env_________done') key___="<.>"                             ; key__s="<gt>"                            ; key_a_="<a-.>"                           ; key_as="<a-gt>"                          ; key_c_=""                                ; key_cs=""                                ;;
-				'env_________code') key___="</>"                             ; key__s="<?>"                             ; key_a_="<a-/>"                           ; key_as="<a-?>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'env_______person') key___="<q>"                             ; key__s="<Q>"                             ; key_a_="<a-q>"                           ; key_as="<a-Q>"                           ; key_c_="<c-q>"                           ; key_cs=""                                ;;
-				'vie_________view') key___="<\\>"                            ; key__s="<|>"                             ; key_a_="<a-\\>"                          ; key_as="<a-|>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'vie________minus') key___="<minus>"                         ; key__s="<_>"                             ; key_a_="<a-minus>"                       ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'vie_________plus') key___="<=>"                             ; key__s="<plus>"                          ; key_a_="<a-=>"                           ; key_as="<a-plus>"                        ; key_c_=""                                ; key_cs=""                                ;;
-				'vie________equal') key___="<'>"                             ; key__s="<\">"                            ; key_a_="<a-'>"                           ; key_as="<a-\">"                          ; key_c_=""                                ; key_cs=""                                ;;
+				'nav_________left') key___="j"                               ; key__s="J"                               ; key_a_="<a-j>"                           ; key_as="<a-J>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'nav________right') key___="l"                               ; key__s="L"                               ; key_a_="<a-l>"                           ; key_as="<a-L>"                           ; key_c_="<c-l>"                           ; key_cs=""                                ;;
+				'nav___________up') key___="i"                               ; key__s="I"                               ; key_a_="<a-i>"                           ; key_as="<a-I>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'nav_________down') key___="k"                               ; key__s="K"                               ; key_a_="<a-k>"                           ; key_as="<a-K>"                           ; key_c_="<c-k>"                           ; key_cs=""                                ;;
+				'nav_____backward') key___="u"                               ; key__s="U"                               ; key_a_="<a-u>"                           ; key_as="<a-U>"                           ; key_c_="<c-u>"                           ; key_cs=""                                ;;
+				'nav______forward') key___="o"                               ; key__s="O"                               ; key_a_="<a-o>"                           ; key_as="<a-O>"                           ; key_c_="<c-o>"                           ; key_cs=""                                ;;
+				'nav________taget') key___="h"                               ; key__s="H"                               ; key_a_="<a-h>"                           ; key_as="<a-H>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'nav________cycle') key___="n"                               ; key__s="N"                               ; key_a_="<a-n>"                           ; key_as="<a-N>"                           ; key_c_="<c-n>"                           ; key_cs=""                                ;;
+				'nav________local') key___="y"                               ; key__s="Y"                               ; key_a_="<a-y>"                           ; key_as="<a-Y>"                           ; key_c_="<c-y>"                           ; key_cs=""                                ;;
+				'nav________quick') key___="m"                               ; key__s="M"                               ; key_a_="<a-m>"                           ; key_as="<a-M>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'nav_________load') key___=","                               ; key__s="<lt>"                            ; key_a_="<a-,>"                           ; key_as="<a-lt>"                          ; key_c_=""                                ; key_cs=""                                ;;
+				'nav_________item') key___="g"                               ; key__s="G"                               ; key_a_="<a-g>"                           ; key_as="<a-G>"                           ; key_c_="<c-g>"                           ; key_cs=""                                ;;
+				'nav________focus') key___="s"                               ; key__s="S"                               ; key_a_="<a-s>"                           ; key_as="<a-S>"                           ; key_c_="<c-s>"                           ; key_cs=""                                ;;
+				'nav_______select') key___="a"                               ; key__s="A"                               ; key_a_="<a-a>"                           ; key_as="<a-A>"                           ; key_c_="<c-a>"                           ; key_cs=""                                ;;
+				'nav_________next') key___="["                               ; key__s="{"                               ; key_a_="<a-[>"                           ; key_as="<a-{>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'nav_________prev') key___="]"                               ; key__s="}"                               ; key_a_="<a-]>"                           ; key_as="<a-}>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'act______primary') key___="d"                               ; key__s="D"                               ; key_a_="<a-d>"                           ; key_as="<a-D>"                           ; key_c_="<c-d>"                           ; key_cs=""                                ;;
+				'act____secondary') key___="f"                               ; key__s="F"                               ; key_a_="<a-f>"                           ; key_as="<a-F>"                           ; key_c_="<c-f>"                           ; key_cs=""                                ;;
+				'act__alternative') key___="e"                               ; key__s="E"                               ; key_a_="<a-e>"                           ; key_as="<a-E>"                           ; key_c_="<c-e>"                           ; key_cs=""                                ;;
+				'act__________cut') key___="x"                               ; key__s="X"                               ; key_a_="<a-x>"                           ; key_as="<a-X>"                           ; key_c_="<c-x>"                           ; key_cs=""                                ;;
+				'act___________in') key___="c"                               ; key__s="C"                               ; key_a_="<a-c>"                           ; key_as="<a-C>"                           ; key_c_="<c-c>"                           ; key_cs=""                                ;;
+				'act__________out') key___="v"                               ; key__s="V"                               ; key_a_="<a-v>"                           ; key_as="<a-V>"                           ; key_c_="<c-v>"                           ; key_cs=""                                ;;
+				'env_________edit') key___="w"                               ; key__s="W"                               ; key_a_="<a-w>"                           ; key_as="<a-W>"                           ; key_c_="<c-w>"                           ; key_cs=""                                ;;
+				'env__________new') key___="p"                               ; key__s="P"                               ; key_a_="<a-p>"                           ; key_as="<a-P>"                           ; key_c_="<c-p>"                           ; key_cs=""                                ;;
+				'env________group') key___="b"                               ; key__s="B"                               ; key_a_="<a-b>"                           ; key_as="<a-B>"                           ; key_c_="<c-b>"                           ; key_cs=""                                ;;
+				'env______command') key___="<semicolon>"                     ; key__s=":"                               ; key_a_="<a-semicolon>"                   ; key_as="<a-:>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'env_____terminal') key___="\`"                              ; key__s="~"                               ; key_a_="<a-\`>"                          ; key_as="<a-~>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'env______history') key___="z"                               ; key__s="Z"                               ; key_a_="<a-z>"                           ; key_as="<a-Z>"                           ; key_c_="<c-z>"                           ; key_cs=""                                ;;
+				'env___________re') key___="r"                               ; key__s="R"                               ; key_a_="<a-r>"                           ; key_as="<a-R>"                           ; key_c_="<c-r>"                           ; key_cs=""                                ;;
+				'env_______record') key___="t"                               ; key__s="T"                               ; key_a_="<a-t>"                           ; key_as="<a-T>"                           ; key_c_="<c-t>"                           ; key_cs=""                                ;;
+				'env_________done') key___="."                               ; key__s="<gt>"                            ; key_a_="<a-.>"                           ; key_as="<a-gt>"                          ; key_c_=""                                ; key_cs=""                                ;;
+				'env_________code') key___="/"                               ; key__s="?"                               ; key_a_="<a-/>"                           ; key_as="<a-?>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'env_______person') key___="q"                               ; key__s="Q"                               ; key_a_="<a-q>"                           ; key_as="<a-Q>"                           ; key_c_="<c-q>"                           ; key_cs=""                                ;;
+				'vie_________view') key___="\\"                              ; key__s="|"                               ; key_a_="<a-\\>"                          ; key_as="<a-|>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'vie________minus') key___="<minus>"                         ; key__s="_"                               ; key_a_="<a-minus>"                       ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'vie_________plus') key___="="                               ; key__s="<plus>"                          ; key_a_="<a-=>"                           ; key_as="<a-plus>"                        ; key_c_=""                                ; key_cs=""                                ;;
+				'vie________equal') key___="'"                               ; key__s="\""                              ; key_a_="<a-'>"                           ; key_as="<a-\">"                          ; key_c_=""                                ; key_cs=""                                ;;
 			esac
 
 			case $key in
@@ -291,7 +291,7 @@ define-command -params 0..1 bkey %{
 				'cua________cycle') nor___=": buffer-previous<ret>"          ; nor__s=": buffer-next<ret>"              ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua____backspace') nor___="<;><h><a-d>"                     ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua_______delete') nor___="<;><a-d>"                        ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
-				'cua______advance') nor___=": bkey-menu<ret>"                ; nor__s=""                                ; nor_a_=": bkey-menu<ret>"                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
+				'cua______advance') nor___=": bkey-menu<ret>"                ; nor__s=""                                ; nor_a_=": bkey-menu<ret>"   ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua_________exit') nor___="<;>"                             ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'cua________enter') nor___="<ret>"                           ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________left') nor___="<h>"                             ; nor__s="<a-h>"                           ; nor_a_="<H>"                             ; nor_as="<a-H>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -519,7 +519,7 @@ define-command -params 0..1 bkey %{
 				'cua________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua____backspace') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_______delete') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'cua______advance') men___="<;>%%%%val{count}<G><v><c><v><m>"; men__s=""                                ; men_a_="<G><v><c><v><m>"                 ; men_as=""                                ;;
+				'cua______advance') men___="<;><0>%%%%val{count}<G><v><c><v><m>" ; men__s=""                            ; men_a_="<G><v><c><v><m>"                 ; men_as=""                                ;;
 				'cua_________exit') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua________enter') men___="<g><f>"                          ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________left') men___="<;><G><i>"                       ; men__s="<;><G><h>"                       ; men_a_="<G><i>"                          ; men_as="<G><h>"                          ;;
@@ -631,7 +631,7 @@ define-command -params 0..1 bkey %{
 				'env_________done') vie___=""                                ; vie__s=""                                ;;
 				'env_________code') vie___=""                                ; vie__s=""                                ;;
 				'env_______person') vie___=""                                ; vie__s=""                                ;;
-				'vie_________view') vie___="<v><c><v><m>: bkey<ret>"         ; vie__s=""                                ;;
+				'vie_________view') vie___="<v><c><v><m>: bkey normal<ret>"  ; vie__s=""                                ;;
 				'vie________minus') vie___=""                                ; vie__s=""                                ;;
 				'vie_________plus') vie___=""                                ; vie__s=""                                ;;
 				'vie________equal') vie___=""                                ; vie__s=""                                ;;
@@ -671,35 +671,35 @@ define-command -params 0..1 bkey %{
 					[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs      \"$vie_cs\";"
 				;;
 				'off')
-					[ -n "$key___" ] && maps="$maps unmap global normal $key___; unmap insert normal $key___; unmap prompt normal $key___;"
-					[ -n "$key__s" ] && maps="$maps unmap global normal $key__s; unmap insert normal $key__s; unmap prompt normal $key__s;"
-					[ -n "$key_a_" ] && maps="$maps unmap global normal $key_a_; unmap insert normal $key_a_; unmap prompt normal $key_a_;"
-					[ -n "$key_as" ] && maps="$maps unmap global normal $key_as; unmap insert normal $key_as; unmap prompt normal $key_as;"
-					[ -n "$key_c_" ] && maps="$maps unmap global normal $key_c_; unmap insert normal $key_c_; unmap prompt normal $key_c_;"
-					[ -n "$key_cs" ] && maps="$maps unmap global normal $key_cs; unmap insert normal $key_cs; unmap prompt normal $key_cs;"
+					[ -n "$key___" ] && maps="$maps unmap global normal $key___; unmap global insert $key___; unmap global prompt $key___;"
+					[ -n "$key__s" ] && maps="$maps unmap global normal $key__s; unmap global insert $key__s; unmap global prompt $key__s;"
+					[ -n "$key_a_" ] && maps="$maps unmap global normal $key_a_; unmap global insert $key_a_; unmap global prompt $key_a_;"
+					[ -n "$key_as" ] && maps="$maps unmap global normal $key_as; unmap global insert $key_as; unmap global prompt $key_as;"
+					[ -n "$key_c_" ] && maps="$maps unmap global normal $key_c_; unmap global insert $key_c_; unmap global prompt $key_c_;"
+					[ -n "$key_cs" ] && maps="$maps unmap global normal $key_cs; unmap global insert $key_cs; unmap global prompt $key_cs;"
 				;;
 				'menu')
-					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps '$key___') printf \"execute-keys \\\"\$kak_count$men___\\\"\";;"
-					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps '$key__s') printf \"execute-keys \\\"\$kak_count$men__s\\\"\";;"
-					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps '$key_a_') printf \"execute-keys \\\"\$kak_count$men_a_\\\"\";;"
-					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps '$key_as') printf \"execute-keys \\\"\$kak_count$men_as\\\"\";;"
-					[ -n "$key_c_" ] && [ -n "$men_c_" ] && maps="$maps '$key_c_') printf \"execute-keys \\\"\$kak_count$men_c_\\\"\";;"
-					[ -n "$key_cs" ] && [ -n "$men_cs" ] && maps="$maps '$key_cs') printf \"execute-keys \\\"\$kak_count$men_cs\\\"\";;"
+					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps '$key___') printf \"$kak_count$men___\" ;;"
+					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps '$key__s') printf \"$kak_count$men__s\" ;;"
+					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps '$key_a_') printf \"$kak_count$men_a_\" ;;"
+					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps '$key_as') printf \"$kak_count$men_as\" ;;"
+					[ -n "$key_c_" ] && [ -n "$men_c_" ] && maps="$maps '$key_c_') printf \"$kak_count$men_c_\" ;;"
+					[ -n "$key_cs" ] && [ -n "$men_cs" ] && maps="$maps '$key_cs') printf \"$kak_count$men_cs\" ;;"
 				;;
 			esac
 		done
 
 		[ "$mode" = 'menu' ] && maps="
 			def -hidden bkey-menu %%{
-				info -title \"%%val{client}@%%val{client_pid}\" %%{
-					TestTestTestTestTestTestTestTest
+				info -title \"%%val{client}@%%val{client_pid}\" %%sh{
+					printf \"TestTestTestTestTestTestTestTest\"
 				}
 				on-key %%{
-					%%sh{
+					execute-keys \"%%sh{
 						case \$kak_key in
 							$maps
 						esac
-					}
+					}\"
 				}
 			}
 		"
