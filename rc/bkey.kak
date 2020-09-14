@@ -188,7 +188,7 @@ define-command -params 0..1 bkey %{
 				'ops____________3') key___="<3>"                               ; key__s="<#>"                               ; key_a_="<a-3>"                           ; key_as="<a-#>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________4') key___="<4>"                               ; key__s="<$>"                               ; key_a_="<a-4>"                           ; key_as="<a-$>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________5') key___="<5>"                               ; key__s="<%%>"                              ; key_a_="<a-5>"                           ; key_as="<a-%%>"                          ; key_c_=""                                ; key_cs=""                                ;;
-				'oPs____________6') key___="<6>"                               ; key__s="<^>"                               ; key_a_="<a-6>"                           ; key_as="<a-^>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'ops____________6') key___="<6>"                               ; key__s="<^>"                               ; key_a_="<a-6>"                           ; key_as="<a-^>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________7') key___="<7>"                               ; key__s="<&>"                               ; key_a_="<a-7>"                           ; key_as="<a-&>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________8') key___="<8>"                               ; key__s="<*>"                               ; key_a_="<a-8>"                           ; key_as="<a-*>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________9') key___="<9>"                               ; key__s="<(>"                               ; key_a_="<a-9>"                           ; key_as="<a-(>"                           ; key_c_=""                                ; key_cs=""                                ;;
@@ -264,7 +264,7 @@ define-command -params 0..1 bkey %{
 				'ops____________3') raw___="3"                                 ; raw__s="#"                                 ; raw_a_="<a-3>"                           ; raw_as="<a-#>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'ops____________4') raw___="4"                                 ; raw__s="$"                                 ; raw_a_="<a-4>"                           ; raw_as="<a-$>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'ops____________5') raw___="5"                                 ; raw__s="%%"                                ; raw_a_="<a-5>"                           ; raw_as="<a-%%>"                          ; raw_c_=""                                ; raw_cs=""                                ;;
-				'oPs____________6') raw___="6"                                 ; raw__s="^"                                 ; raw_a_="<a-6>"                           ; raw_as="<a-^>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
+				'ops____________6') raw___="6"                                 ; raw__s="^"                                 ; raw_a_="<a-6>"                           ; raw_as="<a-^>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'ops____________7') raw___="7"                                 ; raw__s="&"                                 ; raw_a_="<a-7>"                           ; raw_as="<a-&>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'ops____________8') raw___="8"                                 ; raw__s="*"                                 ; raw_a_="<a-8>"                           ; raw_as="<a-*>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'ops____________9') raw___="9"                                 ; raw__s="("                                 ; raw_a_="<a-9>"                           ; raw_as="<a-(>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
@@ -381,7 +381,7 @@ define-command -params 0..1 bkey %{
 				'nav________local') nor___="<f>"                             ; nor__s="<a-f>"                           ; nor_a_="<F>"                             ; nor_as="<a-F>"                           ; nor_c_="<U>"                             ; nor_cs=""                                ;;
 				'nav________quick') nor___="<m>"                             ; nor__s="<a-m>"                           ; nor_a_="<M>"                             ; nor_as="<a-M>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________load') nor___="<z>"                             ; nor__s="<Z>"                             ; nor_a_=""                                ; nor_as="<c-s>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
-				'nav_________item') nor___="<)>"                             ; nor__s="<(>"                             ; nor_a_="<a-)>"                           ; nor_as="<a-(>"                           ; nor_c_="%%val{count}<;><G><v><c><v><m>"  ; nor_cs="%%val{count}<G><v><c><v><m>"     ;;
+				'nav_________item') nor___="<)>"                             ; nor__s="<(>"                             ; nor_a_="<a-)>"                           ; nor_as="<a-(>"                           ; nor_c_="<;>%%val{count}<G><0><v><c><v><m>" ; nor_cs="<G><0><v><c><v><m>"            ;;
 				'nav________focus') nor___="<a-x>"                           ; nor__s="<%%%%>"                          ; nor_a_="<a-x>"                           ; nor_as="<a-X>"                           ; nor_c_=": write<ret>"                    ; nor_cs=":write "                         ;;
 				'nav_______select') nor___="<a-i>"                           ; nor__s="<a-a>"                           ; nor_a_="<a-;>"                           ; nor_as="<a-:>"                           ; nor_c_="<%%%%>"                          ; nor_cs=""                                ;;
 				'nav_________next') nor___="<a-[>"                           ; nor__s="["                               ; nor_a_="<a-{>"                           ; nor_as="{"                               ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -595,7 +595,7 @@ define-command -params 0..1 bkey %{
 				'cua________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua____backspace') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_______delete') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'cua______advance') men___="<;><0>%%val{count}<G><v><c><v><m>" ; men__s=""                              ; men_a_="<G><v><c><v><m>"                 ; men_as=""                                ;;
+				'cua______advance') men___="<;>%%val{count}<G><0><v><c><v><m>" ; men__s=""                              ; men_a_="<G><v><0><c><v><m>"              ; men_as=""                                ;;
 				'cua_________exit') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua________enter') men___="<g><f>"                          ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________left') men___="<;><G><i>"                       ; men__s="<;><G><h>"                       ; men_a_="<G><i>"                          ; men_as="<G><h>"                          ;;
@@ -755,12 +755,10 @@ define-command -params 0..1 bkey %{
 					[ -n "$key_cs" ] && maps="$maps unmap global normal $key_cs; unmap global insert $key_cs; unmap global prompt $key_cs;"
 				;;
 				'menu')
-					[ -n "$key___" ] && [ -n "$men___" ] && maps="$maps '$key___') printf \"$kak_count$men___\" ;;"
-					[ -n "$key__s" ] && [ -n "$men__s" ] && maps="$maps '$key__s') printf \"$kak_count$men__s\" ;;"
-					[ -n "$key_a_" ] && [ -n "$men_a_" ] && maps="$maps '$key_a_') printf \"$kak_count$men_a_\" ;;"
-					[ -n "$key_as" ] && [ -n "$men_as" ] && maps="$maps '$key_as') printf \"$kak_count$men_as\" ;;"
-					[ -n "$key_c_" ] && [ -n "$men_c_" ] && maps="$maps '$key_c_') printf \"$kak_count$men_c_\" ;;"
-					[ -n "$key_cs" ] && [ -n "$men_cs" ] && maps="$maps '$key_cs') printf \"$kak_count$men_cs\" ;;"
+					[ -n "$raw___" ] && [ -n "$men___" ] && maps="$maps '$raw___') printf \"$men___\" ;;"
+					[ -n "$raw__s" ] && [ -n "$men__s" ] && maps="$maps '$raw__s') printf \"$men__s\" ;;"
+					[ -n "$raw_a_" ] && [ -n "$men_a_" ] && maps="$maps '$raw_a_') printf \"$men_a_\" ;;"
+					[ -n "$raw_as" ] && [ -n "$men_as" ] && maps="$maps '$raw_as') printf \"$men_as\" ;;"
 				;;
 			esac
 		done
@@ -771,7 +769,7 @@ define-command -params 0..1 bkey %{
 					printf \"TestTestTestTestTestTestTestTest\"
 				}
 				on-key %%{
-					execute-keys %%sh{
+					execute-keys %%val{count}%%sh{
 						case \$kak_key in
 							$maps
 						esac
