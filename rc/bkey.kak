@@ -1,9 +1,9 @@
-#        ____
-#       / __ )  __
-#      / __  | / /_____ __ __
-#     / /_/ / /  '_/ -_) // /
-#    /_____/ /_/\_\\__/\_, /
-#                     /___/
+#     ____
+#    / __ )  __
+#   / __  | / /_____ __ __
+#  / /_/ / /  '_/ -_) // /
+# /_____/ /_/\_\\__/\_, /
+#                  /___/
 
 # File:         bkey.kak
 # Description:  Kakoune key-binding that SuperB
@@ -411,79 +411,79 @@ define-command bkey-load %{
 			esac
 
 			case $key in
-				'ops____________0') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________1') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________2') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________3') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________4') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________5') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________6') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________7') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________8') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'ops____________9') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f1') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f2') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f3') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f4') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f5') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f6') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f7') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f8') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua___________f9') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua__________f10') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua__________f11') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua__________f12') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua_________left') ins___="<left>"                          ; nor__s="<a-;><H>"                        ; ins_a_="<a-;><lt>"                       ;nor_as="<a-;><a-lt>"                      ;;
-				'cua________right') ins___="<right>"                         ; nor__s="<a-;><L>"                        ; ins_a_="<a-;><gt>"                       ;nor_as="<a-;><a-gt>"                      ;;
-				'cua___________up') ins___="<up>"                            ; ins__s="<a-;><K>"                        ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua_________down') ins___="<down>"                          ; ins__s="<a-;><J>"                        ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua_______pageup') ins___="<a-;><c-b>"                      ; nor__s="<a-;><c-b>"                      ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua_____pagedown') ins___="<a-;><c-f>"                      ; nor__s="<a-;><c-f>"                      ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua_________home') ins___="<a-;><a-h>"                      ; nor__s="<a-;><a-H>"                      ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua__________end') ins___="<a-;><a-l>"                      ; nor__s="<a-;><a-L>"                      ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua________cycle') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua____backspace') ins___=""                                ; ins__s=""                                ; ins_a_="<backspace>"                     ;ins_as=""                                 ;;
-				'cua_______delete') ins___=""                                ; ins__s=""                                ; ins_a_="<del>"                           ;ins_as=""                                 ;;
-				'cua______advance') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'cua_________exit') ins___="<esc>"                           ; ins__s=""                                ; ins_a_="<esc>"                           ;ins_as=""                                 ;;
-				'cua________enter') ins___=""                                ; ins__s=""                                ; ins_a_="<ret>"                           ;ins_as=""                                 ;;
-				'nav_________left') ins___=""                                ; ins__s=""                                ; ins_a_="<left>"                          ;ins_as="<home>"                           ;;
-				'nav________right') ins___=""                                ; ins__s=""                                ; ins_a_="<right>"                         ;ins_as="<end>"                            ;;
-				'nav___________up') ins___=""                                ; ins__s=""                                ; ins_a_="<up>"                            ;ins_as=""                                 ;;
-				'nav_________down') ins___=""                                ; ins__s=""                                ; ins_a_="<down>"                          ;ins_as=""                                 ;;
-				'nav_____backward') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav______forward') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav________taget') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav________cycle') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav________local') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav________quick') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav_________load') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav_________item') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav________focus') ins___=""                                ; ins__s=""                                ; ins_a_="<a-;>"                           ;ins_as="<esc>"                            ;;
-				'nav_______select') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav_________next') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'nav_________prev') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'act______primary') ins___=""                                ; ins__s=""                                ; ins_a_="<c-v>"                           ;ins_as="<c-u>"                            ;;
-				'act____secondary') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'act__alternative') ins___=""                                ; ins__s=""                                ; ins_a_="<c-r>"                           ;ins_as=""                                 ;;
-				'act__________cut') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'act___________in') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'act__________out') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env_________edit') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env__________new') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env________group') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env______command') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env_____terminal') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env______history') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env___________re') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env_______record') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env_________done') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'env_________code') ins___=""                                ; ins__s=""                                ; ins_a_="<c-o>"                           ;ins_as="<c-x>"                            ;;
-				'env_______person') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'vie_________view') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'vie________minus') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'vie_________plus') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
-				'vie________equal') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ;ins_as=""                                 ;;
+				'ops____________0') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________1') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________2') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________3') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________4') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________5') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________6') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________7') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________8') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'ops____________9') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f1') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f2') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f3') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f4') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f5') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f6') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f7') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f8') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua___________f9') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua__________f10') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua__________f11') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua__________f12') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_________left') ins___="<left>"                          ; ins__s="<a-;><H>"                        ; ins_a_="<a-;><lt>"                       ; ins_as="<a-;><a-lt>"                     ;;
+				'cua________right') ins___="<right>"                         ; ins__s="<a-;><L>"                        ; ins_a_="<a-;><gt>"                       ; ins_as="<a-;><a-gt>"                     ;;
+				'cua___________up') ins___="<up>"                            ; ins__s="<a-;><K>"                        ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_________down') ins___="<down>"                          ; ins__s="<a-;><J>"                        ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_______pageup') ins___="<a-;><c-b>"                      ; ins__s="<a-;><c-b>"                      ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_____pagedown') ins___="<a-;><c-f>"                      ; ins__s="<a-;><c-f>"                      ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_________home') ins___="<a-;><a-h>"                      ; ins__s="<a-;><a-H>"                      ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua__________end') ins___="<a-;><a-l>"                      ; ins__s="<a-;><a-L>"                      ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua________cycle') ins___=": bp; bkey-menu<ret>"            ; ins__s=": bn; bkey-menu<ret>"            ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua____backspace') ins___=""                                ; ins__s=""                                ; ins_a_="<backspace>"                     ; ins_as=""                                ;;
+				'cua_______delete') ins___=""                                ; ins__s=""                                ; ins_a_="<del>"                           ; ins_as=""                                ;;
+				'cua______advance') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_________exit') ins___="<esc>"                           ; ins__s=""                                ; ins_a_="<esc>"                           ; ins_as=""                                ;;
+				'cua________enter') ins___=""                                ; ins__s=""                                ; ins_a_="<ret>"                           ; ins_as=""                                ;;
+				'nav_________left') ins___=""                                ; ins__s=""                                ; ins_a_="<left>"                          ; ins_as="<home>"                          ;;
+				'nav________right') ins___=""                                ; ins__s=""                                ; ins_a_="<right>"                         ; ins_as="<end>"                           ;;
+				'nav___________up') ins___=""                                ; ins__s=""                                ; ins_a_="<up>"                            ; ins_as=""                                ;;
+				'nav_________down') ins___=""                                ; ins__s=""                                ; ins_a_="<down>"                          ; ins_as=""                                ;;
+				'nav_____backward') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav______forward') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav________taget') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav________cycle') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav________local') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav________quick') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav_________load') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav_________item') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav________focus') ins___=""                                ; ins__s=""                                ; ins_a_="<a-;>"                           ; ins_as="<esc>"                           ;;
+				'nav_______select') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav_________next') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav_________prev') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'act______primary') ins___=""                                ; ins__s=""                                ; ins_a_="<c-v>"                           ; ins_as="<c-u>"                           ;;
+				'act____secondary') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'act__alternative') ins___=""                                ; ins__s=""                                ; ins_a_="<c-r>"                           ; ins_as=""                                ;;
+				'act__________cut') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'act___________in') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'act__________out') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_________edit') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env__________new') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env________group') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env______command') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_____terminal') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env______history') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env___________re') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_______record') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_________done') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_________code') ins___=""                                ; ins__s=""                                ; ins_a_="<c-o>"                           ; ins_as="<c-x>"                           ;;
+				'env_______person') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'vie_________view') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'vie________minus') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'vie_________plus') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'vie________equal') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 			esac
 
 			case $key in
@@ -563,6 +563,82 @@ define-command bkey-load %{
 			esac
 
 			case $key in
+				'ops____________0') vie___="<0>"                             ; vie__s=""                                ;;
+				'ops____________1') vie___="<1>"                             ; vie__s=""                                ;;
+				'ops____________2') vie___="<2>"                             ; vie__s=""                                ;;
+				'ops____________3') vie___="<3>"                             ; vie__s=""                                ;;
+				'ops____________4') vie___="<4>"                             ; vie__s=""                                ;;
+				'ops____________5') vie___="<5>"                             ; vie__s=""                                ;;
+				'ops____________6') vie___="<6>"                             ; vie__s=""                                ;;
+				'ops____________7') vie___="<7>"                             ; vie__s=""                                ;;
+				'ops____________8') vie___="<8>"                             ; vie__s=""                                ;;
+				'ops____________9') vie___="<9>"                             ; vie__s=""                                ;;
+				'cua___________f1') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f2') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f3') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f4') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f5') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f6') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f7') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f8') vie___=""                                ; vie__s=""                                ;;
+				'cua___________f9') vie___=""                                ; vie__s=""                                ;;
+				'cua__________f10') vie___=""                                ; vie__s=""                                ;;
+				'cua__________f11') vie___=""                                ; vie__s=""                                ;;
+				'cua__________f12') vie___=""                                ; vie__s=""                                ;;
+				'cua_________left') vie___="<v><h>"                          ; vie__s="%%val{window_width}<v><h>"       ;;
+				'cua________right') vie___="<v><l>"                          ; vie__s="%%val{window_width}<v><l>"       ;;
+				'cua___________up') vie___="<v><k>"                          ; vie__s="<v><b>"                          ;;
+				'cua_________down') vie___="<v><j>"                          ; vie__s="<v><t>"                          ;;
+				'cua_______pageup') vie___=""                                ; vie__s=""                                ;;
+				'cua_____pagedown') vie___=""                                ; vie__s=""                                ;;
+				'cua_________home') vie___=""                                ; vie__s=""                                ;;
+				'cua__________end') vie___=""                                ; vie__s=""                                ;;
+				'cua________cycle') nor___=": buffer-previous<ret>"          ; nor__s=": buffer-next<ret>"              ;;
+				'cua____backspace') vie___=""                                ; vie__s=""                                ;;
+				'cua_______delete') vie___=""                                ; vie__s=""                                ;;
+				'cua______advance') vie___="<v><c><v><m>"                    ; vie__s=""                                ;;
+				'cua_________exit') vie___=": bkey-enable<ret>"              ; vie__s=""                                ;;
+				'cua________enter') vie___=""                                ; vie__s=""                                ;;
+				'nav_________left') vie___="<v><h>"                          ; vie__s="%%val{window_width}<v><h>"       ;;
+				'nav________right') vie___="<v><l>"                          ; vie__s="%%val{window_width}<v><l>"       ;;
+				'nav___________up') vie___="<v><k>"                          ; vie__s="<v><b>"                          ;;
+				'nav_________down') vie___="<v><j>"                          ; vie__s="<v><t>"                          ;;
+				'nav_____backward') vie___="<c-u>"                           ; vie__s="<c-b>"                           ;;
+				'nav______forward') vie___="<c-d>"                           ; vie__s="<c-f>"                           ;;
+				'nav________taget') vie___=""                                ; vie__s=""                                ;;
+				'nav________cycle') vie___=""                                ; vie__s=""                                ;;
+				'nav________local') vie___=""                                ; vie__s=""                                ;;
+				'nav________quick') vie___="<v><m>"                          ; vie__s="<v><c>"                          ;;
+				'nav_________load') vie___=""                                ; vie__s=""                                ;;
+				'nav_________item') vie___="<)>"                             ; vie__s="<(>"                             ;;
+				'nav________focus') vie___=""                                ; vie__s=""                                ;;
+				'nav_______select') vie___=""                                ; vie__s=""                                ;;
+				'nav_________next') vie___=""                                ; vie__s=""                                ;;
+				'nav_________prev') vie___=""                                ; vie__s=""                                ;;
+				'act______primary') vie___=""                                ; vie__s=""                                ;;
+				'act____secondary') vie___=""                                ; vie__s=""                                ;;
+				'act__alternative') vie___=""                                ; vie__s=""                                ;;
+				'act__________cut') vie___=""                                ; vie__s=""                                ;;
+				'act___________in') vie___=""                                ; vie__s=""                                ;;
+				'act__________out') vie___=""                                ; vie__s=""                                ;;
+				'env_________edit') vie___=""                                ; vie__s=""                                ;;
+				'env__________new') vie___=""                                ; vie__s=""                                ;;
+				'env________group') vie___=""                                ; vie__s=""                                ;;
+				'env______command') vie___=""                                ; vie__s=""                                ;;
+				'env_____terminal') vie___=""                                ; vie__s=""                                ;;
+				'env______history') vie___=""                                ; vie__s=""                                ;;
+				'env___________re') vie___=""                                ; vie__s=""                                ;;
+				'env_______record') vie___=""                                ; vie__s=""                                ;;
+				'env_________done') vie___=""                                ; vie__s=""                                ;;
+				'env_________code') vie___=""                                ; vie__s=""                                ;;
+				'env_______person') vie___=""                                ; vie__s=""                                ;;
+				'vie_________view') vie___="<v><c><v><m>: bkey-normal<ret>"  ; vie__s=""                                ;;
+				'vie________minus') vie___=""                                ; vie__s=""                                ;;
+				'vie_________plus') vie___=""                                ; vie__s=""                                ;;
+				'vie________equal') vie___=""                                ; vie__s=""                                ;;
+			esac
+
+			case $key in
 				'ops____________0') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'ops____________1') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'ops____________2') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
@@ -638,105 +714,29 @@ define-command bkey-load %{
 				'vie________equal') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 			esac
 
-			case $key in
-				'ops____________0') vie___="<0>"                             ; vie__s=""                                ;;
-				'ops____________1') vie___="<1>"                             ; vie__s=""                                ;;
-				'ops____________2') vie___="<2>"                             ; vie__s=""                                ;;
-				'ops____________3') vie___="<3>"                             ; vie__s=""                                ;;
-				'ops____________4') vie___="<4>"                             ; vie__s=""                                ;;
-				'ops____________5') vie___="<5>"                             ; vie__s=""                                ;;
-				'ops____________6') vie___="<6>"                             ; vie__s=""                                ;;
-				'ops____________7') vie___="<7>"                             ; vie__s=""                                ;;
-				'ops____________8') vie___="<8>"                             ; vie__s=""                                ;;
-				'ops____________9') vie___="<9>"                             ; vie__s=""                                ;;
-				'cua___________f1') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f2') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f3') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f4') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f5') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f6') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f7') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f8') vie___=""                                ; vie__s=""                                ;;
-				'cua___________f9') vie___=""                                ; vie__s=""                                ;;
-				'cua__________f10') vie___=""                                ; vie__s=""                                ;;
-				'cua__________f11') vie___=""                                ; vie__s=""                                ;;
-				'cua__________f12') vie___=""                                ; vie__s=""                                ;;
-				'cua_________left') vie___="<v><h>"                          ; vie__s="%%val{window_width}<v><h>"       ;;
-				'cua________right') vie___="<v><l>"                          ; vie__s="%%val{window_width}<v><l>"       ;;
-				'cua___________up') vie___="<v><k>"                          ; vie__s="<v><b>"                          ;;
-				'cua_________down') vie___="<v><j>"                          ; vie__s="<v><t>"                          ;;
-				'cua_______pageup') vie___=""                                ; vie__s=""                                ;;
-				'cua_____pagedown') vie___=""                                ; vie__s=""                                ;;
-				'cua_________home') vie___=""                                ; vie__s=""                                ;;
-				'cua__________end') vie___=""                                ; vie__s=""                                ;;
-				'cua________cycle') nor___=": buffer-previous<ret>"          ; nor__s=": buffer-next<ret>"              ;;
-				'cua____backspace') vie___=""                                ; vie__s=""                                ;;
-				'cua_______delete') vie___=""                                ; vie__s=""                                ;;
-				'cua______advance') vie___="<v><c><v><m>"                    ; vie__s=""                                ;;
-				'cua_________exit') vie___=": bkey-normal<ret>"              ; vie__s=""                                ;;
-				'cua________enter') vie___=""                                ; vie__s=""                                ;;
-				'nav_________left') vie___="<v><h>"                          ; vie__s="%%val{window_width}<v><h>"       ;;
-				'nav________right') vie___="<v><l>"                          ; vie__s="%%val{window_width}<v><l>"       ;;
-				'nav___________up') vie___="<v><k>"                          ; vie__s="<v><b>"                          ;;
-				'nav_________down') vie___="<v><j>"                          ; vie__s="<v><t>"                          ;;
-				'nav_____backward') vie___="<c-u>"                           ; vie__s="<c-b>"                           ;;
-				'nav______forward') vie___="<c-d>"                           ; vie__s="<c-f>"                           ;;
-				'nav________taget') vie___=""                                ; vie__s=""                                ;;
-				'nav________cycle') vie___=""                                ; vie__s=""                                ;;
-				'nav________local') vie___=""                                ; vie__s=""                                ;;
-				'nav________quick') vie___="<v><m>"                          ; vie__s="<v><c>"                          ;;
-				'nav_________load') vie___=""                                ; vie__s=""                                ;;
-				'nav_________item') vie___="<)>"                             ; vie__s="<(>"                             ;;
-				'nav________focus') vie___=""                                ; vie__s=""                                ;;
-				'nav_______select') vie___=""                                ; vie__s=""                                ;;
-				'nav_________next') vie___=""                                ; vie__s=""                                ;;
-				'nav_________prev') vie___=""                                ; vie__s=""                                ;;
-				'act______primary') vie___=""                                ; vie__s=""                                ;;
-				'act____secondary') vie___=""                                ; vie__s=""                                ;;
-				'act__alternative') vie___=""                                ; vie__s=""                                ;;
-				'act__________cut') vie___=""                                ; vie__s=""                                ;;
-				'act___________in') vie___=""                                ; vie__s=""                                ;;
-				'act__________out') vie___=""                                ; vie__s=""                                ;;
-				'env_________edit') vie___=""                                ; vie__s=""                                ;;
-				'env__________new') vie___=""                                ; vie__s=""                                ;;
-				'env________group') vie___=""                                ; vie__s=""                                ;;
-				'env______command') vie___=""                                ; vie__s=""                                ;;
-				'env_____terminal') vie___=""                                ; vie__s=""                                ;;
-				'env______history') vie___=""                                ; vie__s=""                                ;;
-				'env___________re') vie___=""                                ; vie__s=""                                ;;
-				'env_______record') vie___=""                                ; vie__s=""                                ;;
-				'env_________done') vie___=""                                ; vie__s=""                                ;;
-				'env_________code') vie___=""                                ; vie__s=""                                ;;
-				'env_______person') vie___=""                                ; vie__s=""                                ;;
-				'vie_________view') vie___="<v><c><v><m>: bkey-normal<ret>"  ; vie__s=""                                ;;
-				'vie________minus') vie___=""                                ; vie__s=""                                ;;
-				'vie_________plus') vie___=""                                ; vie__s=""                                ;;
-				'vie________equal') vie___=""                                ; vie__s=""                                ;;
-			esac
 
+			[ -n "$key___" ]                     && enable="$enable map global normal $key___      \"$nor___\";"
+			[ -n "$key__s" ]                     && enable="$enable map global normal $key__s      \"$nor__s\";"
+			[ -n "$key_a_" ]                     && enable="$enable map global normal $key_a_      \"$nor_a_\";"
+			[ -n "$key_as" ]                     && enable="$enable map global normal $key_as      \"$nor_as\";"
+			[ -n "$key_c_" ]                     && enable="$enable map global normal $key_c_      \"$nor_c_\";"
+			[ -n "$key_cs" ]                     && enable="$enable map global normal $key_cs      \"$nor_cs\";"
 
-			[ -n "$key___" ]                     && maps="$maps map global normal $key___      \"$nor___\";"
-			[ -n "$key__s" ]                     && maps="$maps map global normal $key__s      \"$nor__s\";"
-			[ -n "$key_a_" ]                     && maps="$maps map global normal $key_a_      \"$nor_a_\";"
-			[ -n "$key_as" ]                     && maps="$maps map global normal $key_as      \"$nor_as\";"
-			[ -n "$key_c_" ]                     && maps="$maps map global normal $key_c_      \"$nor_c_\";"
-			[ -n "$key_cs" ]                     && maps="$maps map global normal $key_cs      \"$nor_cs\";"
+			[ -n "$key___" ] && [ -n "$ins___" ] && enable="$enable map global insert $key___      \"$ins___\";"
+			[ -n "$key__s" ] && [ -n "$ins__s" ] && enable="$enable map global insert $key__s      \"$ins__s\";"
+			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && enable="$enable map global insert $key_a_      \"$ins_a_\";"
+			[ -n "$key_as" ] && [ -n "$ins_as" ] && enable="$enable map global insert $key_as      \"$ins_as\";"
+			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && enable="$enable map global insert $key_a_ \"<a-;>$nor___\";"
+			[ -n "$key_as" ] && [ -z "$ins_as" ] && enable="$enable map global insert $key_as \"<a-;>$nor__s\";"
+			[ -n "$key_c_" ]                     && enable="$enable map global insert $key_c_ \"<a-;>$nor_c_\";"
+			[ -n "$key_cs" ]                     && enable="$enable map global insert $key_cs \"<a-;>$nor_cs\";"
 
-			[ -n "$key___" ] && [ -n "$ins___" ] && maps="$maps map global insert $key___      \"$ins___\";"
-			[ -n "$key__s" ] && [ -n "$ins__s" ] && maps="$maps map global insert $key__s      \"$ins__s\";"
-			[ -n "$key_a_" ] && [ -n "$ins_a_" ] && maps="$maps map global insert $key_a_      \"$ins_a_\";"
-			[ -n "$key_as" ] && [ -n "$ins_as" ] && maps="$maps map global insert $key_as      \"$ins_as\";"
-			[ -n "$key_a_" ] && [ -z "$ins_a_" ] && maps="$maps map global insert $key_a_ \"<a-;>$nor___\";"
-			[ -n "$key_as" ] && [ -z "$ins_as" ] && maps="$maps map global insert $key_as \"<a-;>$nor__s\";"
-			[ -n "$key_c_" ]                     && maps="$maps map global insert $key_c_ \"<a-;>$nor_c_\";"
-			[ -n "$key_cs" ]                     && maps="$maps map global insert $key_cs \"<a-;>$nor_cs\";"
-
-			[ -n "$key___" ] && [ -n "$pro___" ] && maps="$maps map global prompt $key___      \"$pro___\";"
-			[ -n "$key__s" ] && [ -n "$pro__s" ] && maps="$maps map global prompt $key__s      \"$pro__s\";"
-			[ -n "$key_a_" ]                     && maps="$maps map global prompt $key_a_      \"$pro_a_\";"
-			[ -n "$key_as" ]                     && maps="$maps map global prompt $key_as      \"$pro_as\";"
-			[ -n "$key_c_" ]                     && maps="$maps map global prompt $key_c_      \"$pro_c_\";"
-			[ -n "$key_cs" ]                     && maps="$maps map global prompt $key_cs      \"$pro_cs\";"
+			[ -n "$key___" ] && [ -n "$pro___" ] && enable="$enable map global prompt $key___      \"$pro___\";"
+			[ -n "$key__s" ] && [ -n "$pro__s" ] && enable="$enable map global prompt $key__s      \"$pro__s\";"
+			[ -n "$key_a_" ]                     && enable="$enable map global prompt $key_a_      \"$pro_a_\";"
+			[ -n "$key_as" ]                     && enable="$enable map global prompt $key_as      \"$pro_as\";"
+			[ -n "$key_c_" ]                     && enable="$enable map global prompt $key_c_      \"$pro_c_\";"
+			[ -n "$key_cs" ]                     && enable="$enable map global prompt $key_cs      \"$pro_cs\";"
 
 			[ -n "$key___" ] && disable="$disable unmap global normal $key___; unmap global insert $key___; unmap global prompt $key___;"
 			[ -n "$key__s" ] && disable="$disable unmap global normal $key__s; unmap global insert $key__s; unmap global prompt $key__s;"
@@ -752,26 +752,32 @@ define-command bkey-load %{
 			[ -n "$key_c_" ] && view="$view map global normal $key_c_ \"$vie_c_\";"
 			[ -n "$key_cs" ] && view="$view map global normal $key_cs \"$vie_cs\";"
 
-			[ -n "$raw___" ] && [ -n "$men___" ] && menu="$menu '$raw___') printf \"$men___\" ;;"
-			[ -n "$raw__s" ] && [ -n "$men__s" ] && menu="$menu '$raw__s') printf \"$men__s\" ;;"
-			[ -n "$raw_a_" ] && [ -n "$men_a_" ] && menu="$menu '$raw_a_') printf \"$men_a_\" ;;"
-			[ -n "$raw_as" ] && [ -n "$men_as" ] && menu="$menu '$raw_as') printf \"$men_as\" ;;"
+			[ -n "$raw___" ] && [ -n "$men___" ] && menu="$menu '$raw___') execute=\"$men___\" ;;"
+			[ -n "$raw__s" ] && [ -n "$men__s" ] && menu="$menu '$raw__s') execute=\"$men__s\" ;;"
+			[ -n "$raw_a_" ] && [ -n "$men_a_" ] && menu="$menu '$raw_a_') execute=\"$men_a_\" ;;"
+			[ -n "$raw_as" ] && [ -n "$men_as" ] && menu="$menu '$raw_as') execute=\"$men_as\" ;;"
 		done
 
 		# Start
 		printf "
-			define-command -override         bkey-enable  %%{ $maps    };
+			define-command -override         bkey-enable  %%{ $enable  };
 			define-command -override         bkey-disable %%{ $disable };
 			define-command -override -hidden bkey-view    %%{ $view    };
 			define-command -override -hidden bkey-menu    %%{
-				info -title \"%%val{client}@%%val{client_pid}\" %%sh{
-					printf \"TestTestTestTestTestTestTestTest\"
+				info -title \"%%val{client}@[%%val{session}]\" %%sh{
+					printf \"\$kak_buffile\"
 				}
 				on-key %%{
-					execute-keys %%val{count}%%sh{
+					execute-keys -with-hooks -save-regs '' %%sh{
+						# Values
+						[ -n \"\$kak_register\" ] && register=\"<\\\">\$kak_register\"
 						case \$kak_key in
 							$menu
+							*) execute=\"<ret>\" ;;
 						esac
+
+						# Start
+						printf \"\$kak_count\$register\$execute\"
 					}
 				}
 			}
