@@ -35,7 +35,7 @@ define-command -hidden bkey-terminal %{ terminal %val{client_env_SHELL} }
 #TODO fix paste
 define-command -hidden -params 1 bkey-insert %{
 	execute-keys -with-hooks %sh{
-		[ -n "$kak_register" ] && register="<\><$kak_register>"
+		[ -n "$kak_register" ] && register="<\"><$kak_register>"
 		selection_1_pos=${kak_selection_desc%%,*}
 		selection_1_lin=${selection_1_pos%%.*}
 		selection_1_col=${selection_1_pos##*.}
@@ -56,32 +56,32 @@ define-command -hidden -params 1 bkey-insert %{
 		case $cursor_pos in
 			'a')
 				case $1 in
-					'i')   echo '<a>'                            ;;
-					'p')   echo "$kak_count$register<p>"         ;;
-					'pa')  echo "$kak_count$register<a-p>"       ;;
-					'pe')  echo "$kak_count$register<p>"         ;;
-					'pea') echo "$kak_count$register<a-p>"       ;;
-					'c')   echo '<a-!>'                          ;;
+					'i')   printf "<a>"                            ;;
+					'p')   printf "$kak_count$register<p>"         ;;
+					'pa')  printf "$kak_count$register<a-p>"       ;;
+					'pe')  printf "$kak_count$register<p>"         ;;
+					'pea') printf "$kak_count$register<a-p>"       ;;
+					'c')   printf "<a-!>"                          ;;
 				esac
 			;;
 			'1')
 				case $1 in
-					'i')   echo '<i>'                            ;;
-					'p')   echo "$kak_count$register<P>"         ;;
-					'pa')  echo "$kak_count$register<a-P>"       ;;
-					'pe')  echo "<h>$kak_count$register<p><l>"   ;;
-					'pea') echo "<h>$kak_count$register<a-p><l>" ;;
-					'c')   echo '<!>'                            ;;
+					'i')   printf "<i>"                            ;;
+					'p')   printf "$kak_count$register<P>"         ;;
+					'pa')  printf "$kak_count$register<a-P>"       ;;
+					'pe')  printf "<h>$kak_count$register<p><l>"   ;;
+					'pea') printf "<h>$kak_count$register<a-p><l>" ;;
+					'c')   printf "<!>"                            ;;
 				esac
 			;;
 			'i'|*)
 				case $1 in
-					'i')   echo '<i>'                            ;;
-					'p')   echo "$kak_count$register<P>"         ;;
-					'pa')  echo "$kak_count$register<a-P>"       ;;
-					'pe')  echo "$kak_count$register<P>"         ;;
-					'pea') echo "$kak_count$register<a-P>"       ;;
-					'c')   echo '<!>'                            ;;
+					'i')   printf "<i>"                            ;;
+					'p')   printf "$kak_count$register<P>"         ;;
+					'pa')  printf "$kak_count$register<a-P>"       ;;
+					'pe')  printf "$kak_count$register<P>"         ;;
+					'pea') printf "$kak_count$register<a-P>"       ;;
+					'c')   printf "<!>"                            ;;
 				esac
 			;;
 		esac
@@ -441,12 +441,12 @@ define-command bkey-load %{
 				'cua_____pagedown') ins___="<a-;><c-f>"                      ; ins__s="<a-;><c-f>"                      ; ins_a_=""                                ; ins_as=""                                ;;
 				'cua_________home') ins___="<a-;><a-h>"                      ; ins__s="<a-;><a-H>"                      ; ins_a_=""                                ; ins_as=""                                ;;
 				'cua__________end') ins___="<a-;><a-l>"                      ; ins__s="<a-;><a-L>"                      ; ins_a_=""                                ; ins_as=""                                ;;
-				'cua________cycle') ins___=": bp; bkey-menu<ret>"            ; ins__s=": bn; bkey-menu<ret>"            ; ins_a_=""                                ; ins_as=""                                ;;
-				'cua____backspace') ins___=""                                ; ins__s=""                                ; ins_a_="<backspace>"                     ; ins_as=""                                ;;
-				'cua_______delete') ins___=""                                ; ins__s=""                                ; ins_a_="<del>"                           ; ins_as=""                                ;;
+				'cua________cycle') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua____backspace') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua_______delete') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'cua______advance') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
-				'cua_________exit') ins___="<esc>"                           ; ins__s=""                                ; ins_a_="<esc>"                           ; ins_as=""                                ;;
-				'cua________enter') ins___=""                                ; ins__s=""                                ; ins_a_="<ret>"                           ; ins_as=""                                ;;
+				'cua_________exit') ins___="<esc>"                           ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'cua________enter') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'nav_________left') ins___=""                                ; ins__s=""                                ; ins_a_="<left>"                          ; ins_as="<home>"                          ;;
 				'nav________right') ins___=""                                ; ins__s=""                                ; ins_a_="<right>"                         ; ins_as="<end>"                           ;;
 				'nav___________up') ins___=""                                ; ins__s=""                                ; ins_a_="<up>"                            ; ins_as=""                                ;;
@@ -459,13 +459,13 @@ define-command bkey-load %{
 				'nav________quick') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'nav_________load') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'nav_________item') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
-				'nav________focus') ins___=""                                ; ins__s=""                                ; ins_a_="<a-;>"                           ; ins_as="<esc>"                           ;;
-				'nav_______select') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'nav________focus') ins___=""                                ; ins__s=""                                ; ins_a_="<a-;>"                           ; ins_as=""                                ;;
+				'nav_______select') ins___=""                                ; ins__s=""                                ; ins_a_="<esc>"                           ; ins_as=""                                ;;
 				'nav_________next') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'nav_________prev') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
-				'act______primary') ins___=""                                ; ins__s=""                                ; ins_a_="<c-v>"                           ; ins_as="<c-u>"                           ;;
+				'act______primary') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as="<c-u>"                           ;;
 				'act____secondary') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
-				'act__alternative') ins___=""                                ; ins__s=""                                ; ins_a_="<c-r>"                           ; ins_as=""                                ;;
+				'act__alternative') ins___=""                                ; ins__s=""                                ; ins_a_="<c-r>"                           ; ins_as="<c-v>"                           ;;
 				'act__________cut') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'act___________in') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'act__________out') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
@@ -539,12 +539,12 @@ define-command bkey-load %{
 				'nav_______select') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'nav_________next') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'nav_________prev') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
-				'act______primary') pro___=""                                ; pro__s=""                                ; pro_a_="<c-v>"                           ; pro_as=""                                ;;
+				'act______primary') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'act____secondary') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
-				'act__alternative') pro___=""                                ; pro__s=""                                ; pro_a_="<c-r>"                           ; pro_as="<c-y>"                           ;;
+				'act__alternative') pro___=""                                ; pro__s=""                                ; pro_a_="<c-r>"                           ; pro_as="<c-v>"                           ;;
 				'act__________cut') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'act___________in') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
-				'act__________out') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
+				'act__________out') pro___=""                                ; pro__s=""                                ; pro_a_="<c-y>"                           ; pro_as=""                                ;;
 				'env_________edit') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env__________new') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env________group') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
@@ -669,7 +669,7 @@ define-command bkey-load %{
 				'cua_____pagedown') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_________home') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua__________end') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'cua________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
+				'cua________cycle') men___=": bp; bkey-menu<ret>"            ; men__s=": bn; bkey-menu<ret>"            ; men_a_=""                                ; men_as=""                                ;;
 				'cua____backspace') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_______delete') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua______advance') men___=": bkey-line<ret>"                ; men__s=""                                ; men_a_=": bkey-line-ex<ret>"             ; men_as=""                                ;;
