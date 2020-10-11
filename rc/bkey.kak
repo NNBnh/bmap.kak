@@ -166,10 +166,10 @@ define-command bkey-load %{
 			act__________out
 			env_________edit
 			env__________new
-			env________group
+			env_______layout
 			env______command
 			env_____terminal
-			env______history
+			env_________time
 			env___________re
 			env_______record
 			env_________done
@@ -243,10 +243,10 @@ define-command bkey-load %{
 				'act__________out') key___="<v>"                               ; key__s="<V>"                               ; key_a_="<a-v>"                           ; key_as="<a-V>"                           ; key_c_="<c-v>"                           ; key_cs=""                                ;;
 				'env_________edit') key___="<w>"                               ; key__s="<W>"                               ; key_a_="<a-w>"                           ; key_as="<a-W>"                           ; key_c_="<c-w>"                           ; key_cs=""                                ;;
 				'env__________new') key___="<p>"                               ; key__s="<P>"                               ; key_a_="<a-p>"                           ; key_as="<a-P>"                           ; key_c_="<c-p>"                           ; key_cs=""                                ;;
-				'env________group') key___="<b>"                               ; key__s="<B>"                               ; key_a_="<a-b>"                           ; key_as="<a-B>"                           ; key_c_="<c-b>"                           ; key_cs=""                                ;;
+				'env_______layout') key___="<b>"                               ; key__s="<B>"                               ; key_a_="<a-b>"                           ; key_as="<a-B>"                           ; key_c_="<c-b>"                           ; key_cs=""                                ;;
 				'env______command') key___="<semicolon>"                       ; key__s="<:>"                               ; key_a_="<a-semicolon>"                   ; key_as="<a-:>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_____terminal') key___="<\`>"                              ; key__s="<~>"                               ; key_a_="<a-\`>"                          ; key_as="<a-~>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'env______history') key___="<z>"                               ; key__s="<Z>"                               ; key_a_="<a-z>"                           ; key_as="<a-Z>"                           ; key_c_="<c-z>"                           ; key_cs=""                                ;;
+				'env_________time') key___="<z>"                               ; key__s="<Z>"                               ; key_a_="<a-z>"                           ; key_as="<a-Z>"                           ; key_c_="<c-z>"                           ; key_cs=""                                ;;
 				'env___________re') key___="<r>"                               ; key__s="<R>"                               ; key_a_="<a-r>"                           ; key_as="<a-R>"                           ; key_c_="<c-r>"                           ; key_cs=""                                ;;
 				'env_______record') key___="<t>"                               ; key__s="<T>"                               ; key_a_="<a-t>"                           ; key_as="<a-T>"                           ; key_c_="<c-t>"                           ; key_cs=""                                ;;
 				'env_________done') key___="<.>"                               ; key__s="<gt>"                              ; key_a_="<a-.>"                           ; key_as="<a-gt>"                          ; key_c_=""                                ; key_cs=""                                ;;
@@ -319,10 +319,10 @@ define-command bkey-load %{
 				'act__________out') raw___="v"                                 ; raw__s="V"                                 ; raw_a_="<a-v>"                           ; raw_as="<a-V>"                           ; raw_c_="<c-v>"                           ; raw_cs=""                                ;;
 				'env_________edit') raw___="w"                                 ; raw__s="W"                                 ; raw_a_="<a-w>"                           ; raw_as="<a-W>"                           ; raw_c_="<c-w>"                           ; raw_cs=""                                ;;
 				'env__________new') raw___="p"                                 ; raw__s="P"                                 ; raw_a_="<a-p>"                           ; raw_as="<a-P>"                           ; raw_c_="<c-p>"                           ; raw_cs=""                                ;;
-				'env________group') raw___="b"                                 ; raw__s="B"                                 ; raw_a_="<a-b>"                           ; raw_as="<a-B>"                           ; raw_c_="<c-b>"                           ; raw_cs=""                                ;;
+				'env_______layout') raw___="b"                                 ; raw__s="B"                                 ; raw_a_="<a-b>"                           ; raw_as="<a-B>"                           ; raw_c_="<c-b>"                           ; raw_cs=""                                ;;
 				'env______command') raw___="<semicolon>"                       ; raw__s=":"                                 ; raw_a_="<a-semicolon>"                   ; raw_as="<a-:>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_____terminal') raw___="\`"                                ; raw__s="~"                                 ; raw_a_="<a-\`>"                          ; raw_as="<a-~>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
-				'env______history') raw___="z"                                 ; raw__s="Z"                                 ; raw_a_="<a-z>"                           ; raw_as="<a-Z>"                           ; raw_c_="<c-z>"                           ; raw_cs=""                                ;;
+				'env_________time') raw___="z"                                 ; raw__s="Z"                                 ; raw_a_="<a-z>"                           ; raw_as="<a-Z>"                           ; raw_c_="<c-z>"                           ; raw_cs=""                                ;;
 				'env___________re') raw___="r"                                 ; raw__s="R"                                 ; raw_a_="<a-r>"                           ; raw_as="<a-R>"                           ; raw_c_="<c-r>"                           ; raw_cs=""                                ;;
 				'env_______record') raw___="t"                                 ; raw__s="T"                                 ; raw_a_="<a-t>"                           ; raw_as="<a-T>"                           ; raw_c_="<c-t>"                           ; raw_cs=""                                ;;
 				'env_________done') raw___="."                                 ; raw__s="<gt>"                              ; raw_a_="<a-.>"                           ; raw_as="<a-gt>"                          ; raw_c_=""                                ; raw_cs=""                                ;;
@@ -395,10 +395,10 @@ define-command bkey-load %{
 				'act__________out') nor___=": bkey-insert p<ret>"            ; nor__s="<R>"                             ; nor_a_=": bkey-insert pe<ret>"           ; nor_as="<R>"                             ; nor_c_=": bkey-insert p<ret>"            ; nor_cs=""                                ;;
 				'env_________edit') nor___="<space>"                         ; nor__s="<a-space>"                       ; nor_a_="<_>"                             ; nor_as=""                                ; nor_c_=": delete-buffer<ret>"            ; nor_cs=""                                ;;
 				'env__________new') nor___="<a-o>"                           ; nor__s="<a-O>"                           ; nor_a_="<C>"                             ; nor_as="<a-C>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
-				'env________group') nor___="<a-J>"                           ; nor__s="<a-_>"                           ; nor_a_="<a-j>"                           ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
+				'env_______layout') nor___="<a-J>"                           ; nor__s="<a-_>"                           ; nor_a_="<a-j>"                           ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env______command') nor___="<:>"                             ; nor__s=": bkey-insert c<ret>"            ; nor_a_="<a-|>"                           ; nor_as="<|>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_____terminal') nor___=":terminal "                      ; nor__s=": bkey-terminal<ret>"            ; nor_a_="<a-|>"                           ; nor_as="<|>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
-				'env______history') nor___="<u>"                             ; nor__s="<U>"                             ; nor_a_="<a-u>"                           ; nor_as="<a-U>"                           ; nor_c_="<u>"                             ; nor_cs="<U>"                             ;;
+				'env_________time') nor___="<u>"                             ; nor__s="<U>"                             ; nor_a_="<a-u>"                           ; nor_as="<a-U>"                           ; nor_c_="<u>"                             ; nor_cs="<U>"                             ;;
 				'env___________re') nor___="<a-.>"                           ; nor__s="<.>"                             ; nor_a_=""                                ; nor_as=""                                ; nor_c_="<v><c><v><m>"                    ; nor_cs=""                                ;;
 				'env_______record') nor___="<q>"                             ; nor__s="<Q>"                             ; nor_a_=""                                ; nor_as="<esc>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_________done') nor___=": write<ret>"                    ; nor__s=": write-all<ret>"                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -471,10 +471,10 @@ define-command bkey-load %{
 				'act__________out') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env_________edit') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env__________new') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
-				'env________group') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_______layout') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env______command') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env_____terminal') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
-				'env______history') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
+				'env_________time') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env___________re') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env_______record') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
 				'env_________done') ins___=""                                ; ins__s=""                                ; ins_a_=""                                ; ins_as=""                                ;;
@@ -547,10 +547,10 @@ define-command bkey-load %{
 				'act__________out') pro___=""                                ; pro__s=""                                ; pro_a_="<c-y>"                           ; pro_as=""                                ;;
 				'env_________edit') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env__________new') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
-				'env________group') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
+				'env_______layout') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env______command') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env_____terminal') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
-				'env______history') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
+				'env_________time') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env___________re') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env_______record') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'env_________done') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
@@ -623,10 +623,10 @@ define-command bkey-load %{
 				'act__________out') vie___=""                                ; vie__s=""                                ;;
 				'env_________edit') vie___=""                                ; vie__s=""                                ;;
 				'env__________new') vie___=""                                ; vie__s=""                                ;;
-				'env________group') vie___=""                                ; vie__s=""                                ;;
+				'env_______layout') vie___=""                                ; vie__s=""                                ;;
 				'env______command') vie___=""                                ; vie__s=""                                ;;
 				'env_____terminal') vie___=""                                ; vie__s=""                                ;;
-				'env______history') vie___=""                                ; vie__s=""                                ;;
+				'env_________time') vie___=""                                ; vie__s=""                                ;;
 				'env___________re') vie___=""                                ; vie__s=""                                ;;
 				'env_______record') vie___=""                                ; vie__s=""                                ;;
 				'env_________done') vie___=""                                ; vie__s=""                                ;;
@@ -699,10 +699,10 @@ define-command bkey-load %{
 				'act__________out') men___=": bkey-insert pa<ret>"           ; men__s="<a-R>"                           ; men_a_=": bkey-insert pea<ret>"          ; men_as=""                                ;;
 				'env_________edit') men___="<a-k>"                           ; men__s="<a-K>"                           ; men_a_=""                                ; men_as=""                                ;;
 				'env__________new') men___="<o>"                             ; men__s="<O>"                             ; men_a_=""                                ; men_as=""                                ;;
-				'env________group') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
+				'env_______layout') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env______command') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env_____terminal') men___="<$>"                             ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'env______history') men___="<;><G><.>"                       ; men__s="<;><G><a>"                       ; men_a_="<G><.>"                          ; men_as="<G><a>"                          ;;
+				'env_________time') men___="<;><G><.>"                       ; men__s="<;><G><a>"                       ; men_a_="<G><.>"                          ; men_as="<G><a>"                          ;;
 				'env___________re') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env_______record') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env_________done') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
