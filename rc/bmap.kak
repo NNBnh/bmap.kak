@@ -445,8 +445,8 @@ define-command bkey-load %{
 				'nav________quick') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'nav_________load') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'nav_________item') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
-				'nav________focus') pro___=""                                ; pro__s=""                                ; pro_a_="<a-;>"                           ; pro_as="<esc>"                           ;;
-				'nav_______select') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
+				'nav________focus') pro___=""                                ; pro__s=""                                ; pro_a_="<a-;>"                           ; pro_as=""                                ;;
+				'nav_______select') pro___=""                                ; pro__s=""                                ; pro_a_=""<esc>""                         ; pro_as=""                                ;;
 				'nav_________next') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'nav_________prev') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
 				'act______primary') pro___=""                                ; pro__s=""                                ; pro_a_=""                                ; pro_as=""                                ;;
