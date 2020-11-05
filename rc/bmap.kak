@@ -76,8 +76,7 @@ define-command -hidden -params 1 bmap-insert %{
 
 define-command -hidden bmap-terminal %{ terminal %val{client_env_SHELL} }
 
-define-command -hidden bmap-minus %{ inc-dec-modify-numbers - %val{count} }
-define-command -hidden bmap-plus  %{ inc-dec-modify-numbers + %val{count} }
+define-command -hidden -params 1 bmap-number %{ inc-dec-modify-numbers %arg{1} %val{count} }
 
 
 # Mapping
@@ -319,8 +318,8 @@ define-command bmap-load %{
 				'env_________code') nor___="<\"\">"                          ; nor__s="<\\>"                            ; nor_a_=": comment-line<ret>"             ; nor_as=": comment-block<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_______person') nor___="<,>"                             ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=": quit<ret>"                     ; nor_cs=""                                ;;
 				'vie_________view') nor___=": bmap-view<ret>"                ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
-				'vie________minus') nor___="<lt>"                            ; nor__s="<\`>"                            ; nor_a_="<a-lt>"                          ; nor_as=": bmap-minus<ret>"               ; nor_c_=""                                ; nor_cs=""                                ;;
-				'vie_________plus') nor___="<gt>"                            ; nor__s="<~>"                             ; nor_a_="<a-gt>"                          ; nor_as=": bmap-plus<ret>"                ; nor_c_=""                                ; nor_cs=""                                ;;
+				'vie________minus') nor___="<lt>"                            ; nor__s="<\`>"                            ; nor_a_="<a-lt>"                          ; nor_as=": bmap-number -<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
+				'vie_________plus') nor___="<gt>"                            ; nor__s="<~>"                             ; nor_a_="<a-gt>"                          ; nor_as=": bmap-number +<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
 				'vie________equal') nor___="<&>"                             ; nor__s="<a-\`>"                          ; nor_a_="<a-&>"                           ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 			esac
 
