@@ -171,6 +171,7 @@ define-command bmap-load %{
 			vie________equal
 		"
 
+		for key in $keys; do
 			case $key in
 				'ops____________0') key___="0"                               ; key__s=")"                               ; key_a_="<a-0>"                           ; key_as="<a-)>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'ops____________1') key___="1"                               ; key__s="!"                               ; key_a_="<a-1>"                           ; key_as="<a-!>"                           ; key_c_=""                                ; key_cs=""                                ;;
