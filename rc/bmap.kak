@@ -43,10 +43,10 @@ define-command -hidden -params 1 bmap-insert %{
 		selection_1_col=${selection_1_pos##*.}
 		selection_2_col=${selection_2_pos##*.}
 
-		if [ "$selection_1_lin" -lt "$selection_2_lin" ] || { [ "$selection_1_lin" = "$selection_2_lin" ] && [ "$selection_1_col" -lt "$selection_2_col" ] }; then
-			cursor_pos='after'
-		else
+		if [ "$selection_1_lin" -lt "$selection_2_lin" ] || ( [ "$selection_1_lin" = "$selection_2_lin" ] && [ "$selection_1_col" -lt "$selection_2_col" ] ); then
 			cursor_pos='before'
+		else
+			cursor_pos='after'
 		fi
 
 		case $cursor_pos in
