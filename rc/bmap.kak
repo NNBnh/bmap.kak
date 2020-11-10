@@ -33,7 +33,7 @@ define-command -hidden bmap-surround-insert %{ surround-enter-insert-mode }
 
 #TODO fix paste
 define-command -hidden -params 1 bmap-insert %{
-	execute-keys -with-hooks %sh{
+	execute-keys -with-hooks "%sh{
 		register=${kak_register+<\"><$kak_register>}
 
 		selection_1_pos=${kak_selection_desc%%,*}
@@ -52,26 +52,26 @@ define-command -hidden -params 1 bmap-insert %{
 		case $cursor_pos in
 			'before')
 				case $1 in
-					'i')   printf "<i>"                         ;;
+					'i')   printf "<i>"                          ;;
 					'p')   printf "<;>$kak_count$register<P>"   ;;
 					'pa')  printf "<;>$kak_count$register<a-P>" ;;
-					'ps')  printf "$kak_count$register<P>"      ;;
-					'pas') printf "$kak_count$register<a-P>"    ;;
-					'c')   printf "<!>"                         ;;
+					'ps')  printf "$kak_count$register<P>"       ;;
+					'pas') printf "$kak_count$register<a-P>"     ;;
+					'c')   printf "<!>"                          ;;
 				esac
 			;;
 			'after')
 				case $1 in
-					'i')   printf "<a>"                         ;;
+					'i')   printf "<a>"                          ;;
 					'p')   printf "<;>$kak_count$register<p>"   ;;
 					'pa')  printf "<;>$kak_count$register<a-p>" ;;
-					'ps')  printf "$kak_count$register<p>"      ;;
-					'pas') printf "$kak_count$register<a-p>"    ;;
-					'c')   printf "<a-!>"                       ;;
+					'ps')  printf "$kak_count$register<p>"       ;;
+					'pas') printf "$kak_count$register<a-p>"     ;;
+					'c')   printf "<a-!>"                        ;;
 				esac
 			;;
 		esac
-	}
+	}"
 }
 
 define-command -hidden bmap-terminal %{ terminal %val{client_env_SHELL} }
@@ -234,7 +234,7 @@ define-command bmap-load %{
 				'env_________edit') key___="<w>"                               ; key__s="<W>"                               ; key_a_="<a-w>"                           ; key_as="<a-W>"                           ; key_c_="<c-w>"                           ; key_cs=""                                ;;
 				'env__________new') key___="<p>"                               ; key__s="<P>"                               ; key_a_="<a-p>"                           ; key_as="<a-P>"                           ; key_c_="<c-p>"                           ; key_cs=""                                ;;
 				'env________broad') key___="<b>"                               ; key__s="<B>"                               ; key_a_="<a-b>"                           ; key_as="<a-B>"                           ; key_c_="<c-b>"                           ; key_cs=""                                ;;
-				'env______command') key___="<semicolon>"                       ; key__s="<:>"                               ; key_a_="<a-semicolon>"                   ; key_as="<a-:>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'env______command') key___="<;>"                               ; key__s="<:>"                               ; key_a_="<a-;>"                           ; key_as="<a-:>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_____terminal') key___="<\`>"                              ; key__s="<~>"                               ; key_a_="<a-\`>"                          ; key_as="<a-~>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_________time') key___="<z>"                               ; key__s="<Z>"                               ; key_a_="<a-z>"                           ; key_as="<a-Z>"                           ; key_c_="<c-z>"                           ; key_cs=""                                ;;
 				'env___________re') key___="<r>"                               ; key__s="<R>"                               ; key_a_="<a-r>"                           ; key_as="<a-R>"                           ; key_c_="<c-r>"                           ; key_cs=""                                ;;
@@ -243,8 +243,8 @@ define-command bmap-load %{
 				'env_________code') key___="</>"                               ; key__s="<?>"                               ; key_a_="<a-/>"                           ; key_as="<a-?>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_______person') key___="<q>"                               ; key__s="<Q>"                               ; key_a_="<a-q>"                           ; key_as="<a-Q>"                           ; key_c_="<c-q>"                           ; key_cs=""                                ;;
 				'vie_________view') key___="<\\>"                              ; key__s="<|>"                               ; key_a_="<a-\\>"                          ; key_as="<a-|>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'vie________minus') key___="<minus>"                           ; key__s="<_>"                               ; key_a_="<a-minus>"                       ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'vie_________plus') key___="<=>"                               ; key__s="<plus>"                            ; key_a_="<a-=>"                           ; key_as="<a-plus>"                        ; key_c_=""                                ; key_cs=""                                ;;
+				'vie________minus') key___="<->"                               ; key__s="<_>"                               ; key_a_="<a-->"                           ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'vie_________plus') key___="<=>"                               ; key__s="<+>"                               ; key_a_="<a-=>"                           ; key_as="<a-+>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'vie________equal') key___="<'>"                               ; key__s="<\">"                              ; key_a_="<a-'>"                           ; key_as="<a-\">"                          ; key_c_=""                                ; key_cs=""                                ;;
 			esac
 
@@ -310,7 +310,7 @@ define-command bmap-load %{
 				'env_________edit') raw___="w"                                 ; raw__s="W"                                 ; raw_a_="<a-w>"                           ; raw_as="<a-W>"                           ; raw_c_="<c-w>"                           ; raw_cs=""                                ;;
 				'env__________new') raw___="p"                                 ; raw__s="P"                                 ; raw_a_="<a-p>"                           ; raw_as="<a-P>"                           ; raw_c_="<c-p>"                           ; raw_cs=""                                ;;
 				'env________broad') raw___="b"                                 ; raw__s="B"                                 ; raw_a_="<a-b>"                           ; raw_as="<a-B>"                           ; raw_c_="<c-b>"                           ; raw_cs=""                                ;;
-				'env______command') raw___="<semicolon>"                       ; raw__s=":"                                 ; raw_a_="<a-semicolon>"                   ; raw_as="<a-:>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
+				'env______command') raw___=";"                                 ; raw__s=":"                                 ; raw_a_="<a-;>"                           ; raw_as="<a-:>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_____terminal') raw___="\`"                                ; raw__s="~"                                 ; raw_a_="<a-\`>"                          ; raw_as="<a-~>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_________time') raw___="z"                                 ; raw__s="Z"                                 ; raw_a_="<a-z>"                           ; raw_as="<a-Z>"                           ; raw_c_="<c-z>"                           ; raw_cs=""                                ;;
 				'env___________re') raw___="r"                                 ; raw__s="R"                                 ; raw_a_="<a-r>"                           ; raw_as="<a-R>"                           ; raw_c_="<c-r>"                           ; raw_cs=""                                ;;
@@ -319,8 +319,8 @@ define-command bmap-load %{
 				'env_________code') raw___="/"                                 ; raw__s="?"                                 ; raw_a_="<a-/>"                           ; raw_as="<a-?>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_______person') raw___="q"                                 ; raw__s="Q"                                 ; raw_a_="<a-q>"                           ; raw_as="<a-Q>"                           ; raw_c_="<c-q>"                           ; raw_cs=""                                ;;
 				'vie_________view') raw___="\\"                                ; raw__s="|"                                 ; raw_a_="<a-\\>"                          ; raw_as="<a-|>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
-				'vie________minus') raw___="<minus>"                           ; raw__s="_"                                 ; raw_a_="<a-minus>"                       ; raw_as="<a-_>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
-				'vie_________plus') raw___="="                                 ; raw__s="<plus>"                            ; raw_a_="<a-=>"                           ; raw_as="<a-plus>"                        ; raw_c_=""                                ; raw_cs=""                                ;;
+				'vie________minus') raw___="-"                                 ; raw__s="_"                                 ; raw_a_="<a-->"                           ; raw_as="<a-_>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
+				'vie_________plus') raw___="="                                 ; raw__s="+"                                 ; raw_a_="<a-=>"                           ; raw_as="<a-+>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'vie________equal') raw___="'"                                 ; raw__s="\""                                ; raw_a_="<a-'>"                           ; raw_as="<a-\">"                          ; raw_c_=""                                ; raw_cs=""                                ;;
 			esac
 
