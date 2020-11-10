@@ -34,7 +34,7 @@ define-command -hidden bmap-surround-insert %{ surround-enter-insert-mode }
 #TODO fix paste
 define-command -hidden -params 1 bmap-insert %{
 	execute-keys -with-hooks %sh{
-		register=${kak_register+<\"><$kak_register>}
+		register=${kak_register:+<\"><$kak_register>}
 
 		selection_1_pos=${kak_selection_desc%%,*}
 		selection_2_pos=${kak_selection_desc##*,}
@@ -52,28 +52,25 @@ define-command -hidden -params 1 bmap-insert %{
 		case $cursor_pos in
 			'before')
 				case $1 in
-					'i')   actions="<i>"                          ;;
-					'p')   actions="<;>$kak_count$register<P>"    ;;
-					'pa')  actions="<;>$kak_count$register<a-P>"  ;;
-					'ps')  actions="$kak_count$register<P>"       ;;
-					'pas') actions="$kak_count$register<a-P>"     ;;
-					'c')   actions="<!>"                          ;;
+					'i')   printf "<i>"                          ;;
+					'p')   printf "<;>$kak_count$register<P>"    ;;
+					'pa')  printf "<;>$kak_count$register<a-P>"  ;;
+					'ps')  printf "$kak_count$register<P>"       ;;
+					'pas') printf "$kak_count$register<a-P>"     ;;
+					'c')   printf "<!>"                          ;;
 				esac
 			;;
 			'after')
 				case $1 in
-					'i')   actions="<a>"                          ;;
-					'p')   actions="<;>$kak_count$register<p>"    ;;
-					'pa')  actions="<;>$kak_count$register<a-p>"  ;;
-					'ps')  actions="$kak_count$register<p>"       ;;
-					'pas') actions="$kak_count$register<a-p>"     ;;
-					'c')   actions="<a-!>"                        ;;
+					'i')   printf "<a>"                          ;;
+					'p')   printf "<;>$kak_count$register<p>"    ;;
+					'pa')  printf "<;>$kak_count$register<a-p>"  ;;
+					'ps')  printf "$kak_count$register<p>"       ;;
+					'pas') printf "$kak_count$register<a-p>"     ;;
+					'c')   printf "<a-!>"                        ;;
 				esac
 			;;
 		esac
-
-
-		printf "\"$actions\""
 	}
 }
 
@@ -246,8 +243,8 @@ define-command bmap-load %{
 				'env_________code') key___="</>"                             ; key__s="<?>"                             ; key_a_="<a-/>"                           ; key_as="<a-?>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_______person') key___="<q>"                             ; key__s="<Q>"                             ; key_a_="<a-q>"                           ; key_as="<a-Q>"                           ; key_c_="<c-q>"                           ; key_cs=""                                ;;
 				'vie_________view') key___="<\\>"                            ; key__s="<|>"                             ; key_a_="<a-\\>"                          ; key_as="<a-|>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'vie________minus') key___="<->"                             ; key__s="<_>"                             ; key_a_="<a-->"                           ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
-				'vie_________plus') key___="<=>"                             ; key__s="<+>"                             ; key_a_="<a-=>"                           ; key_as="<a-+>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'vie________minus') key___="<minus>"                         ; key__s="<_>"                             ; key_a_="<a-minus>"                       ; key_as="<a-_>"                           ; key_c_=""                                ; key_cs=""                                ;;
+				'vie_________plus') key___="<=>"                             ; key__s="<plus>"                          ; key_a_="<a-=>"                           ; key_as="<a-plus>"                        ; key_c_=""                                ; key_cs=""                                ;;
 				'vie________equal') key___="<'>"                             ; key__s="<\"\">"                          ; key_a_="<a-'>"                           ; key_as="<a-\"\">"                        ; key_c_=""                                ; key_cs=""                                ;;
 			esac
 
