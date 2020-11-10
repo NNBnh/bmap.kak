@@ -742,10 +742,10 @@ define-command bmap-load %{
 			[ -n "$key_c_" ] && view="$view map global normal \"$key_c_\" \"$vie_c_\"\n"
 			[ -n "$key_cs" ] && view="$view map global normal \"$key_cs\" \"$vie_cs\"\n"
 
-			[ -n "$raw___" ] && [ -n "$men___" ] && menu="$menu '$raw___') execute=\"$men___\" ;;"
-			[ -n "$raw__s" ] && [ -n "$men__s" ] && menu="$menu '$raw__s') execute=\"$men__s\" ;;"
-			[ -n "$raw_a_" ] && [ -n "$men_a_" ] && menu="$menu '$raw_a_') execute=\"$men_a_\" ;;"
-			[ -n "$raw_as" ] && [ -n "$men_as" ] && menu="$menu '$raw_as') execute=\"$men_as\" ;;"
+			[ -n "$raw___" ] && [ -n "$men___" ] && menu="$menu '$raw___') execute=\"$men___\" ;;\n"
+			[ -n "$raw__s" ] && [ -n "$men__s" ] && menu="$menu '$raw__s') execute=\"$men__s\" ;;\n"
+			[ -n "$raw_a_" ] && [ -n "$men_a_" ] && menu="$menu '$raw_a_') execute=\"$men_a_\" ;;\n"
+			[ -n "$raw_as" ] && [ -n "$men_as" ] && menu="$menu '$raw_as') execute=\"$men_as\" ;;\n"
 		done
 
 
