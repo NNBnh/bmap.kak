@@ -161,7 +161,7 @@ define-command bmap-load %{
 			env_____terminal
 			env_________time
 			env___________re
-			env________quick
+			env_______record
 			env_________done
 			env_________code
 			env_______person
