@@ -161,7 +161,7 @@ define-command bmap-load %{
 			env_____terminal
 			env_________time
 			env___________re
-			env_______record
+			env________quick
 			env_________done
 			env_________code
 			env_______person
@@ -238,7 +238,7 @@ define-command bmap-load %{
 				'env_____terminal') key___="<\`>"                            ; key__s="<~>"                             ; key_a_="<a-\`>"                          ; key_as="<a-~>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_________time') key___="<z>"                             ; key__s="<Z>"                             ; key_a_="<a-z>"                           ; key_as="<a-Z>"                           ; key_c_="<c-z>"                           ; key_cs=""                                ;;
 				'env___________re') key___="<r>"                             ; key__s="<R>"                             ; key_a_="<a-r>"                           ; key_as="<a-R>"                           ; key_c_="<c-r>"                           ; key_cs=""                                ;;
-				'env_______record') key___="<t>"                             ; key__s="<T>"                             ; key_a_="<a-t>"                           ; key_as="<a-T>"                           ; key_c_="<c-t>"                           ; key_cs=""                                ;;
+				'env________quick') key___="<t>"                             ; key__s="<T>"                             ; key_a_="<a-t>"                           ; key_as="<a-T>"                           ; key_c_="<c-t>"                           ; key_cs=""                                ;;
 				'env_________done') key___="<.>"                             ; key__s="<gt>"                            ; key_a_="<a-.>"                           ; key_as="<a-gt>"                          ; key_c_=""                                ; key_cs=""                                ;;
 				'env_________code') key___="</>"                             ; key__s="<?>"                             ; key_a_="<a-/>"                           ; key_as="<a-?>"                           ; key_c_=""                                ; key_cs=""                                ;;
 				'env_______person') key___="<q>"                             ; key__s="<Q>"                             ; key_a_="<a-q>"                           ; key_as="<a-Q>"                           ; key_c_="<c-q>"                           ; key_cs=""                                ;;
@@ -314,7 +314,7 @@ define-command bmap-load %{
 				'env_____terminal') raw___="\`"                              ; raw__s="~"                               ; raw_a_="<a-\`>"                          ; raw_as="<a-~>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_________time') raw___="z"                               ; raw__s="Z"                               ; raw_a_="<a-z>"                           ; raw_as="<a-Z>"                           ; raw_c_="<c-z>"                           ; raw_cs=""                                ;;
 				'env___________re') raw___="r"                               ; raw__s="R"                               ; raw_a_="<a-r>"                           ; raw_as="<a-R>"                           ; raw_c_="<c-r>"                           ; raw_cs=""                                ;;
-				'env_______record') raw___="t"                               ; raw__s="T"                               ; raw_a_="<a-t>"                           ; raw_as="<a-T>"                           ; raw_c_="<c-t>"                           ; raw_cs=""                                ;;
+				'env________quick') raw___="t"                               ; raw__s="T"                               ; raw_a_="<a-t>"                           ; raw_as="<a-T>"                           ; raw_c_="<c-t>"                           ; raw_cs=""                                ;;
 				'env_________done') raw___="."                               ; raw__s="<gt>"                            ; raw_a_="<a-.>"                           ; raw_as="<a-gt>"                          ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_________code') raw___="/"                               ; raw__s="?"                               ; raw_a_="<a-/>"                           ; raw_as="<a-?>"                           ; raw_c_=""                                ; raw_cs=""                                ;;
 				'env_______person') raw___="q"                               ; raw__s="Q"                               ; raw_a_="<a-q>"                           ; raw_as="<a-Q>"                           ; raw_c_="<c-q>"                           ; raw_cs=""                                ;;
