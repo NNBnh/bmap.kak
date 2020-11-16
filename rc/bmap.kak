@@ -28,8 +28,10 @@
 # Setup
 define-command -hidden bmap-line %{ execute-keys "%val{count}<G><0><v><c><v><m>" }
 
-define-command -hidden bmap-surround        %{ enter-user-mode surround   }
-define-command -hidden bmap-surround-insert %{ surround-enter-insert-mode }
+define-command -hidden bmap-surround-insert %{        surround }
+define-command -hidden bmap-surround-change %{ change-surround }
+define-command -hidden bmap-surround-select %{ select-surround }
+define-command -hidden bmap-surround-delete %{ delete-surround }
 
 #TODO fix paste
 define-command -hidden -params 1 bmap-insert %{
@@ -373,8 +375,8 @@ define-command bmap-load %{
 				'nav________quick') nor___="<m>"                             ; nor__s="<a-m>"                           ; nor_a_="<M>"                             ; nor_as="<a-M>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________load') nor___="<z>"                             ; nor__s="<Z>"                             ; nor_a_=""                                ; nor_as="<c-s>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________item') nor___="<)>"                             ; nor__s="<(>"                             ; nor_a_="<a-)>"                           ; nor_as="<a-(>"                           ; nor_c_=": bmap-line<ret>"                ; nor_cs=": bmap-line<ret>"                ;;
-				'nav_______select') nor___="<a-x>"                           ; nor__s="<%%%%>"                          ; nor_a_="<a-X>"                           ; nor_as="<a-X>"                           ; nor_c_=": write<ret>"                    ; nor_cs=":write "                         ;;
-				'nav________focus') nor___="<a-i>"                           ; nor__s="<a-a>"                           ; nor_a_="<a-;>"                           ; nor_as="<%%%%>"                          ; nor_c_="<%%%%>"                          ; nor_cs=""                                ;;
+				'nav_______select') nor___="<a-x>"                           ; nor__s="<%%%%>"                          ; nor_a_="<a-x>"                           ; nor_as="<a-X>"                           ; nor_c_=": write<ret>"                    ; nor_cs=":write "                         ;;
+				'nav________focus') nor___="<a-i>"                           ; nor__s="<a-a>"                           ; nor_a_="<a-;>"                           ; nor_as="<a-:>"                           ; nor_c_="<%%%%>"                          ; nor_cs=""                                ;;
 				'nav_________next') nor___="<a-[>"                           ; nor__s="["                               ; nor_a_="<a-{>"                           ; nor_as="{"                               ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________prev') nor___="<a-]>"                           ; nor__s="]"                               ; nor_a_="<a-}>"                           ; nor_as="}"                               ; nor_c_=""                                ; nor_cs=""                                ;;
 				'act______primary') nor___=": bmap-insert i<ret>"            ; nor__s="<A>"                             ; nor_a_="<;>: bmap-insert i<ret>"         ; nor_as="<I>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
@@ -678,7 +680,7 @@ define-command bmap-load %{
 				'nav_________load') men___="<a-z>"                           ; men__s="<a-Z>"                           ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________item') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_______select') men___="<a-s>"                           ; men__s="<a-S>"                           ; men_a_=""                                ; men_as=""                                ;;
-				'nav________focus') men___=": bmap-surround<ret>"            ; men__s=": bmap-surround-insert<ret>"     ; men_a_=""                                ; men_as=""                                ;;
+				'nav________focus') men___=": bmap-surround-insert<ret>"     ; men__s=": bmap-surround-change<ret>"     ; men_a_=": bmap-surround-select<ret>"     ; men_as=": bmap-surround-delete<ret>"     ;;
 				'nav_________next') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________prev') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'act______primary') men___="<s>"                             ; men__s="<S>"                             ; men_a_="<%%%%><s>"                       ; men_as="<%%%%><S>"                       ;;
