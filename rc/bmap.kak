@@ -761,7 +761,7 @@ define-command bmap-load %{
 				on-key %%{
 					execute-keys -with-hooks -save-regs '' %%sh{
 						# Values
-						[ -n \"\$kak_register\" ] && register=\"<\\\">\$kak_register\"
+						[ -n \"\$kak_register\" ] && register=\"<\\\\\">\$kak_register\"
 						case \$kak_key in
 							$menu
 							*) execute=\"<ret>\" ;;
