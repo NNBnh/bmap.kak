@@ -26,7 +26,8 @@
 
 
 # Setup
-define-command -hidden bmap-line %{ execute-keys "%val{count}<G><0><v><c><v><m>" }
+define-command -hidden bmap-line        %{ execute-keys "<;>%val{count}<G><0><v><c><v><m>" }
+define-command -hidden bmap-line-select %{ execute-keys    "%val{count}<G><0><v><c><v><m>" }
 
 define-command -hidden bmap-surround-insert %{        surround }
 define-command -hidden bmap-surround-change %{ change-surround }
@@ -54,22 +55,22 @@ define-command -hidden -params 1 bmap-insert %{
 		case $cursor_pos in
 			'before')
 				case $1 in
-					'i')   printf "<i>"                          ;;
-					'p')   printf "<;>$kak_count$register<P>"    ;;
-					'pa')  printf "<;>$kak_count$register<a-P>"  ;;
-					'ps')  printf "$kak_count$register<P>"       ;;
-					'pas') printf "$kak_count$register<a-P>"     ;;
-					'c')   printf "<!>"                          ;;
+					'i')   printf "<i>"                            ;;
+					'p')   printf "<;>$kak_count$register<P>"      ;;
+					'pa')  printf "<;>$kak_count$register<a-P>"    ;;
+					'ps')  printf "$kak_count$register<P>"         ;;
+					'pas') printf "$kak_count$register<a-P>"       ;;
+					'c')   printf "<!>"                            ;;
 				esac
 			;;
 			'after')
 				case $1 in
-					'i')   printf "<a>"                          ;;
-					'p')   printf "<;>$kak_count$register<p>"    ;;
-					'pa')  printf "<;>$kak_count$register<a-p>"  ;;
-					'ps')  printf "$kak_count$register<p>"       ;;
-					'pas') printf "$kak_count$register<a-p>"     ;;
-					'c')   printf "<a-!>"                        ;;
+					'i')   printf "<a>"                            ;;
+					'p')   printf "<;>$kak_count$register<p><l>"   ;;
+					'pa')  printf "<;>$kak_count$register<a-p><l>" ;;
+					'ps')  printf "$kak_count$register<p>"         ;;
+					'pas') printf "$kak_count$register<a-p>"       ;;
+					'c')   printf "<a-!>"                          ;;
 				esac
 			;;
 		esac
@@ -624,7 +625,7 @@ define-command bmap-load %{
 				'env_________done') vie___=""                                ; vie__s=""                                ;;
 				'env_________code') vie___=""                                ; vie__s=""                                ;;
 				'env_______person') vie___=""                                ; vie__s=""                                ;;
-				'vie_________view') vie___="<v><c><v><m>: bmap-normal<ret>"  ; vie__s=""                                ;;
+				'vie_________view') vie___="<v><c><v><m>: bmap-enable<ret>"  ; vie__s=""                                ;;
 				'vie________minus') vie___=""                                ; vie__s=""                                ;;
 				'vie_________plus') vie___=""                                ; vie__s=""                                ;;
 				'vie________equal') vie___=""                                ; vie__s=""                                ;;
@@ -664,7 +665,7 @@ define-command bmap-load %{
 				'cua________cycle') men___=": bp; bmap-menu<ret>"            ; men__s=": bn; bmap-menu<ret>"            ; men_a_=""                                ; men_as=""                                ;;
 				'cua____backspace') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua_______delete') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'cua______advance') men___="<;>: bmap-line<ret>"             ; men__s=""                                ; men_a_=": bmap-line<ret>"                ; men_as=""                                ;;
+				'cua______advance') men___=": bmap-line<ret>"                ; men__s=""                                ; men_a_=": bmap-line-select<ret>"         ; men_as=""                                ;;
 				'cua_________exit') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'cua________enter') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________left') men___="<;><G><i>"                       ; men__s="<;><G><h>"                       ; men_a_="<G><i>"                          ; men_as="<G><h>"                          ;;
