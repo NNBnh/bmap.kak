@@ -34,8 +34,7 @@ define-command -hidden bmap-surround-change %{ change-surround }
 define-command -hidden bmap-surround-select %{ select-surround }
 define-command -hidden bmap-surround-delete %{ delete-surround }
 
-#TODO fix paste
-define-command -hidden -params 1 bmap-insert %{
+define-command -hidden -params 1 bmap-insert %{ #TODO fix paste
 	execute-keys -with-hooks %sh{
 		register=${kak_register:+<\"><$kak_register>}
 
@@ -75,6 +74,10 @@ define-command -hidden -params 1 bmap-insert %{
 			;;
 		esac
 	}
+}
+
+define-command -hidden -params 1 bmap-clipboardalt %{
+	#TODO
 }
 
 define-command -hidden bmap-terminal %{ terminal %val{client_env_SHELL} }
@@ -382,13 +385,13 @@ define-command bmap-load %{
 				'nav________cycle') nor___="<n>"                             ; nor__s="<a-n>"                           ; nor_a_="<N>"                             ; nor_as="<a-N>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav________local') nor___="<f>"                             ; nor__s="<a-f>"                           ; nor_a_="<F>"                             ; nor_as="<a-F>"                           ; nor_c_="<U>"                             ; nor_cs=""                                ;;
 				'nav________quick') nor___="<m>"                             ; nor__s="<a-m>"                           ; nor_a_="<M>"                             ; nor_as="<a-M>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
-				'nav_________load') nor___="<z>"                             ; nor__s="<Z>"                             ; nor_a_=""                                ; nor_as="<c-s>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
+				'nav_________load') nor___="<z>"                             ; nor__s="<Z>"                             ; nor_a_="<a-z>"                           ; nor_as="<a-Z>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________item') nor___="<)>"                             ; nor__s="<(>"                             ; nor_a_="<a-)>"                           ; nor_as="<a-(>"                           ; nor_c_=": bmap-line<ret>"                ; nor_cs=": bmap-line<ret>"                ;;
 				'nav_______select') nor___="<a-x>"                           ; nor__s="<%%%%>"                          ; nor_a_="<a-x>"                           ; nor_as="<a-X>"                           ; nor_c_=": write<ret>"                    ; nor_cs=":write "                         ;;
 				'nav________focus') nor___="<a-i>"                           ; nor__s="<a-a>"                           ; nor_a_="<a-;>"                           ; nor_as="<a-:>"                           ; nor_c_="<%%%%>"                          ; nor_cs=""                                ;;
 				'nav_________next') nor___="<a-[>"                           ; nor__s="["                               ; nor_a_="<a-{>"                           ; nor_as="{"                               ; nor_c_=""                                ; nor_cs=""                                ;;
 				'nav_________prev') nor___="<a-]>"                           ; nor__s="]"                               ; nor_a_="<a-}>"                           ; nor_as="}"                               ; nor_c_=""                                ; nor_cs=""                                ;;
-				'act______primary') nor___=": bmap-insert i<ret>"            ; nor__s="<A>"                             ; nor_a_="<;>: bmap-insert i<ret>"         ; nor_as="<I>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
+				'act______primary') nor___=": bmap-insert i<ret>"            ; nor__s="<A>"                             ; nor_a_="<o>"                             ; nor_as="<O>"                             ; nor_c_=""                                ; nor_cs=""                                ;;
 				'act____secondary') nor___="<u>"                             ; nor__s="<U>"                             ; nor_a_="<c-o>"                           ; nor_as="<c-i>"                           ; nor_c_="</>"                             ; nor_cs=""                                ;;
 				'act__alternative') nor___="<a-c>"                           ; nor__s="<a-l><a-c>"                      ; nor_a_="<r>"                             ; nor_as="<a-l><r>"                        ; nor_c_=""                                ; nor_cs=""                                ;;
 				'act__________cut') nor___="<d>"                             ; nor__s="<a-l><d>"                        ; nor_a_="<a-d>"                           ; nor_as="<a-l><a-d>"                      ; nor_c_="<d>"                             ; nor_cs=""                                ;;
@@ -686,7 +689,7 @@ define-command bmap-load %{
 				'nav________cycle') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav________local') men___="<t>"                             ; men__s="<a-t>"                           ; men_a_="<T>"                             ; men_as="<a-T>"                           ;;
 				'nav________quick') men___="<g><f>"                          ; men__s="<;><G><c>"                       ; men_a_=""                                ; men_as="<G><c>"                          ;;
-				'nav_________load') men___="<a-z>"                           ; men__s="<a-Z>"                           ; men_a_=""                                ; men_as=""                                ;;
+				'nav_________load') men___="<c-s>"                           ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________item') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_______select') men___="<a-s>"                           ; men__s="<a-S>"                           ; men_a_=""                                ; men_as=""                                ;;
 				'nav________focus') men___=": bmap-surround-insert<ret>"     ; men__s=": bmap-surround-change<ret>"     ; men_a_=": bmap-surround-select<ret>"     ; men_as=": bmap-surround-delete<ret>"     ;;
@@ -695,11 +698,11 @@ define-command bmap-load %{
 				'act______primary') men___="<s>"                             ; men__s="<S>"                             ; men_a_="<%%%%><s>"                       ; men_as="<%%%%><S>"                       ;;
 				'act____secondary') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'act__alternative') men___="<@>"                             ; men__s="<a-@>"                           ; men_a_=""                                ; men_as=""                                ;;
-				'act__________cut') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'act___________in') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
+				'act__________cut') men___=": bmap-clipboardalt x<ret>"      ; men__s="<a-l>: bmap-clipboardalt x<ret>" ; men_a_="<a-d>"                           ; men_as="<a-l><a-d>"                      ;;
+				'act___________in') men___=": bmap-clipboardalt c<ret>"      ; men__s="<a-l>: bmap-clipboardalt c<ret>" ; men_a_=": bmap-clipboardalt c<ret>"      ; men_as="<a-l>: bmap-clipboardalt c<ret>" ;;
 				'act__________out') men___=": bmap-insert pa<ret>"           ; men__s="<a-R>"                           ; men_a_=": bmap-insert pas<ret>"          ; men_as="<a-R>"                           ;;
 				'env_________edit') men___="<a-k>"                           ; men__s="<a-K>"                           ; men_a_="<$>"                             ; men_as=""                                ;;
-				'env__________new') men___="<o>"                             ; men__s="<O>"                             ; men_a_=""                                ; men_as=""                                ;;
+				'env__________new') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env________broad') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env______command') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'env_____terminal') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
