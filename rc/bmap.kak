@@ -79,7 +79,13 @@ define-command -hidden -params 1 bmap-insert %{
 
 define-command -hidden bmap-terminal %{ terminal %val{client_env_SHELL} }
 
-define-command -hidden bmap-run %{ coderun }
+define-command -hidden bmap-run %{
+	try %{
+		coderun
+	} catch %{
+		execute-keys -with-hooks ":terminal "
+	}
+}
 
 define-command -hidden -params 1 bmap-number %{ inc-dec-modify-numbers %arg{1} %val{count} }
 
