@@ -79,6 +79,8 @@ define-command -hidden -params 1 bmap-insert %{
 
 define-command -hidden bmap-terminal %{ terminal %val{client_env_SHELL} }
 
+define-command -hidden bmap-run %{ coderun }
+
 define-command -hidden -params 1 bmap-number %{ inc-dec-modify-numbers %arg{1} %val{count} }
 
 
@@ -394,13 +396,13 @@ define-command bmap-load %{
 				'env_________time') nor___="<u>"                             ; nor__s="<U>"                             ; nor_a_="<a-u>"                           ; nor_as="<a-U>"                           ; nor_c_="<u>"                             ; nor_cs="<U>"                             ;;
 				'env___________re') nor___="<a-.>"                           ; nor__s="<.>"                             ; nor_a_=""                                ; nor_as=""                                ; nor_c_="<v><c><v><m>"                    ; nor_cs=""                                ;;
 				'env________quick') nor___="<q>"                             ; nor__s="<Q>"                             ; nor_a_=""                                ; nor_as="<esc>"                           ; nor_c_=""                                ; nor_cs=""                                ;;
-				'env_________done') nor___=": write<ret>"                    ; nor__s=": write-all<ret>"                ; nor_a_=":terminal "                      ; nor_as=": bmap-terminal<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
+				'env_________done') nor___=": write<ret>"                    ; nor__s=": write-all<ret>"                ; nor_a_=": bmap-run<ret>"                 ; nor_as=": bmap-terminal<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_________code') nor___="<\"\">"                          ; nor__s="<\\>"                            ; nor_a_=": comment-line<ret>"             ; nor_as=": comment-block<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
 				'env_______person') nor___="<,>"                             ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=": quit<ret>"                     ; nor_cs=""                                ;;
 				'vie_________view') nor___=": bmap-view<ret>"                ; nor__s=""                                ; nor_a_=""                                ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
-				'vie________minus') nor___="<lt>"                            ; nor__s="<\`>"                            ; nor_a_="<a-lt>"                          ; nor_as=": bmap-number -<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
-				'vie_________plus') nor___="<gt>"                            ; nor__s="<~>"                             ; nor_a_="<a-gt>"                          ; nor_as=": bmap-number +<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
-				'vie________equal') nor___="<&>"                             ; nor__s="<a-\`>"                          ; nor_a_="<a-&>"                           ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
+				'vie________minus') nor___="<a-lt>"                          ; nor__s="<\`>"                            ; nor_a_="<lt>"                            ; nor_as=": bmap-number -<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
+				'vie_________plus') nor___="<a-gt>"                          ; nor__s="<~>"                             ; nor_a_="<gt>"                            ; nor_as=": bmap-number +<ret>"            ; nor_c_=""                                ; nor_cs=""                                ;;
+				'vie________equal') nor___="<a-&>"                           ; nor__s="<a-\`>"                          ; nor_a_="<&>"                             ; nor_as=""                                ; nor_c_=""                                ; nor_cs=""                                ;;
 			esac
 
 			case $key in
