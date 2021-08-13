@@ -691,8 +691,8 @@ define-command bmap-load %{
 				'nav________quick') men___="<g><f>"                          ; men__s="<;><G><c>"                       ; men_a_=""                                ; men_as="<G><c>"                          ;;
 				'nav_________load') men___="<c-s>"                           ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________item') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
-				'nav_______select') men___="<s>"                             ; men__s="<S>"                             ; men_a_="<%%%%><s>"                       ; men_as="<%%%%><S>"                       ;;
-				'nav________focus') men___=": bmap-surround-select<ret>"     ; men__s=""                                ; men_a_="<a-s>"                           ; men_as="<a-S>"                           ;;
+				'nav_______select') men___=": bmap-surround-select<ret>"     ; men__s="<a-S>"                           ; men_a_="<a-s>"                           ; men_as="<a-S>"                           ;;
+				'nav________focus') men___="<s>"                             ; men__s="<S>"                             ; men_a_="<%%%%><s>"                       ; men_as="<%%%%><S>"                       ;;
 				'nav_________next') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'nav_________prev') men___=""                                ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
 				'act______primary') men___=": bmap-surround-insert<ret>"     ; men__s=""                                ; men_a_=""                                ; men_as=""                                ;;
